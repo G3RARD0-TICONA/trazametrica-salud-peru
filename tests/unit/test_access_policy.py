@@ -1,6 +1,6 @@
 from datetime import date
 
-from apps.accounts.policies import Capability, ROLE_CAPABILITIES
+from apps.accounts.policies import ROLE_CAPABILITIES, Capability
 from apps.accounts.services import date_ranges_overlap
 
 

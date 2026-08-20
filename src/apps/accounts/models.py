@@ -132,12 +132,12 @@ class Role(models.Model):
             ),
         ]
 
+    def __str__(self) -> str:
+        return f"{self.code} — {self.name}"
+
     def save(self, *args: Any, **kwargs: Any) -> None:
         self.code = self.code.strip().upper()
         super().save(*args, **kwargs)
-
-    def __str__(self) -> str:
-        return f"{self.code} — {self.name}"
 
 
 class UserRole(models.Model):
@@ -188,11 +188,11 @@ class UserRole(models.Model):
             )
         ]
 
+    def __str__(self) -> str:
+        return f"{self.user.username}: {self.role.code}"
+
     def is_current(self, on_date: date | None = None) -> bool:
         current_date = on_date or timezone.localdate()
         return self.valid_from <= current_date and (
             self.valid_to is None or self.valid_to >= current_date
         )
-
-    def __str__(self) -> str:
-        return f"{self.user.username}: {self.role.code}"
