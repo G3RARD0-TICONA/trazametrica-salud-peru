@@ -1,0 +1,22 @@
+# Documentación del proyecto
+
+La documentación está organizada como expedientes consecutivos. Una parte solo habilita la siguiente cuando su puerta de calidad queda sustentada y aprobada.
+
+| Expediente | Contenido | Estado |
+|---|---|---|
+| [P00](00-gobierno/README.md) | Definición, alcance y gobierno | Aprobada internamente |
+| [P01](01-demanda-laboral/README.md) | Demanda laboral y perfiles objetivo | Aprobada internamente |
+| [P02](02-marco-legal-normativo/README.md) | Marco legal, normativo y referencias | Aprobada internamente |
+| [Roadmap](ROADMAP.md) | Secuencia P00–P18 | Activo |
+
+## Convención de estados
+
+- **No iniciada:** todavía no existe un expediente evaluable.
+- **En análisis:** se están reuniendo requisitos y evidencia.
+- **En revisión:** el expediente existe, pero su puerta permanece abierta.
+- **Aprobada internamente:** la puerta del diseño fue cerrada por el gobierno del proyecto.
+- **En desarrollo:** se implementan requisitos ya aprobados.
+- **En pruebas:** la implementación está sometida a verificación.
+- **Completada:** entregables y pruebas superaron su puerta final.
+
+Una aprobación interna no es certificación legal, sanitaria, ISO o JCI, ni aprobación de una clínica.
