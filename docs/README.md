@@ -7,6 +7,7 @@ La documentación está organizada como expedientes consecutivos. Una parte solo
 | [P00](00-gobierno/README.md) | Definición, alcance y gobierno | Aprobada internamente |
 | [P01](01-demanda-laboral/README.md) | Demanda laboral y perfiles objetivo | Aprobada internamente |
 | [P02](02-marco-legal-normativo/README.md) | Marco legal, normativo y referencias | Aprobada internamente |
+| [P03](03-requisitos-casos-uso/README.md) | Requisitos, actores y casos de uso | Aprobada internamente |
 | [Roadmap](ROADMAP.md) | Secuencia P00–P18 | Activo |
 
 ## Convención de estados

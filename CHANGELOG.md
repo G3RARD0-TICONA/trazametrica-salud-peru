@@ -12,9 +12,10 @@ Este proyecto seguirá [Versionado Semántico](https://semver.org/lang/es/) cuan
 - Política de seguridad y prohibición de datos reales.
 - Expedientes resumidos P00 y P01.
 - Matriz auditable de P02 y puerta G02 aprobada.
+- Expediente P03 de actores, requisitos, reglas, casos de uso y trazabilidad aprobado.
 - Roadmap de P00 a P18.
 
 ### Pendiente
 
-- Definición de requisitos, arquitectura y entorno reproducible.
+- Definición de arquitectura y entorno reproducible.
 - Primera versión ejecutable.
