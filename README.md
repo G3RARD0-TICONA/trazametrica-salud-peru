@@ -3,7 +3,7 @@
 Proyecto demostrativo de investigación aplicada para gestionar procesos, calidad, indicadores y analítica administrativa en clínicas privadas del Perú.
 
 > [!IMPORTANT]
-> El proyecto se encuentra en fase de diseño. Todavía no existe una versión ejecutable. Las Partes 0–5 están aprobadas internamente.
+> El proyecto cuenta con un primer incremento ejecutable en revisión. Las Partes 0–5 están aprobadas internamente; P06 está en pruebas y G06 permanece abierta.
 
 ## Propósito
 
@@ -42,7 +42,8 @@ El resultado final será un portafolio técnico que integre gestión por proceso
 | P03 | Requisitos, actores y casos de uso | Aprobada internamente | G03 cerrada |
 | P04 | Arquitectura, entornos y decisiones técnicas | Aprobada internamente | G04 cerrada |
 | P05 | Modelo de datos y diccionario | Aprobada internamente | G05 cerrada |
-| P06–P18 | Identidad, construcción, pruebas y publicación | No iniciadas | Pendientes |
+| P06 | Identidad, autenticación, roles y permisos | En pruebas | G06 abierta (10/12) |
+| P07–P18 | Construcción funcional, pruebas y publicación | No iniciadas | Pendientes |
 
 Consulta el [roadmap](docs/ROADMAP.md) y el [índice de documentación](docs/README.md).
 
@@ -61,7 +62,18 @@ Las reglas completas se encuentran en [SECURITY.md](SECURITY.md).
 - Docker Compose Specification para entornos reproducibles.
 - Pruebas automatizadas y CI en GitHub Actions.
 
-La arquitectura y las versiones fueron fijadas en P04 y el modelo de datos en P05; P06 podrá iniciar la implementación incremental de identidad y permisos.
+La arquitectura y las versiones fueron fijadas en P04 y el modelo de datos en P05. P06 implementa el primer esqueleto ejecutable y conserva su evidencia en el [expediente de identidad y acceso](docs/06-identidad-acceso/README.md).
+
+## Ejecución local
+
+```bash
+cp .env.example .env
+docker compose up --build -d
+docker compose exec web python src/manage.py migrate --noinput
+docker compose exec web python src/manage.py bootstrap_access
+```
+
+Antes del bootstrap, define en `.env` una contraseña sintética de al menos 12 caracteres. Consulta la [guía completa](docs/06-identidad-acceso/EJECUCION.md). G06 no se cerrará hasta que la CI y la aceptación formal sean conformes.
 
 ## Derechos de autor
 

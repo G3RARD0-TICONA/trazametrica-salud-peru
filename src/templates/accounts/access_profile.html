@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Mi acceso · Trazamétrica{% endblock %}
+{% block content %}
+  <h1>Mi acceso</h1>
+  <h2>Roles vigentes</h2>
+  <ul>
+    {% for code in role_codes %}<li><code>{{ code }}</code></li>{% empty %}<li>Sin rol</li>{% endfor %}
+  </ul>
+  <h2>Capacidades efectivas</h2>
+  <ul>
+    {% for capability in capabilities %}<li><code>{{ capability }}</code></li>{% endfor %}
+  </ul>
+{% endblock %}
+
