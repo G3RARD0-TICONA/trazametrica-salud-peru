@@ -14,9 +14,9 @@ Este proyecto seguirá [Versionado Semántico](https://semver.org/lang/es/) cuan
 - Matriz auditable de P02 y puerta G02 aprobada.
 - Expediente P03 de actores, requisitos, reglas, casos de uso y trazabilidad aprobado.
 - Expediente P04 de arquitectura, entornos, seguridad, calidad y 14 decisiones técnicas aceptado; G04 aprobada con 12/12 controles conformes.
+- Expediente P05 de modelo de dominio, diccionario físico, integridad, índices, migraciones y semillas sintéticas aprobado; G05 cerrada con 12/12 controles conformes.
 - Roadmap de P00 a P18.
 
 ### Pendiente
 
-- Definición del modelo de datos P05.
 - Primera versión ejecutable.
