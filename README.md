@@ -3,7 +3,7 @@
 Proyecto demostrativo de investigación aplicada para gestionar procesos, calidad, indicadores y analítica administrativa en clínicas privadas del Perú.
 
 > [!IMPORTANT]
-> El proyecto se encuentra en fase de diseño. Todavía no existe una versión ejecutable. Las Partes 0, 1, 2, 3 y 4 están aprobadas internamente.
+> El proyecto se encuentra en fase de diseño. Todavía no existe una versión ejecutable. Las Partes 0–5 están aprobadas internamente.
 
 ## Propósito
 
@@ -41,7 +41,8 @@ El resultado final será un portafolio técnico que integre gestión por proceso
 | P02 | Marco legal, normativo y referencias | Aprobada internamente | G02 cerrada |
 | P03 | Requisitos, actores y casos de uso | Aprobada internamente | G03 cerrada |
 | P04 | Arquitectura, entornos y decisiones técnicas | Aprobada internamente | G04 cerrada |
-| P05–P18 | Datos, construcción, pruebas y publicación | No iniciadas | Pendientes |
+| P05 | Modelo de datos y diccionario | Aprobada internamente | G05 cerrada |
+| P06–P18 | Identidad, construcción, pruebas y publicación | No iniciadas | Pendientes |
 
 Consulta el [roadmap](docs/ROADMAP.md) y el [índice de documentación](docs/README.md).
 
@@ -60,7 +61,7 @@ Las reglas completas se encuentran en [SECURITY.md](SECURITY.md).
 - Docker Compose Specification para entornos reproducibles.
 - Pruebas automatizadas y CI en GitHub Actions.
 
-La arquitectura y las versiones fueron fijadas en P04; P05 definirá el modelo de datos antes de implementar dependencias.
+La arquitectura y las versiones fueron fijadas en P04 y el modelo de datos en P05; P06 podrá iniciar la implementación incremental de identidad y permisos.
 
 ## Derechos de autor
 
