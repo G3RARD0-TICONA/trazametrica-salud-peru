@@ -3,7 +3,7 @@
 Proyecto demostrativo de investigación aplicada para gestionar procesos, calidad, indicadores y analítica administrativa en clínicas privadas del Perú.
 
 > [!IMPORTANT]
-> El proyecto se encuentra en fase de diseño. Todavía no existe una versión ejecutable. Las Partes 0, 1, 2 y 3 están aprobadas internamente.
+> El proyecto se encuentra en fase de diseño. Todavía no existe una versión ejecutable. Las Partes 0, 1, 2, 3 y 4 están aprobadas internamente.
 
 ## Propósito
 
@@ -40,7 +40,8 @@ El resultado final será un portafolio técnico que integre gestión por proceso
 | P01 | Demanda laboral y perfiles objetivo | Aprobada internamente | G01 cerrada |
 | P02 | Marco legal, normativo y referencias | Aprobada internamente | G02 cerrada |
 | P03 | Requisitos, actores y casos de uso | Aprobada internamente | G03 cerrada |
-| P04–P18 | Arquitectura, datos, construcción, pruebas y publicación | No iniciadas | Pendientes |
+| P04 | Arquitectura, entornos y decisiones técnicas | Aprobada internamente | G04 cerrada |
+| P05–P18 | Datos, construcción, pruebas y publicación | No iniciadas | Pendientes |
 
 Consulta el [roadmap](docs/ROADMAP.md) y el [índice de documentación](docs/README.md).
 
@@ -52,14 +53,14 @@ Las reglas completas se encuentran en [SECURITY.md](SECURITY.md).
 
 ## Tecnología prevista
 
-- Python y Django para la aplicación web.
-- PostgreSQL como base de datos.
+- Python 3.13 y Django 5.2 LTS para la aplicación web.
+- PostgreSQL 17 como base de datos única de desarrollo, pruebas y demostración.
 - Excel para plantillas de entrada y salidas controladas.
 - Power BI Desktop para análisis local sobre exportaciones limpias.
-- Docker Compose para un entorno reproducible de desarrollo.
+- Docker Compose Specification para entornos reproducibles.
 - Pruebas automatizadas y CI en GitHub Actions.
 
-La arquitectura y las versiones se fijarán en sus partes correspondientes antes de implementar dependencias.
+La arquitectura y las versiones fueron fijadas en P04; P05 definirá el modelo de datos antes de implementar dependencias.
 
 ## Derechos de autor
 
