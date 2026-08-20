@@ -13,9 +13,10 @@ Este proyecto seguirá [Versionado Semántico](https://semver.org/lang/es/) cuan
 - Expedientes resumidos P00 y P01.
 - Matriz auditable de P02 y puerta G02 aprobada.
 - Expediente P03 de actores, requisitos, reglas, casos de uso y trazabilidad aprobado.
+- Expediente P04 de arquitectura, entornos, seguridad, calidad y 14 decisiones técnicas aceptado; G04 aprobada con 12/12 controles conformes.
 - Roadmap de P00 a P18.
 
 ### Pendiente
 
-- Definición de arquitectura y entorno reproducible.
+- Definición del modelo de datos P05.
 - Primera versión ejecutable.

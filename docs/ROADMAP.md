@@ -8,7 +8,7 @@ El roadmap controla el orden del proyecto; no sustituye los criterios de aceptac
 | P01 | Demanda laboral y perfiles objetivo | Aprobada internamente |
 | P02 | Matriz legal, normativa y de referencias | Aprobada internamente |
 | P03 | Requisitos, actores y casos de uso | Aprobada internamente |
-| P04 | Arquitectura, entornos y decisiones técnicas | No iniciada |
+| P04 | Arquitectura, entornos y decisiones técnicas | Aprobada internamente |
 | P05 | Modelo de datos y diccionario | No iniciada |
 | P06 | Identidad, autenticación, roles y permisos | No iniciada |
 | P07 | Maestros organizacionales y catálogos | No iniciada |
