@@ -3,7 +3,7 @@
 Proyecto demostrativo de investigación aplicada para gestionar procesos, calidad, indicadores y analítica administrativa en clínicas privadas del Perú.
 
 > [!IMPORTANT]
-> El proyecto se encuentra en fase de diseño. Todavía no existe una versión ejecutable. Las Partes 0, 1 y 2 están aprobadas internamente.
+> El proyecto se encuentra en fase de diseño. Todavía no existe una versión ejecutable. Las Partes 0, 1, 2 y 3 están aprobadas internamente.
 
 ## Propósito
 
@@ -19,6 +19,7 @@ El resultado final será un portafolio técnico que integre gestión por proceso
 - Importación de plantillas Excel con validaciones y registro de errores.
 - Fichas versionadas de procesos e indicadores.
 - Auditorías, hallazgos, no conformidades, acciones correctivas y evidencias.
+- Riesgos, controles, responsables, revisiones y alertas de vencimiento.
 - Permisos por rol y bitácora de operaciones.
 - Exportaciones a Excel, PDF y conjuntos limpios para Power BI Desktop.
 - Datos de demostración exclusivamente sintéticos.
@@ -38,7 +39,8 @@ El resultado final será un portafolio técnico que integre gestión por proceso
 | P00 | Definición y gobierno | Aprobada internamente | G00 cerrada |
 | P01 | Demanda laboral y perfiles objetivo | Aprobada internamente | G01 cerrada |
 | P02 | Marco legal, normativo y referencias | Aprobada internamente | G02 cerrada |
-| P03–P18 | Diseño funcional, datos, construcción, pruebas y publicación | No iniciadas | Pendientes |
+| P03 | Requisitos, actores y casos de uso | Aprobada internamente | G03 cerrada |
+| P04–P18 | Arquitectura, datos, construcción, pruebas y publicación | No iniciadas | Pendientes |
 
 Consulta el [roadmap](docs/ROADMAP.md) y el [índice de documentación](docs/README.md).
 
