@@ -13,7 +13,7 @@
 | ADR-005 | Una organización activa | servicio e índice único parcial |
 | ENT-004–008 | Migración `organizations.0001_initial` | `makemigrations --check` y migración limpia |
 
-## 2. Pruebas previstas
+## 2. Pruebas automatizadas
 
 - Singleton de organización activa.
 - Normalización y unicidad de códigos.
@@ -27,6 +27,8 @@
 - Vista de lectura según rol.
 - Semilla determinista e idempotente con conteos de P05.
 - Correspondencia exacta de las cinco tablas físicas.
+
+La ejecución CI #19 del PR #6 aprobó las 36 pruebas en PostgreSQL 17.11, obtuvo 86 % de cobertura total, no registró hallazgos en Bandit ni vulnerabilidades conocidas en `pip-audit`, y construyó correctamente la imagen del contenedor.
 
 ## 3. Evaluación de G07
 
@@ -42,7 +44,7 @@
 | 8 | Autorización en servidor | Capacidades P06 y pruebas negativas | Conforme |
 | 9 | Consulta organizacional protegida | Selector, vista y plantilla | Conforme |
 | 10 | Dataset sintético reproducible | 1/3/20/12 y UUIDv5 | Conforme |
-| 11 | CI completa en PostgreSQL 17 | GitHub Actions | Pendiente |
+| 11 | CI completa en PostgreSQL 17 | Ejecución #19: pruebas, 86 % de cobertura, seguridad, dependencias e imagen | Conforme |
 | 12 | Aceptación formal del titular | Decisión posterior a CI | Pendiente |
 
-**Resultado actual:** 10/12. P07 está **EN PRUEBAS** y G07 permanece abierta. El cierre requiere CI conforme y autorización expresa; tampoco significará certificación, autorización sanitaria o aptitud productiva.
+**Resultado actual:** 11/12. P07 está **EN PRUEBAS** y G07 permanece abierta únicamente por la aceptación formal del titular. Su eventual cierre no significará certificación, autorización sanitaria o aptitud productiva.
