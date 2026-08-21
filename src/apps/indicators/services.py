@@ -610,7 +610,11 @@ def calculate_indicator_result(
         raise ValidationError("Una observación no puede utilizarse más de una vez.")
     locked_observations = {
         item.pk: item
-        for item in IndicatorObservation.objects.select_for_update()
+        # PostgreSQL no permite bloquear el lado anulable de los LEFT JOIN
+        # generados por site/service. El bloqueo se limita explícitamente a la
+        # fila de observación; las relaciones se cargan solo para validar el
+        # alcance sin intentar bloquearlas.
+        for item in IndicatorObservation.objects.select_for_update(of=("self",))
         .select_related("indicator", "site", "service")
         .filter(pk__in=observation_ids)
     }
