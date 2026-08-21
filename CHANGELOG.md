@@ -37,7 +37,15 @@ Este proyecto sigue [Versionado Semántico](https://semver.org/lang/es/) desde e
 - Migraciones y 11 pruebas nuevas para autorización, integridad, inmutabilidad, vigencia, vínculo documental y semilla sintética.
 - CI de P09 conforme con 68 pruebas, 86 % de cobertura, seguridad y dependencias sin hallazgos, y contenedor reproducible.
 - Expediente P09 aprobado internamente y puerta G09 cerrada con 12/12 controles conformes.
+- Dominio P10 de plantillas, versiones, cargas, filas de staging y errores accionables.
+- Adaptador OOXML seguro y sustituible para generar y leer XLSX sin macros, fórmulas ni vínculos externos.
+- Validación de identidad de plantilla, encabezados, tipos, obligatoriedad, códigos, fechas, rangos, catálogos, duplicados y datos inseguros.
+- Rechazo atómico, SHA-256 de archivo y filas, antecedente duplicado, reintentos y promoción controlada.
+- Cuatro plantillas sintéticas deterministas, interfaz protegida y prueba de referencia de 10 000 filas.
+- CI #42 de P10 conforme con 89 pruebas, 85 % de cobertura, seguridad y dependencias sin hallazgos, y contenedor reproducible.
+- CI final #43 conforme sobre el commit de evidencia de P10.
+- Expediente P10 aprobado internamente y puerta G10 cerrada con 12/12 controles conformes mediante autorización expresa del titular.
 
 ### Pendiente
 
-- Implementación de P10–P18.
+- Implementación de P11–P18.

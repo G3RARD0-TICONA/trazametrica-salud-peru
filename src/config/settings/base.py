@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     "apps.auditlog",
     "apps.documents",
     "apps.processes",
+    "apps.imports",
 ]
 
 MIDDLEWARE = [

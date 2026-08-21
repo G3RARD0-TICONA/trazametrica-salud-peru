@@ -69,21 +69,18 @@ class LifecycleDocumentRecord(AuditedDocumentRecord):
         abstract = True
 
 
-LIFECYCLE_CONDITION = (
+LIFECYCLE_CONDITION = Q(
+    is_active=True,
+    deactivated_at__isnull=True,
+    deactivated_by__isnull=True,
+    deactivation_reason="",
+) | (
     Q(
-        is_active=True,
-        deactivated_at__isnull=True,
-        deactivated_by__isnull=True,
-        deactivation_reason="",
+        is_active=False,
+        deactivated_at__isnull=False,
+        deactivated_by__isnull=False,
     )
-    | (
-        Q(
-            is_active=False,
-            deactivated_at__isnull=False,
-            deactivated_by__isnull=False,
-        )
-        & ~Q(deactivation_reason="")
-    )
+    & ~Q(deactivation_reason="")
 )
 
 
@@ -180,12 +177,14 @@ class FileAsset(AuditedDocumentRecord):
             raise ValidationError(
                 {"sha256": "El hash SHA-256 debe tener 64 caracteres hexadecimales."}
             )
-        if not self.storage_key.startswith("documents/") or ".." in self.storage_key:
+        allowed_prefixes = ("documents/", "imports/")
+        if not self.storage_key.startswith(allowed_prefixes) or ".." in self.storage_key:
             raise ValidationError(
                 {"storage_key": "La clave de almacenamiento no es opaca y segura."}
             )
         if not self.synthetic_confirmed:
             raise ValidationError({"synthetic_confirmed": "Solo se admiten archivos sintéticos."})
+
 
 class Document(LifecycleDocumentRecord):
     organization = models.ForeignKey(
@@ -250,10 +249,7 @@ class Document(LifecycleDocumentRecord):
                 {"responsible_area": "El área responsable debe pertenecer a la organización."}
             )
         linked_process = self.process if self.process_id is not None else None
-        if (
-            linked_process is not None
-            and linked_process.organization_id != self.organization_id
-        ):
+        if linked_process is not None and linked_process.organization_id != self.organization_id:
             raise ValidationError(
                 {"process": "El proceso debe pertenecer a la organización del documento."}
             )
@@ -407,6 +403,7 @@ class ReferenceSource(LifecycleDocumentRecord):
         self.title = self.title.strip()
         super().save(*args, **kwargs)
 
+
 class ReferenceVersion(AuditedDocumentRecord):
     reference_source = models.ForeignKey(
         ReferenceSource,
@@ -466,8 +463,7 @@ class ReferenceVersion(AuditedDocumentRecord):
             ),
             models.CheckConstraint(condition=~Q(summary=""), name="ref_summary_ck"),
             models.CheckConstraint(
-                condition=Q(content_hash__isnull=True)
-                | Q(content_hash__regex=r"^[0-9a-f]{64}$"),
+                condition=Q(content_hash__isnull=True) | Q(content_hash__regex=r"^[0-9a-f]{64}$"),
                 name="ref_content_hash_ck",
             ),
         ]
