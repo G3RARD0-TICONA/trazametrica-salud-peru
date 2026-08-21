@@ -36,7 +36,7 @@
 
 ## 3. Evaluación actual de G10
 
-Las verificaciones locales aprobaron 88 pruebas aplicables y 85 % de cobertura. La CI #42 aprobó 89 pruebas en Python 3.13/PostgreSQL 17 con 85 % de cobertura, seguridad y dependencias sin hallazgos. Solo la aceptación formal sigue pendiente.
+Las verificaciones locales aprobaron 88 pruebas aplicables y 85 % de cobertura. Las CI #42 y #43 aprobaron 89 pruebas en Python 3.13/PostgreSQL 17 con 85 % de cobertura, seguridad y dependencias sin hallazgos. El titular autorizó expresamente el cierre de G10 el 20 de agosto de 2026.
 
 | # | Criterio | Evidencia | Estado |
 |---:|---|---|---|
@@ -51,6 +51,6 @@ Las verificaciones locales aprobaron 88 pruebas aplicables y 85 % de cobertura. 
 | 9 | Consulta, descarga y carga autorizadas | rutas protegidas y prueba HTTP | Conforme |
 | 10 | Semilla y rendimiento de referencia | 4 plantillas y 10 000 filas ≤60 s | Conforme |
 | 11 | CI en Python 3.13/PostgreSQL 17 | CI #42: 89 pruebas, 85 %, seguridad, dependencias y contenedor conformes | Conforme |
-| 12 | Aceptación formal del titular | Requiere autorización expresa posterior | Pendiente |
+| 12 | Aceptación formal del titular | Autorización expresa registrada el 20 de agosto de 2026 | Conforme |
 
-**Resultado actual:** 11/12. P10 está **EN REVISIÓN** y G10 permanece abierta únicamente por la aceptación formal. La aceptación interna no representa certificación, autorización sanitaria ni aptitud productiva.
+**Resultado final:** 12/12. P10 está **APROBADA INTERNAMENTE** y G10 queda cerrada. Esta aprobación interna no representa certificación, autorización sanitaria ni aptitud productiva.

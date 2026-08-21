@@ -43,8 +43,9 @@ Este proyecto sigue [Versionado Semántico](https://semver.org/lang/es/) desde e
 - Rechazo atómico, SHA-256 de archivo y filas, antecedente duplicado, reintentos y promoción controlada.
 - Cuatro plantillas sintéticas deterministas, interfaz protegida y prueba de referencia de 10 000 filas.
 - CI #42 de P10 conforme con 89 pruebas, 85 % de cobertura, seguridad y dependencias sin hallazgos, y contenedor reproducible.
-- Expediente P10 en revisión y puerta G10 abierta con 11/12 controles conformes; solo falta la aceptación formal.
+- CI final #43 conforme sobre el commit de evidencia de P10.
+- Expediente P10 aprobado internamente y puerta G10 cerrada con 12/12 controles conformes mediante autorización expresa del titular.
 
 ### Pendiente
 
-- Cierre de G10 e implementación de P11–P18.
+- Implementación de P11–P18.
