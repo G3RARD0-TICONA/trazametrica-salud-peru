@@ -1,7 +1,7 @@
 # P11 — Catálogo, cálculo y seguimiento de KPI
 
-**Estado:** en pruebas  
-**Puerta:** G11 abierta — 10/12 controles conformes  
+**Estado:** en revisión  
+**Puerta:** G11 abierta — 11/12 controles conformes  
 **Versión:** 0.9  
 **Fecha de corte:** 20 de agosto de 2026
 
@@ -43,4 +43,4 @@ Implementar RF-015–018, CU-08–09, RN-011–013, RNF-005 y ENT-022–026: fic
 
 ## 5. Resultado actual
 
-Las verificaciones locales aprobaron 103 pruebas aplicables con 83 % de cobertura, documentación, lint, tipado, modelos y migraciones conformes. G11 conserva dos pendientes: ejecución íntegra en CI con PostgreSQL 17 y aceptación formal del titular.
+El CI #48 aprobó 104 pruebas sobre PostgreSQL 17 con 83 % de cobertura, documentación, lint, tipado, modelos, migraciones, seguridad, dependencias y contenedor conformes. G11 conserva un único pendiente: la aceptación formal del titular.

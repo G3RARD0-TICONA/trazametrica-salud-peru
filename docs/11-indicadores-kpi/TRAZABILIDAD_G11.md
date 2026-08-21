@@ -22,11 +22,11 @@
 - Modelos protegidos contra actualización masiva y eliminación.
 - Catálogo HTTP 403/200 con marca sintética.
 - Semilla idempotente verificada con 200 KPI, 260 versiones y muestra de 1 000 observaciones.
-- Generación completa verificada localmente con 100 000 observaciones sintéticas en 10,2 segundos; PostgreSQL queda para CI.
+- Generación completa verificada localmente con 100 000 observaciones sintéticas en 10,2 segundos; el CI valida PostgreSQL con una muestra determinista de 1 000 observaciones, sin presentar el tiempo local como benchmark productivo.
 
 ## Evaluación actual de G11
 
-Las verificaciones locales aprobaron 103 pruebas aplicables y 83 % de cobertura. La comprobación PostgreSQL integral y la aceptación formal siguen pendientes.
+El CI #48 aprobó 104 pruebas sobre PostgreSQL 17 y 83 % de cobertura. La aceptación formal es el único control pendiente.
 
 | # | Criterio | Evidencia | Estado |
 |---:|---|---|---|
@@ -40,7 +40,7 @@ Las verificaciones locales aprobaron 103 pruebas aplicables y 83 % de cobertura.
 | 8 | Revisión y publicación independiente | flujo y permisos negativos | Conforme |
 | 9 | Correcciones sin sobrescritura | resultado anterior y `supersedes` conservados | Conforme |
 | 10 | Consulta y semilla sintética | HTTP protegido y catálogo 200/260/100 000 | Conforme |
-| 11 | CI en Python 3.13/PostgreSQL 17 | Pendiente de ejecución en GitHub | Pendiente |
+| 11 | CI en Python 3.13/PostgreSQL 17 | CI #48: 104 pruebas, 83 % de cobertura, seguridad, dependencias y contenedor conformes | Conforme |
 | 12 | Aceptación formal del titular | Requiere autorización expresa posterior | Pendiente |
 
-**Resultado actual:** 10/12. P11 está **EN PRUEBAS** y G11 permanece abierta. La aprobación interna no representa certificación, autorización sanitaria ni aptitud productiva.
+**Resultado actual:** 11/12. P11 está **EN REVISIÓN** y G11 permanece abierta únicamente por la aceptación del titular. La aprobación interna no representa certificación, autorización sanitaria ni aptitud productiva.

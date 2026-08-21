@@ -51,7 +51,8 @@ Este proyecto sigue [Versionado Semántico](https://semver.org/lang/es/) desde e
 - Flujo de cálculo, revisión, rechazo, publicación y corrección sin sobrescribir resultados publicados.
 - Estado automático de desempeño según meta, umbral y sentido del KPI.
 - Catálogo protegido y semilla determinista de 200 KPI, 260 fichas y hasta 100 000 observaciones sintéticas.
-- Expediente P11 en pruebas y puerta G11 abierta con 10/12 controles conformes antes de CI y aceptación.
+- Expediente P11 en revisión y puerta G11 abierta con 11/12 controles conformes; solo falta la aceptación del titular.
+- CI #48 de P11 conforme con 104 pruebas sobre PostgreSQL 17, 83 % de cobertura, seguridad y dependencias sin hallazgos, y contenedor reproducible.
 
 ### Pendiente
 
