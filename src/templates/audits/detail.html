@@ -24,7 +24,7 @@
     <h3>Hallazgos</h3>
     <table>
       <thead><tr><th>Código</th><th>Condición</th><th>Impacto</th><th>Estado</th><th>Evidencias</th></tr></thead>
-      <tbody>{% for finding in execution.ordered_findings %}<tr><td>{{ finding.code }}</td><td>{{ finding.condition }}</td><td>{{ finding.get_impact_display }}</td><td>{{ finding.get_status_display }}</td><td>{{ finding.ordered_evidence|length }}</td></tr>{% empty %}<tr><td colspan="5">Sin hallazgos.</td></tr>{% endfor %}</tbody>
+      <tbody>{% for finding in execution.ordered_findings %}<tr><td><a href="{% url 'improvements:detail' finding.id %}">{{ finding.code }}</a></td><td>{{ finding.condition }}</td><td>{{ finding.get_impact_display }}</td><td>{{ finding.get_status_display }}</td><td>{{ finding.ordered_evidence|length }}</td></tr>{% empty %}<tr><td colspan="5">Sin hallazgos.</td></tr>{% endfor %}</tbody>
     </table>
   {% empty %}<p>El plan aún no tiene ejecución.</p>{% endfor %}
 {% endblock %}

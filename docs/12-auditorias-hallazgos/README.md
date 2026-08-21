@@ -44,4 +44,4 @@ Implementar RF-019–021, CU-10–11, RN-014, RNF-004 y ENT-027–034: planes de
 
 ## 5. Resultado actual
 
-Las verificaciones locales aprobaron 114 pruebas aplicables con 83 % de cobertura. Los CI #52 y #53 aprobaron 115 pruebas sobre PostgreSQL 17, mantuvieron 83 % de cobertura y dejaron conformes documentación, lint, tipado, migraciones, seguridad, dependencias y construcción del contenedor. El titular aceptó formalmente P12 el 21 de agosto de 2026; G12 queda cerrada con 12/12 controles conformes.
+Las verificaciones locales aprobaron 114 pruebas aplicables con 83 % de cobertura. Los CI #52, #53 y #54 aprobaron 115 pruebas sobre PostgreSQL 17, mantuvieron 83 % de cobertura y dejaron conformes documentación, lint, tipado, migraciones, seguridad, dependencias y construcción del contenedor. El titular aceptó formalmente P12 el 21 de agosto de 2026; G12 queda cerrada con 12/12 controles conformes.

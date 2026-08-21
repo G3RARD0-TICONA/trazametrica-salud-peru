@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Mejora continua | Trazamétrica Salud Perú{% endblock %}
+
+{% block content %}
+  <h1>Acciones correctivas y mejora</h1>
+  <p class="notice"><strong>DATOS SINTÉTICOS.</strong> Demostración administrativa; no constituye certificación ni autorización sanitaria.</p>
+
+  <h2>Hallazgos CAPA</h2>
+  <table>
+    <thead><tr><th>Hallazgo</th><th>Auditoría</th><th>Estado</th><th>Causa</th><th>Acciones</th></tr></thead>
+    <tbody>
+      {% for finding in findings %}
+        <tr>
+          <td><a href="{% url 'improvements:detail' finding.id %}">{{ finding.code }}</a></td>
+          <td>{{ finding.execution.audit_plan.code }}</td>
+          <td>{{ finding.get_status_display }}</td>
+          <td>{% if finding.root_cause_analysis %}{{ finding.root_cause_analysis.get_status_display }}{% else %}Pendiente{% endif %}</td>
+          <td>{{ finding.ordered_actions|length }}</td>
+        </tr>
+      {% empty %}<tr><td colspan="5">No existen hallazgos para mejora.</td></tr>{% endfor %}
+    </tbody>
+  </table>
+
+  <h2>Alertas de acciones</h2>
+  <table>
+    <thead><tr><th>Acción</th><th>Hallazgo</th><th>Responsable</th><th>Vencimiento</th><th>Estado</th><th>Alerta</th></tr></thead>
+    <tbody>
+      {% for action, alert in actions %}
+        <tr>
+          <td>{{ action.code }}</td><td>{{ action.finding.code }}</td>
+          <td>{{ action.owner.username }}</td><td>{{ action.due_date }}</td>
+          <td>{{ action.get_status_display }}</td><td>{{ alert }}</td>
+        </tr>
+      {% empty %}<tr><td colspan="6">No existen acciones correctivas.</td></tr>{% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

@@ -61,7 +61,14 @@ Este proyecto sigue [Versionado Semántico](https://semver.org/lang/es/) desde e
 - Alertas de vencimiento, catálogo protegido y semilla determinista de 12 planes y 180 hallazgos.
 - CI #52 y #53 de P12 conformes con 115 pruebas sobre PostgreSQL 17, 83 % de cobertura, seguridad y dependencias sin hallazgos, y contenedor reproducible.
 - Expediente P12 aprobado internamente y puerta G12 cerrada con 12/12 controles conformes mediante autorización expresa del titular.
+- CI final #54 conforme sobre el cierre G12 y la integración de P12.
+- Dominio P13 de causa raíz, acciones correctivas, evidencias y revisión de eficacia.
+- Flujo segregado de causa, aprobación del plan, ejecución, verificación, cierre y reapertura.
+- RN-015–019 implementadas con atomicidad, reasignación trazable y cierre condicionado.
+- Alertas de vencimiento y responsable inactivo, catálogo protegido y semilla determinista 12/24/18/15.
+- CI #56 y #57 de P13 conformes con 125 pruebas sobre PostgreSQL 17, 83 % de cobertura, seguridad y dependencias sin hallazgos, y contenedor reproducible.
+- Expediente P13 aprobado internamente y puerta G13 cerrada con 12/12 controles conformes mediante autorización expresa del titular.
 
 ### Pendiente
 
-- Implementación de P13–P18.
+- Implementación de P14–P18.

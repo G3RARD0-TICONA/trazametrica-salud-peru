@@ -3,7 +3,7 @@
 Proyecto demostrativo de investigación aplicada para gestionar procesos, calidad, indicadores y analítica administrativa en clínicas privadas del Perú.
 
 > [!IMPORTANT]
-> Las Partes 0–12 tienen sus puertas cerradas. P12 es el séptimo incremento ejecutable aprobado internamente y mantiene separados de su alcance el análisis causal y CAPA de P13.
+> Las Partes 0–13 tienen sus puertas cerradas. P13 está aprobada internamente y G13 quedó cerrada con 12/12 controles conformes tras la aceptación formal del titular.
 
 ## Propósito
 
@@ -49,7 +49,8 @@ El resultado final será un portafolio técnico que integre gestión por proceso
 | P10 | Importación Excel y calidad de datos | Aprobada internamente | G10 cerrada (12/12) |
 | P11 | Catálogo, cálculo y seguimiento de KPI | Aprobada internamente | G11 cerrada (12/12) |
 | P12 | Auditorías, hallazgos y no conformidades | Aprobada internamente | G12 cerrada (12/12) |
-| P13–P18 | Mejora, riesgos, analítica y publicación | No iniciadas | Pendientes |
+| P13 | Acciones correctivas, evidencias y mejora | Aprobada internamente | G13 cerrada (12/12) |
+| P14–P18 | Riesgos, analítica y publicación | No iniciadas | Pendientes |
 
 Consulta el [roadmap](docs/ROADMAP.md) y el [índice de documentación](docs/README.md).
 
@@ -68,7 +69,7 @@ Las reglas completas se encuentran en [SECURITY.md](SECURITY.md).
 - Docker Compose Specification para entornos reproducibles.
 - Pruebas automatizadas y CI en GitHub Actions.
 
-La arquitectura y las versiones fueron fijadas en P04 y el modelo de datos en P05. P06 implementa identidad; P07 la estructura organizacional; P08 documentos; P09 procesos y SIPOC; P10 incorpora plantillas Excel y trazabilidad de cargas; P11 añade KPI reproducibles; P12 incorpora auditorías, criterios, respuestas, hallazgos y evidencia sintética.
+La arquitectura y las versiones fueron fijadas en P04 y el modelo de datos en P05. P06 implementa identidad; P07 la estructura organizacional; P08 documentos; P09 procesos y SIPOC; P10 incorpora plantillas Excel y trazabilidad de cargas; P11 añade KPI reproducibles; P12 incorpora auditorías y hallazgos; P13 añade causa raíz, acciones correctivas y eficacia.
 
 ## Ejecución local
 
@@ -82,9 +83,10 @@ docker compose exec web python src/manage.py seed_processes_demo --actor admin_d
 docker compose exec web python src/manage.py seed_import_templates_demo --actor admin_demo
 docker compose exec web python src/manage.py seed_indicators_demo --actor admin_demo
 docker compose exec web python src/manage.py seed_audits_demo --actor admin_demo
+docker compose exec web python src/manage.py seed_improvements_demo --actor admin_demo
 ```
 
-Antes del bootstrap, define en `.env` una contraseña sintética de al menos 12 caracteres. Consulta las guías de [identidad](docs/06-identidad-acceso/EJECUCION.md), [semilla organizacional](docs/07-maestros-organizacionales/SEMILLA_DEMO.md), [gestión documental](docs/08-gestion-documental/README.md), [procesos/SIPOC](docs/09-procesos-sipoc/README.md), [importación Excel](docs/10-importacion-excel/README.md), [indicadores](docs/11-indicadores-kpi/README.md) y [auditorías](docs/12-auditorias-hallazgos/README.md). Los catálogos protegidos quedan disponibles en `/documents/`, `/processes/`, `/imports/`, `/indicators/` y `/audits/`.
+Antes del bootstrap, define en `.env` una contraseña sintética de al menos 12 caracteres. Consulta las guías de [identidad](docs/06-identidad-acceso/EJECUCION.md), [semilla organizacional](docs/07-maestros-organizacionales/SEMILLA_DEMO.md), [gestión documental](docs/08-gestion-documental/README.md), [procesos/SIPOC](docs/09-procesos-sipoc/README.md), [importación Excel](docs/10-importacion-excel/README.md), [indicadores](docs/11-indicadores-kpi/README.md), [auditorías](docs/12-auditorias-hallazgos/README.md) y [mejora](docs/13-acciones-correctivas-mejora/README.md). Los catálogos protegidos quedan disponibles en `/documents/`, `/processes/`, `/imports/`, `/indicators/`, `/audits/` e `/improvements/`.
 
 ## Derechos de autor
 

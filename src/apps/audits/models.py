@@ -99,6 +99,10 @@ class FindingImpact(models.TextChoices):
 class FindingStatus(models.TextChoices):
     OPEN = "open", "Abierto"
     IN_ANALYSIS = "in_analysis", "En análisis"
+    WITH_PLAN = "with_plan", "Con plan"
+    IN_VERIFICATION = "in_verification", "En verificación"
+    CLOSED = "closed", "Cerrado"
+    REOPENED = "reopened", "Reabierto"
     CANCELLED = "cancelled", "Cancelado"
 
 
