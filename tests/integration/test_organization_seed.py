@@ -13,14 +13,14 @@ pytestmark = [pytest.mark.django_db, pytest.mark.integration]
 def test_seed_is_deterministic_idempotent_and_matches_reference_counts(
     admin_user: User,
 ) -> None:
-    call_command("seed_organizations_demo", actor=admin_user.username, version="1")
+    call_command("seed_organizations_demo", actor=admin_user.username, dataset_version="1")
     first_counts = (
         Organization.objects.count(),
         Site.objects.count(),
         Service.objects.count(),
         Area.objects.count(),
     )
-    call_command("seed_organizations_demo", actor=admin_user.username, version="1")
+    call_command("seed_organizations_demo", actor=admin_user.username, dataset_version="1")
 
     assert first_counts == (1, 3, 20, 12)
     assert (
