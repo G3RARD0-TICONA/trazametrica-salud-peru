@@ -7,7 +7,8 @@ from .models import Role, User, UserRole
 @admin.register(User)
 class UserAdmin(BaseUserAdmin):
     readonly_fields = ("id", "created_at", "updated_at", "last_login", "date_joined")
-    fieldsets = BaseUserAdmin.fieldsets + (
+    fieldsets = (
+        *(BaseUserAdmin.fieldsets or ()),
         (
             "Trazabilidad",
             {
@@ -41,4 +42,3 @@ class UserRoleAdmin(admin.ModelAdmin):
     list_filter = ("role",)
     search_fields = ("user__username", "role__code")
     readonly_fields = ("id", "created_at", "updated_at")
-

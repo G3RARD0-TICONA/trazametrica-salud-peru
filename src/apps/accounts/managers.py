@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING, Any
+from typing import TYPE_CHECKING, Any, cast
 
 from django.contrib.auth.models import UserManager as DjangoUserManager
 
@@ -38,5 +38,4 @@ class UserManager(DjangoUserManager):
         user.set_password(password)
         user.full_clean()
         user.save(using=self._db)
-        return user
-
+        return cast("User", user)
