@@ -32,7 +32,7 @@
 
 ## 3. Evaluación actual de G09
 
-Las verificaciones locales aprobaron 67 pruebas aplicables y 86 % de cobertura. CI y aceptación formal siguen pendientes.
+La ejecución #38 de GitHub Actions del PR #8 aprobó 68 pruebas en PostgreSQL 17.11 y Python 3.13.15, con 86 % de cobertura. También aprobó migraciones, tipado, lint, Bandit, `pip-audit` y construcción del contenedor. Solo falta la aceptación formal.
 
 | # | Criterio | Evidencia | Estado |
 |---:|---|---|---|
@@ -46,7 +46,7 @@ Las verificaciones locales aprobaron 67 pruebas aplicables y 86 % de cobertura. 
 | 8 | Documento vinculado con integridad | FK protegida, ámbito y prueba | Conforme |
 | 9 | Auditoría append-only | eventos de servicio | Conforme |
 | 10 | Consulta y semilla sintética | HTTP 403/200 y 100/100/500 | Conforme |
-| 11 | CI en Python 3.13/PostgreSQL 17 | Pendiente de ejecución en GitHub | Pendiente |
+| 11 | CI en Python 3.13/PostgreSQL 17 | Ejecución #38: 68 pruebas, 86 % e imagen correcta | Conforme |
 | 12 | Aceptación formal del titular | Requiere autorización expresa posterior | Pendiente |
 
-**Resultado actual:** 10/12. P09 está **EN PRUEBAS** y G09 permanece abierta. La aceptación interna no representa certificación, autorización sanitaria ni aptitud productiva.
+**Resultado actual:** 11/12. P09 está **LISTA PARA ACEPTACIÓN** y G09 permanece abierta. La aceptación interna no representa certificación, autorización sanitaria ni aptitud productiva.

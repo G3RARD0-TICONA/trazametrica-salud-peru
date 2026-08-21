@@ -1,7 +1,7 @@
 # P09 — Procesos, SIPOC y fichas
 
-**Estado:** en pruebas  
-**Puerta:** G09 abierta — 10/12 controles conformes  
+**Estado:** lista para aceptación  
+**Puerta:** G09 abierta — 11/12 controles conformes  
 **Versión:** 0.9  
 **Fecha de corte:** 20 de agosto de 2026
 
@@ -43,4 +43,4 @@ Implementar RF-006, RF-007, RF-009, CU-04, CU-05, RN-001–006 y las entidades E
 
 ## 5. Resultado actual
 
-Las verificaciones locales aprobaron 67 pruebas aplicables con 86 % de cobertura, lint, tipado, sistema Django y migraciones reproducibles. G09 conserva dos pendientes: ejecución íntegra en CI con PostgreSQL 17 y aceptación formal del titular.
+La ejecución #38 de GitHub Actions aprobó 68 pruebas en Python 3.13.15 y PostgreSQL 17.11, con 86 % de cobertura, cero hallazgos de Bandit, cero vulnerabilidades conocidas y construcción correcta del contenedor. G09 conserva un único pendiente: aceptación formal del titular.
