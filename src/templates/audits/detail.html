@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}{{ plan.code }} | Auditorías{% endblock %}
+
+{% block content %}
+  <p><a href="{% url 'audits:catalog' %}">← Volver a auditorías</a></p>
+  <h1>{{ plan.code }}</h1>
+  <p class="notice"><strong>DATOS SINTÉTICOS.</strong> Evidencia interna de portafolio; no constituye certificación.</p>
+  <dl>
+    <dt>Organización</dt><dd>{{ plan.organization.name }}</dd>
+    <dt>Alcance</dt><dd>{{ plan.scope }}</dd>
+    <dt>Criterios</dt><dd>{{ plan.criteria }}</dd>
+    <dt>Auditor líder</dt><dd>{{ plan.lead_auditor.username }}</dd>
+    <dt>Estado</dt><dd>{{ plan.get_status_display }}</dd>
+  </dl>
+  {% for execution in plan.ordered_executions %}
+    <h2>Ejecución</h2>
+    <p>{{ execution.get_status_display }} — {{ execution.started_at }}</p>
+    <h3>Respuestas</h3>
+    <table>
+      <thead><tr><th>#</th><th>Criterio</th><th>Resultado</th><th>Observación</th></tr></thead>
+      <tbody>{% for response in execution.ordered_responses %}<tr><td>{{ response.checklist_item.position }}</td><td>{{ response.checklist_item.criterion }}</td><td>{{ response.get_result_display }}</td><td>{{ response.observation|default:"—" }}</td></tr>{% endfor %}</tbody>
+    </table>
+    <h3>Hallazgos</h3>
+    <table>
+      <thead><tr><th>Código</th><th>Condición</th><th>Impacto</th><th>Estado</th><th>Evidencias</th></tr></thead>
+      <tbody>{% for finding in execution.ordered_findings %}<tr><td>{{ finding.code }}</td><td>{{ finding.condition }}</td><td>{{ finding.get_impact_display }}</td><td>{{ finding.get_status_display }}</td><td>{{ finding.ordered_evidence|length }}</td></tr>{% empty %}<tr><td colspan="5">Sin hallazgos.</td></tr>{% endfor %}</tbody>
+    </table>
+  {% empty %}<p>El plan aún no tiene ejecución.</p>{% endfor %}
+{% endblock %}

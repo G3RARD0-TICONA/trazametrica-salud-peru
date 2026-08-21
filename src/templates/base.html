@@ -23,9 +23,10 @@
       <a href="{% url 'accounts:access-profile' %}">Mi acceso</a>
       <a href="{% url 'organizations:structure' %}">Organización</a>
       <a href="{% url 'documents:catalog' %}">Documentos</a>
-        <a href="{% url 'processes:catalog' %}">Procesos</a>
-        <a href="{% url 'imports:catalog' %}">Importaciones</a>
-        <a href="{% url 'indicators:catalog' %}">Indicadores</a>
+      <a href="{% url 'processes:catalog' %}">Procesos</a>
+      <a href="{% url 'imports:catalog' %}">Importaciones</a>
+      <a href="{% url 'indicators:catalog' %}">Indicadores</a>
+      <a href="{% url 'audits:catalog' %}">Auditorías</a>
       <form method="post" action="{% url 'accounts:logout' %}">
         {% csrf_token %}
         <button type="submit">Cerrar sesión</button>
