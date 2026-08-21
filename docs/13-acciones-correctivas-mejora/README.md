@@ -1,8 +1,8 @@
 # P13 — Acciones correctivas, evidencias y mejora
 
-**Estado:** en revisión  
-**Puerta:** G13 abierta — 11/12 controles conformes  
-**Versión:** 0.10  
+**Estado:** aprobada internamente  
+**Puerta:** G13 cerrada — 12/12 controles conformes  
+**Versión:** 1.0  
 **Fecha de corte:** 21 de agosto de 2026
 
 ## 1. Objetivo
@@ -43,4 +43,4 @@ Implementar RF-022–024, CU-12–15, RN-015–019, RNF-004 y ENT-035–038: an�
 
 ## 5. Resultado actual
 
-Las verificaciones locales aprobaron 124 pruebas aplicables con 83 % de cobertura. La CI #56 aprobó 125 pruebas sobre PostgreSQL 17, mantuvo 83 % de cobertura y dejó conformes documentación, lint, tipado, migraciones, seguridad, dependencias y construcción del contenedor. G13 conserva un único pendiente: la aceptación formal del titular.
+Las verificaciones locales aprobaron 124 pruebas aplicables con 83 % de cobertura. Las CI #56 y #57 aprobaron 125 pruebas sobre PostgreSQL 17, mantuvieron 83 % de cobertura y dejaron conformes documentación, lint, tipado, migraciones, seguridad, dependencias y construcción del contenedor. El titular aceptó formalmente P13 el 21 de agosto de 2026; G13 queda cerrada con 12/12 controles conformes.
