@@ -7,7 +7,7 @@ def document_catalog() -> QuerySet[Document]:
     versions = DocumentVersion.objects.select_related("approved_by").order_by("-version_no")
     return (
         Document.objects.filter(is_active=True, organization__is_active=True)
-        .select_related("organization", "responsible_area")
+        .select_related("organization", "responsible_area", "process")
         .prefetch_related(Prefetch("versions", queryset=versions, to_attr="ordered_versions"))
         .order_by("code")
     )

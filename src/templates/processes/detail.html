@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}Ficha de proceso | Trazamétrica Salud Perú{% endblock %}
+
+{% block content %}
+  <p><a href="{% url 'processes:catalog' %}">← Volver al mapa</a></p>
+  <h1>{{ process.code }} — {{ process.name }}</h1>
+  <p class="notice"><strong>DATOS SINTÉTICOS.</strong> Ficha demostrativa sin validez institucional.</p>
+  <dl>
+    <dt>Tipo</dt><dd>{{ process.get_process_type_display }}</dd>
+    <dt>Área propietaria</dt><dd>{{ process.owner_area.name }}</dd>
+  </dl>
+
+  {% with version=process.ordered_versions.0 %}
+    {% if version %}
+      <h2>Versión {{ version.version_no }} — {{ version.get_status_display }}</h2>
+      <h3>Objetivo</h3>
+      <p>{{ version.objective }}</p>
+      <h3>Alcance</h3>
+      <p>{{ version.scope }}</p>
+      <h3>SIPOC</h3>
+      <table>
+        <thead>
+          <tr><th scope="col">Sección</th><th scope="col">Posición</th><th scope="col">Elemento</th><th scope="col">Descripción</th></tr>
+        </thead>
+        <tbody>
+          {% for entry in version.ordered_sipoc %}
+            <tr>
+              <td>{{ entry.get_entry_type_display }}</td>
+              <td>{{ entry.position }}</td>
+              <td>{{ entry.name }}</td>
+              <td>{{ entry.description|default:"—" }}</td>
+            </tr>
+          {% empty %}
+            <tr><td colspan="4">La versión no contiene entradas SIPOC.</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    {% else %}
+      <p>Este proceso todavía no tiene ficha versionada.</p>
+    {% endif %}
+  {% endwith %}
+{% endblock %}
+

@@ -30,7 +30,13 @@ Este proyecto sigue [Versionado Semántico](https://semver.org/lang/es/) desde e
 - Migraciones y pruebas P08 para integridad, autorización, vigencia, inmutabilidad y seguridad documental.
 - CI de P08 conforme con 56 pruebas, 86 % de cobertura, seguridad y dependencias sin hallazgos, y contenedor reproducible.
 - Expediente P08 aprobado internamente y puerta G08 cerrada con 12/12 controles conformes.
+- Dominio P09 de procesos, versiones y elementos SIPOC con integridad relacional.
+- Flujo transaccional de borrador, revisión, aprobación independiente, vigencia, sustitución, anulación y desactivación.
+- Fichas de proceso con objetivo, alcance y las cinco secciones SIPOC obligatorias antes de revisión.
+- Relación documental `Document.process`, catálogo protegido y semilla determinista de 100 procesos y 500 elementos SIPOC.
+- Migraciones y 11 pruebas nuevas para autorización, integridad, inmutabilidad, vigencia, vínculo documental y semilla sintética.
+- Expediente P09 en pruebas y puerta G09 abierta con 10/12 controles conformes antes de CI y aceptación.
 
 ### Pendiente
 
-- Implementación de P09–P18.
+- Cierre de G09 e implementación de P10–P18.

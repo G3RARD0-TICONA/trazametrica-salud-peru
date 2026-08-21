@@ -9,5 +9,6 @@ urlpatterns = [
     path("health/ready/", core_views.ready, name="health-ready"),
     path("organization/", include("apps.organizations.urls")),
     path("documents/", include("apps.documents.urls")),
+    path("processes/", include("apps.processes.urls")),
     path("", include("apps.accounts.urls")),
 ]
