@@ -58,5 +58,5 @@ Abreviaturas: ADM administrador; CAL calidad; PRO responsable de proceso; KPI an
 ## 3. Interpretación
 
 - El superusuario de bootstrap es una cuenta técnica de recuperación para entornos sintéticos; no representa un rol operativo y debe usarse solo para administración controlada.
-- La matriz define capacidades generales. Los módulos P07–P15 deberán agregar comprobaciones de objeto, estado y ámbito cuando corresponda.
+- La matriz define capacidades generales. P07 ya agrega comprobaciones de capacidad, estado y ámbito; los módulos P08–P15 deberán ampliarlas cuando corresponda.
 - Tener un rol no elimina reglas de negocio: por ejemplo, aprobar requiere además que el elemento esté en el estado correcto y que el aprobador no sea el autor cuando la separación aplique.
