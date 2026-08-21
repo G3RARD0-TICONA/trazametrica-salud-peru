@@ -24,7 +24,7 @@
 
 ```bash
 docker compose exec web python src/manage.py seed_organizations_demo \
-  --actor admin_demo --version 1
+  --actor admin_demo --dataset-version 1
 ```
 
 Debe ejecutarse después de `bootstrap_access`. Solo funciona en `local`, `test` o `demo`; no ofrece `--reset` destructivo. El comando integral `seed_demo` y el reinicio completo se implementarán cuando todos los módulos de datos existan.
