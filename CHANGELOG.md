@@ -23,7 +23,8 @@ Este proyecto sigue [Versionado Semántico](https://semver.org/lang/es/) desde e
 - Maestros P07 de organización, sedes, servicios, áreas y responsabilidades con migración PostgreSQL.
 - Semilla organizacional determinista, vista protegida y pruebas de integridad/autorización.
 - CI de P07 conforme con 36 pruebas, 86 % de cobertura, seguridad y dependencias sin hallazgos, y contenedor reproducible.
+- Expediente P07 aprobado y puerta G07 cerrada con 12/12 controles conformes.
 
 ### Pendiente
 
-- Implementación de P08–P18 y aceptación formal para cerrar G07.
+- Implementación de P08–P18.
