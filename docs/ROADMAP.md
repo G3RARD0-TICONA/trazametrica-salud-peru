@@ -11,7 +11,7 @@ El roadmap controla el orden del proyecto; no sustituye los criterios de aceptac
 | P04 | Arquitectura, entornos y decisiones técnicas | Aprobada internamente |
 | P05 | Modelo de datos y diccionario | Aprobada internamente |
 | P06 | Identidad, autenticación, roles y permisos | Aprobada internamente |
-| P07 | Maestros organizacionales y catálogos | En pruebas — G07 abierta (11/12) |
+| P07 | Maestros organizacionales y catálogos | Aprobada internamente — G07 cerrada (12/12) |
 | P08 | Gestión documental y control de versiones | No iniciada |
 | P09 | Procesos, SIPOC y fichas | No iniciada |
 | P10 | Importación Excel y calidad de datos | No iniciada |
@@ -32,4 +32,4 @@ El roadmap controla el orden del proyecto; no sustituye los criterios de aceptac
 4. Implementar únicamente requisitos aprobados.
 5. Integrar, probar y registrar evidencia antes de cerrar la parte.
 
-P04, P05 y P06 están aprobadas. P07 implementa los maestros organizacionales y superó CI en Python 3.13/PostgreSQL 17; G07 permanecerá abierta hasta recibir aceptación formal. P08 no heredará una aprobación automática.
+P04, P05, P06 y P07 están aprobadas. P07 implementa los maestros organizacionales y superó CI en Python 3.13/PostgreSQL 17, además de recibir aceptación formal del titular. P08 no hereda una aprobación automática.
