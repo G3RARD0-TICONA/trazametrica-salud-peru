@@ -1,8 +1,8 @@
 # P06 — Identidad, autenticación, roles y permisos
 
-**Estado:** en pruebas  
-**Puerta:** G06 abierta — 11/12 controles conformes; aprobación pendiente  
-**Versión:** 0.1  
+**Estado:** aprobada internamente  
+**Puerta:** G06 cerrada — 12/12 controles conformes  
+**Versión:** 1.0  
 **Fecha de corte:** 20 de agosto de 2026
 
 ## 1. Objetivo
@@ -45,6 +45,6 @@ Implementar el primer incremento ejecutable de Trazamétrica Salud Perú: config
 - Las sesiones y contraseñas usan las [capacidades de autenticación de Django](https://docs.djangoproject.com/en/5.2/topics/auth/default/).
 - Django 5.2 es LTS y su mantenimiento se publica en la [página oficial de versiones](https://www.djangoproject.com/download/).
 
-## 6. Resultado provisional
+## 6. Resultado aprobado
 
-GitHub Actions ejecutó conforme la matriz completa en Python 3.13.15 y PostgreSQL 17.11: 18 pruebas aprobadas, cobertura de 87 %, migraciones coherentes, análisis estático y de seguridad conformes, dependencias sin vulnerabilidades conocidas y contenedor construido. G06 permanece abierta hasta que el titular acepte formalmente el resultado. “En pruebas” no equivale a aprobación ni a aptitud productiva.
+GitHub Actions ejecutó conforme la matriz completa en Python 3.13.15 y PostgreSQL 17.11: 18 pruebas aprobadas, cobertura de 87 %, migraciones coherentes, análisis estático y de seguridad conformes, dependencias sin vulnerabilidades conocidas y contenedor construido. El titular autorizó el cierre el 20 de agosto de 2026; por ello G06 quedó cerrada con 12/12 controles. Esta aprobación interna no equivale a aptitud productiva, certificación ni autorización sanitaria.

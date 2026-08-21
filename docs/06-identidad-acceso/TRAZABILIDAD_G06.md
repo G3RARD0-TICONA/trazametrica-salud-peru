@@ -53,6 +53,6 @@ La cobertura mínima obligatoria es 80 % sobre `accounts` y `core`, excluyendo m
 | 9 | Arranque y bootstrap reproducibles | Compose, comando y guía | Conforme |
 | 10 | Pruebas y controles definidos | Suite y workflow | Conforme |
 | 11 | CI en Python 3.13.15/PostgreSQL 17.11 | 18 pruebas, 87 % cobertura y controles conformes | Conforme |
-| 12 | Aceptación formal del titular | Decisión posterior a CI | Pendiente |
+| 12 | Aceptación formal del titular | Autorización expresa del 20 de agosto de 2026 | Conforme |
 
-**Resultado actual:** 11/12. P06 está **EN PRUEBAS** y G06 permanece abierta. La CI finalizó conforme; la aprobación solo procederá cuando el titular acepte el incremento. El cierre tampoco implicará certificación, seguridad productiva ni autorización sanitaria.
+**Resultado final:** 12/12. P06 está **APROBADA INTERNAMENTE** y G06 cerrada. La CI y la autorización expresa sustentan el cierre; este resultado no implica certificación, seguridad productiva ni autorización sanitaria.

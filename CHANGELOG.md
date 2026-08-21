@@ -19,8 +19,8 @@ Este proyecto sigue [Versionado Semántico](https://semver.org/lang/es/) desde e
 - Base ejecutable P06 con Django 5.2 LTS, PostgreSQL 17, Docker Compose y GitHub Actions.
 - Usuario personalizado, ocho roles, 33 capacidades, vigencias, segregación de funciones y autorización en servidor.
 - Pruebas unitarias e integrales, controles de calidad, endpoints de salud y bootstrap sintético.
+- Expediente P06 aprobado y puerta G06 cerrada con 12/12 controles conformes.
 
 ### Pendiente
 
-- Aprobación interna de G06 por el titular.
 - Implementación de P07–P18.
