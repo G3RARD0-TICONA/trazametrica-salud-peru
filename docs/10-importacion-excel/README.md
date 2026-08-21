@@ -1,7 +1,7 @@
 # P10 — Importación Excel y calidad de datos
 
-**Estado:** en pruebas  
-**Puerta:** G10 abierta — 10/12 controles conformes  
+**Estado:** en revisión  
+**Puerta:** G10 abierta — 11/12 controles conformes  
 **Versión:** 0.9  
 **Fecha de corte:** 20 de agosto de 2026
 
@@ -46,4 +46,4 @@ Implementar RF-010–014, CU-06–07, RN-007–010, RNF-007 y ENT-017–021: pla
 
 ## 5. Resultado actual
 
-Las verificaciones locales aprobaron 88 pruebas aplicables con 85 % de cobertura, documentación, lint, tipado, modelos y migraciones conformes. G10 conserva dos pendientes: ejecución íntegra en CI con PostgreSQL 17 y aceptación formal del titular.
+Las verificaciones locales aprobaron 88 pruebas aplicables con 85 % de cobertura. La CI #42 aprobó las 89 pruebas en Python 3.13 y PostgreSQL 17, el contenedor, documentación, lint, tipado, migraciones, seguridad estática y auditoría de dependencias. G10 conserva un único pendiente: la aceptación formal del titular.

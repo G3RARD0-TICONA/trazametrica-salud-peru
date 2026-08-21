@@ -42,7 +42,8 @@ Este proyecto sigue [Versionado Semántico](https://semver.org/lang/es/) desde e
 - Validación de identidad de plantilla, encabezados, tipos, obligatoriedad, códigos, fechas, rangos, catálogos, duplicados y datos inseguros.
 - Rechazo atómico, SHA-256 de archivo y filas, antecedente duplicado, reintentos y promoción controlada.
 - Cuatro plantillas sintéticas deterministas, interfaz protegida y prueba de referencia de 10 000 filas.
-- Expediente P10 en pruebas y puerta G10 abierta con 10/12 controles conformes antes de CI y aceptación.
+- CI #42 de P10 conforme con 89 pruebas, 85 % de cobertura, seguridad y dependencias sin hallazgos, y contenedor reproducible.
+- Expediente P10 en revisión y puerta G10 abierta con 11/12 controles conformes; solo falta la aceptación formal.
 
 ### Pendiente
 

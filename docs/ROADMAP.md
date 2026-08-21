@@ -14,7 +14,7 @@ El roadmap controla el orden del proyecto; no sustituye los criterios de aceptac
 | P07 | Maestros organizacionales y catálogos | Aprobada internamente — G07 cerrada (12/12) |
 | P08 | Gestión documental y control de versiones | Aprobada internamente — G08 cerrada (12/12) |
 | P09 | Procesos, SIPOC y fichas | Aprobada internamente — G09 cerrada (12/12) |
-| P10 | Importación Excel y calidad de datos | En pruebas — G10 abierta (10/12) |
+| P10 | Importación Excel y calidad de datos | En revisión — G10 abierta (11/12) |
 | P11 | Catálogo, cálculo y seguimiento de KPI | No iniciada |
 | P12 | Auditorías, hallazgos y no conformidades | No iniciada |
 | P13 | Acciones correctivas, evidencias y mejora | No iniciada |
@@ -32,4 +32,4 @@ El roadmap controla el orden del proyecto; no sustituye los criterios de aceptac
 4. Implementar únicamente requisitos aprobados.
 5. Integrar, probar y registrar evidencia antes de cerrar la parte.
 
-P04–P09 están aprobadas internamente. P10 materializa plantillas versionadas, cargas, staging y errores accionables; superó las verificaciones locales, pero no hereda aprobación automática. G10 requiere todavía CI en GitHub y aceptación formal del titular.
+P04–P09 están aprobadas internamente. P10 materializa plantillas versionadas, cargas, staging y errores accionables; superó las verificaciones locales y la CI #42 en GitHub. No hereda aprobación automática: G10 requiere todavía la aceptación formal del titular.

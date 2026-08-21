@@ -36,7 +36,7 @@
 
 ## 3. Evaluación actual de G10
 
-Las verificaciones locales aprobaron 88 pruebas aplicables y 85 % de cobertura. CI y aceptación formal siguen pendientes.
+Las verificaciones locales aprobaron 88 pruebas aplicables y 85 % de cobertura. La CI #42 aprobó 89 pruebas en Python 3.13/PostgreSQL 17 con 85 % de cobertura, seguridad y dependencias sin hallazgos. Solo la aceptación formal sigue pendiente.
 
 | # | Criterio | Evidencia | Estado |
 |---:|---|---|---|
@@ -50,7 +50,7 @@ Las verificaciones locales aprobaron 88 pruebas aplicables y 85 % de cobertura. 
 | 8 | Seguridad y datos sintéticos | OOXML seguro, fórmulas bloqueadas y `.invalid` | Conforme |
 | 9 | Consulta, descarga y carga autorizadas | rutas protegidas y prueba HTTP | Conforme |
 | 10 | Semilla y rendimiento de referencia | 4 plantillas y 10 000 filas ≤60 s | Conforme |
-| 11 | CI en Python 3.13/PostgreSQL 17 | Pendiente de ejecución en GitHub | Pendiente |
+| 11 | CI en Python 3.13/PostgreSQL 17 | CI #42: 89 pruebas, 85 %, seguridad, dependencias y contenedor conformes | Conforme |
 | 12 | Aceptación formal del titular | Requiere autorización expresa posterior | Pendiente |
 
-**Resultado actual:** 10/12. P10 está **EN PRUEBAS** y G10 permanece abierta. La aceptación interna no representa certificación, autorización sanitaria ni aptitud productiva.
+**Resultado actual:** 11/12. P10 está **EN REVISIÓN** y G10 permanece abierta únicamente por la aceptación formal. La aceptación interna no representa certificación, autorización sanitaria ni aptitud productiva.

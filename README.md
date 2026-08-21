@@ -3,7 +3,7 @@
 Proyecto demostrativo de investigación aplicada para gestionar procesos, calidad, indicadores y analítica administrativa en clínicas privadas del Perú.
 
 > [!IMPORTANT]
-> Las Partes 0–9 tienen sus puertas cerradas. P10 es el quinto incremento ejecutable y está en pruebas; G10 permanece abierta hasta completar CI y aceptación formal.
+> Las Partes 0–9 tienen sus puertas cerradas. P10 es el quinto incremento ejecutable y está en revisión; la CI fue conforme y G10 permanece abierta únicamente hasta la aceptación formal.
 
 ## Propósito
 
@@ -46,7 +46,7 @@ El resultado final será un portafolio técnico que integre gestión por proceso
 | P07 | Maestros organizacionales y catálogos | Aprobada internamente | G07 cerrada (12/12) |
 | P08 | Gestión documental y control de versiones | Aprobada internamente | G08 cerrada (12/12) |
 | P09 | Procesos, SIPOC y fichas | Aprobada internamente | G09 cerrada (12/12) |
-| P10 | Importación Excel y calidad de datos | En pruebas | G10 abierta (10/12) |
+| P10 | Importación Excel y calidad de datos | En revisión | G10 abierta (11/12) |
 | P11–P18 | KPI, calidad, analítica y publicación | No iniciadas | Pendientes |
 
 Consulta el [roadmap](docs/ROADMAP.md) y el [índice de documentación](docs/README.md).
