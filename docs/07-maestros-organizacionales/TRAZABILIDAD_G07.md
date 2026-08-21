@@ -45,6 +45,6 @@ La ejecución CI #19 del PR #6 aprobó las 36 pruebas en PostgreSQL 17.11, obtuv
 | 9 | Consulta organizacional protegida | Selector, vista y plantilla | Conforme |
 | 10 | Dataset sintético reproducible | 1/3/20/12 y UUIDv5 | Conforme |
 | 11 | CI completa en PostgreSQL 17 | Ejecución #19: pruebas, 86 % de cobertura, seguridad, dependencias e imagen | Conforme |
-| 12 | Aceptación formal del titular | Decisión posterior a CI | Pendiente |
+| 12 | Aceptación formal del titular | Autorización expresa del 20 de agosto de 2026 | Conforme |
 
-**Resultado actual:** 11/12. P07 está **EN PRUEBAS** y G07 permanece abierta únicamente por la aceptación formal del titular. Su eventual cierre no significará certificación, autorización sanitaria o aptitud productiva.
+**Resultado final:** 12/12. P07 está **APROBADA INTERNAMENTE** y G07 queda cerrada. Esta decisión aprueba el incremento dentro del gobierno del proyecto; no significa certificación, autorización sanitaria o aptitud productiva.
