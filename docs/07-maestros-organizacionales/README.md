@@ -1,8 +1,8 @@
 # P07 — Maestros organizacionales y catálogos
 
-**Estado:** en pruebas  
-**Puerta:** G07 abierta — 11/12 controles conformes; aceptación pendiente  
-**Versión:** 0.2  
+**Estado:** aprobada internamente  
+**Puerta:** G07 cerrada — 12/12 controles conformes  
+**Versión:** 1.0  
 **Fecha de corte:** 20 de agosto de 2026
 
 ## 1. Objetivo
@@ -38,6 +38,6 @@ Implementar las entidades ENT-004–ENT-008 aprobadas en P05 y cumplir RF-004/RF
 - [Semilla sintética](SEMILLA_DEMO.md)
 - [Trazabilidad, pruebas y puerta G07](TRAZABILIDAD_G07.md)
 
-## 5. Resultado provisional
+## 5. Resultado aprobado
 
-GitHub Actions validó el incremento en Python 3.13.15 y PostgreSQL 17.11: 36 pruebas aprobadas, cobertura total de 86 %, cero hallazgos de Bandit, cero vulnerabilidades conocidas en dependencias y construcción correcta del contenedor. G07 seguirá abierta hasta que el titular acepte formalmente el resultado.
+GitHub Actions validó el incremento en Python 3.13.15 y PostgreSQL 17.11: 36 pruebas aprobadas, cobertura total de 86 %, cero hallazgos de Bandit, cero vulnerabilidades conocidas en dependencias y construcción correcta del contenedor. El titular aceptó formalmente el resultado el 20 de agosto de 2026; por ello, P07 está aprobada internamente y G07 queda cerrada con 12/12 controles conformes.
