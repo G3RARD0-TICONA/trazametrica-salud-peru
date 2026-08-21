@@ -59,7 +59,8 @@ Este proyecto sigue [Versionado Semántico](https://semver.org/lang/es/) desde e
 - RN-014 implementada mediante evidencia sintética validada o justificación expresa de ausencia.
 - Bloqueo de ejecución incompleta y de no conformidad sin hallazgo trazable.
 - Alertas de vencimiento, catálogo protegido y semilla determinista de 12 planes y 180 hallazgos.
-- Expediente P12 en pruebas y puerta G12 abierta con 10/12 controles conformes antes de CI y aceptación.
+- CI #52 de P12 conforme con 115 pruebas sobre PostgreSQL 17, 83 % de cobertura, seguridad y dependencias sin hallazgos, y contenedor reproducible.
+- Expediente P12 en revisión y puerta G12 abierta con 11/12 controles conformes; solo falta la aceptación formal del titular.
 
 ### Pendiente
 

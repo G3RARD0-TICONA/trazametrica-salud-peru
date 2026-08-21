@@ -28,7 +28,7 @@
 
 ## Evaluación actual de G12
 
-Las verificaciones locales aprobaron 114 pruebas aplicables y 83 % de cobertura. La comprobación PostgreSQL integral y la aceptación formal siguen pendientes.
+Las verificaciones locales aprobaron 114 pruebas aplicables y 83 % de cobertura. La CI #52 aprobó 115 pruebas sobre PostgreSQL 17, mantuvo 83 % de cobertura y verificó documentación, lint, tipado, migraciones, seguridad, dependencias y construcción del contenedor. Solo falta la aceptación formal del titular.
 
 | # | Criterio | Evidencia | Estado |
 |---:|---|---|---|
@@ -42,7 +42,7 @@ Las verificaciones locales aprobaron 114 pruebas aplicables y 83 % de cobertura.
 | 8 | Revisión independiente | auditor líder no aprueba su ejecución | Conforme |
 | 9 | Consulta y alertas | HTTP protegido y vencimiento derivado | Conforme |
 | 10 | Semilla contractual | 12 planes, 180 respuestas y 180 hallazgos | Conforme |
-| 11 | CI en Python 3.13/PostgreSQL 17 | Pendiente de ejecución en GitHub | Pendiente |
+| 11 | CI en Python 3.13/PostgreSQL 17 | CI #52: 115 pruebas, 83 %, seguridad, dependencias e imagen conformes | Conforme |
 | 12 | Aceptación formal del titular | Requiere autorización expresa posterior | Pendiente |
 
-**Resultado actual:** 10/12. P12 está **EN PRUEBAS** y G12 permanece abierta. La aprobación interna no representa certificación, autorización sanitaria ni aptitud productiva.
+**Resultado actual:** 11/12. P12 está **EN REVISIÓN** y G12 permanece abierta hasta la aceptación formal del titular. La aprobación interna no representa certificación, autorización sanitaria ni aptitud productiva.
