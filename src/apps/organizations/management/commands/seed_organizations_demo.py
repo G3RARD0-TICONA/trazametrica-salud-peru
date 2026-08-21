@@ -10,7 +10,7 @@ class Command(BaseCommand):
 
     def add_arguments(self, parser: CommandParser) -> None:
         parser.add_argument("--actor", default="admin_demo")
-        parser.add_argument("--version", choices=["1"], default="1")
+        parser.add_argument("--dataset-version", choices=["1"], default="1")
 
     def handle(self, *args: object, **options: object) -> None:
         if settings.ENVIRONMENT not in {"local", "test", "demo"}:
