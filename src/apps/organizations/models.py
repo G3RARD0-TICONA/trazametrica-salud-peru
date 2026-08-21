@@ -178,7 +178,7 @@ class Service(CodedLifecycleMaster):
         indexes = [
             models.Index(
                 fields=["site", "is_active", "code"],
-                name="organizations_service_catalog_ix",
+                name="org_service_catalog_ix",
             )
         ]
 
@@ -222,7 +222,7 @@ class Area(CodedLifecycleMaster):
         indexes = [
             models.Index(
                 fields=["organization", "parent"],
-                name="organizations_area_hierarchy_ix",
+                name="org_area_hierarchy_ix",
             )
         ]
 
