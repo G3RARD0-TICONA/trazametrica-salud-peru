@@ -6,6 +6,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 LINK_PATTERN = re.compile(r"\[[^\]]+\]\(([^)]+)\)")
+IGNORED_PARTS = {".git", ".venv", "node_modules"}
 
 
 def validate_file(path: Path) -> list[str]:
@@ -29,6 +30,8 @@ def validate_file(path: Path) -> list[str]:
 def main() -> int:
     errors: list[str] = []
     for path in sorted(ROOT.rglob("*.md")):
+        if any(part in IGNORED_PARTS for part in path.relative_to(ROOT).parts):
+            continue
         errors.extend(validate_file(path))
     if errors:
         print("\n".join(errors))

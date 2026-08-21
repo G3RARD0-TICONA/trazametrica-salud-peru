@@ -49,6 +49,8 @@ INSTALLED_APPS = [
     "apps.core",
     "apps.accounts",
     "apps.organizations",
+    "apps.auditlog",
+    "apps.documents",
 ]
 
 MIDDLEWARE = [

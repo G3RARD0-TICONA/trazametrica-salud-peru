@@ -24,6 +24,13 @@ def test_approval_is_separated_from_system_administration() -> None:
     assert Capability.MANAGE_USERS not in ROLE_CAPABILITIES["APPROVER"]
 
 
+def test_document_view_is_explicit_and_approval_remains_separated() -> None:
+    assert Capability.VIEW_DOCUMENTS in ROLE_CAPABILITIES["VIEWER"]
+    assert Capability.VIEW_DOCUMENTS in ROLE_CAPABILITIES["AUDITOR"]
+    assert Capability.APPROVE_DOCUMENTS in ROLE_CAPABILITIES["APPROVER"]
+    assert Capability.APPROVE_DOCUMENTS not in ROLE_CAPABILITIES["QUALITY_MANAGER"]
+
+
 def test_date_ranges_include_their_boundaries() -> None:
     first_start = date(2026, 1, 1)
     first_end = date(2026, 1, 31)
