@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Resultado de importación | Trazamétrica Salud Perú{% endblock %}
+
+{% block content %}
+  <p><a href="{% url 'imports:catalog' %}">← Volver a importaciones</a></p>
+  <h1>Carga {{ job.id }}</h1>
+  <p class="notice"><strong>DATOS SINTÉTICOS.</strong> El detalle no debe contener datos reales.</p>
+  <dl>
+    <dt>Plantilla</dt><dd>{{ job.template_version.template.code }} v{{ job.template_version.version_no }}</dd>
+    <dt>Archivo</dt><dd>{{ job.source_file.original_name }}</dd>
+    <dt>Estado</dt><dd>{{ job.get_status_display }}</dd>
+    <dt>Filas</dt><dd>{{ job.row_count }}</dd>
+    <dt>Errores</dt><dd>{{ job.error_count }}</dd>
+    <dt>Intento</dt><dd>{{ job.attempt_count }}</dd>
+  </dl>
+  {% if job.duplicate_of %}<p>Duplicada de la carga <a href="{% url 'imports:detail' job.duplicate_of.id %}">{{ job.duplicate_of.id }}</a>.</p>{% endif %}
+  {% if job.retry_of %}<p>Reintento de la carga <a href="{% url 'imports:detail' job.retry_of.id %}">{{ job.retry_of.id }}</a>.</p>{% endif %}
+
+  <h2>Errores accionables</h2>
+  <table>
+    <thead><tr><th scope="col">Fila</th><th scope="col">Columna</th><th scope="col">Regla</th><th scope="col">Mensaje</th><th scope="col">Acción</th></tr></thead>
+    <tbody>
+      {% for row in job.rows.all %}{% for error in row.errors.all %}
+        <tr><td>{{ row.row_number }}</td><td>{{ error.column_name|default:"—" }}</td><td>{{ error.rule_code }}</td><td>{{ error.message }}</td><td>{{ error.suggested_action }}</td></tr>
+      {% endfor %}{% empty %}<tr><td colspan="5">La carga no registra errores.</td></tr>{% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

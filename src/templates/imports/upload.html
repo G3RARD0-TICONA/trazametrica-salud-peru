@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Validar Excel | Trazamétrica Salud Perú{% endblock %}
+
+{% block content %}
+  <p><a href="{% url 'imports:catalog' %}">← Volver a importaciones</a></p>
+  <h1>Validar archivo XLSX</h1>
+  <p class="notice"><strong>DATOS SINTÉTICOS.</strong> Límite: 10 MiB y 10 000 filas. Las fórmulas, macros y vínculos externos están prohibidos.</p>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Validar carga</button>
+  </form>
+{% endblock %}

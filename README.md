@@ -3,7 +3,7 @@
 Proyecto demostrativo de investigación aplicada para gestionar procesos, calidad, indicadores y analítica administrativa en clínicas privadas del Perú.
 
 > [!IMPORTANT]
-> Las Partes 0–9 tienen sus puertas cerradas. P09 constituye el cuarto incremento ejecutable aprobado internamente.
+> Las Partes 0–9 tienen sus puertas cerradas. P10 es el quinto incremento ejecutable y está en pruebas; G10 permanece abierta hasta completar CI y aceptación formal.
 
 ## Propósito
 
@@ -46,7 +46,8 @@ El resultado final será un portafolio técnico que integre gestión por proceso
 | P07 | Maestros organizacionales y catálogos | Aprobada internamente | G07 cerrada (12/12) |
 | P08 | Gestión documental y control de versiones | Aprobada internamente | G08 cerrada (12/12) |
 | P09 | Procesos, SIPOC y fichas | Aprobada internamente | G09 cerrada (12/12) |
-| P10–P18 | Datos, calidad, analítica y publicación | No iniciadas | Pendientes |
+| P10 | Importación Excel y calidad de datos | En pruebas | G10 abierta (10/12) |
+| P11–P18 | KPI, calidad, analítica y publicación | No iniciadas | Pendientes |
 
 Consulta el [roadmap](docs/ROADMAP.md) y el [índice de documentación](docs/README.md).
 
@@ -65,7 +66,7 @@ Las reglas completas se encuentran en [SECURITY.md](SECURITY.md).
 - Docker Compose Specification para entornos reproducibles.
 - Pruebas automatizadas y CI en GitHub Actions.
 
-La arquitectura y las versiones fueron fijadas en P04 y el modelo de datos en P05. P06 implementa el primer esqueleto ejecutable; P07 añade la estructura organizacional; P08 implementa el dominio documental y P09 incorpora procesos versionados, fichas SIPOC y su vínculo documental.
+La arquitectura y las versiones fueron fijadas en P04 y el modelo de datos en P05. P06 implementa identidad; P07 la estructura organizacional; P08 documentos; P09 procesos y SIPOC; P10 incorpora plantillas Excel versionadas, staging, validación, errores y trazabilidad de cargas.
 
 ## Ejecución local
 
@@ -76,9 +77,10 @@ docker compose exec web python src/manage.py migrate --noinput
 docker compose exec web python src/manage.py bootstrap_access
 docker compose exec web python src/manage.py seed_organizations_demo --actor admin_demo
 docker compose exec web python src/manage.py seed_processes_demo --actor admin_demo
+docker compose exec web python src/manage.py seed_import_templates_demo --actor admin_demo
 ```
 
-Antes del bootstrap, define en `.env` una contraseña sintética de al menos 12 caracteres. Consulta las guías de [identidad](docs/06-identidad-acceso/EJECUCION.md), [semilla organizacional](docs/07-maestros-organizacionales/SEMILLA_DEMO.md), [gestión documental](docs/08-gestion-documental/README.md) y [procesos/SIPOC](docs/09-procesos-sipoc/README.md). Los catálogos protegidos quedan disponibles en `/documents/` y `/processes/` con sus respectivas capacidades de consulta.
+Antes del bootstrap, define en `.env` una contraseña sintética de al menos 12 caracteres. Consulta las guías de [identidad](docs/06-identidad-acceso/EJECUCION.md), [semilla organizacional](docs/07-maestros-organizacionales/SEMILLA_DEMO.md), [gestión documental](docs/08-gestion-documental/README.md), [procesos/SIPOC](docs/09-procesos-sipoc/README.md) e [importación Excel](docs/10-importacion-excel/README.md). Los catálogos protegidos quedan disponibles en `/documents/`, `/processes/` e `/imports/`.
 
 ## Derechos de autor
 

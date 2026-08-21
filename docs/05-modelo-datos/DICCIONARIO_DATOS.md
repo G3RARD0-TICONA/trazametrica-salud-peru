@@ -59,8 +59,8 @@ Leyenda: `!` obligatorio, `?` opcional, `PK` clave primaria y `FK` clave foráne
 | ID | Tabla | Bloques | Campos específicos |
 |---|---|---|---|
 | ENT-017 | `imports_template` | B01, B02, B03 | `organization_id:uuid FK!`; `code:varchar(50)!`; `name:varchar(200)!`; `target_type:varchar(30)!` |
-| ENT-018 | `imports_template_version` | B01, B02, B04 | `template_id:uuid FK!`; `schema_definition:jsonb!`; `file_asset_id:uuid FK?`; `schema_hash:varchar(64)!` |
-| ENT-019 | `imports_import_job` | B01, B02 | `template_version_id:uuid FK!`; `source_file_id:uuid FK!`; `organization_id:uuid FK!`; `status:varchar(30)!`; `file_hash:varchar(64)!`; `row_count:integer!`; `error_count:integer!`; `started_at:timestamptz?`; `finished_at:timestamptz?`; `promoted_at:timestamptz?`; `attempt_count:integer!` |
+| ENT-018 | `imports_template_version` | B01, B02, B04 | `template_id:uuid FK!`; `schema_definition:jsonb!`; `file_asset_id:uuid FK?`; `schema_hash:varchar(64)!`; `submitted_at:timestamptz?`; `submitted_by:uuid FK?` |
+| ENT-019 | `imports_import_job` | B01, B02 | `template_version_id:uuid FK!`; `source_file_id:uuid FK!`; `organization_id:uuid FK!`; `status:varchar(30)!`; `file_hash:varchar(64)!`; `row_count:integer!`; `error_count:integer!`; `started_at:timestamptz?`; `finished_at:timestamptz?`; `promoted_at:timestamptz?`; `attempt_count:integer!`; `duplicate_of_id:uuid FK?`; `retry_of_id:uuid FK?` |
 | ENT-020 | `imports_import_row` | B01 | `import_job_id:uuid FK!`; `row_number:integer!`; `raw_data:jsonb!`; `normalized_hash:varchar(64)!`; `is_valid:boolean!` |
 | ENT-021 | `imports_import_error` | B01 | `import_row_id:uuid FK!`; `column_name:varchar(100)?`; `rule_code:varchar(50)!`; `severity:varchar(20)!`; `message:varchar(500)!`; `suggested_action:varchar(500)?` |
 | ENT-022 | `indicators_indicator` | B01, B02, B03 | `organization_id:uuid FK!`; `process_id:uuid FK!`; `code:varchar(50)!`; `name:varchar(200)!`; `owner_id:uuid FK!` |
@@ -104,3 +104,5 @@ Leyenda: `!` obligatorio, `?` opcional, `PK` clave primaria y `FK` clave foráne
 El diccionario es el contrato de P05. P06–P15 podrán añadir campos justificados, pero cualquier cambio de tipo, nulabilidad, clave, cardinalidad o semántica deberá actualizar este archivo, la migración, la restricción afectada y las pruebas de trazabilidad.
 
 P08 materializa ENT-013 con `responsible_area_id` obligatorio. P09 materializa ENT-009–011 y añade `process_id` a ENT-013 mediante una clave foránea opcional y protegida. También extiende ENT-009 con clasificación del proceso y ENT-010 con evidencia de envío y revisión; estos campos sustentan catálogo, segregación y auditoría sin alterar las cardinalidades aprobadas.
+
+P10 materializa ENT-017–021. ENT-018 registra envío a revisión para sustentar publicación independiente; ENT-019 añade autorrelaciones opcionales `duplicate_of_id` y `retry_of_id` para demostrar RN-009 y RF-014 sin copiar ni sobrescribir la carga antecedente.

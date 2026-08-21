@@ -17,6 +17,8 @@ Solo se permiten datos ficticios generados para pruebas. Antes de confirmar cual
 
 Los datos sintéticos deberán estar señalados como tales, tener una versión y poder regenerarse sin una fuente real.
 
+Las cargas Excel deben conservar la marca `DATOS SINTÉTICOS`. El sistema rechaza macros, fórmulas, vínculos externos, objetos incrustados, columnas clínicas evidentes y correos que no utilicen dominios `.invalid`.
+
 ## Controles mínimos del desarrollo
 
 - Separar configuración y secretos del código.

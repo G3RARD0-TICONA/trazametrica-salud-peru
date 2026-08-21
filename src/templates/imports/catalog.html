@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Importaciones | Trazamétrica Salud Perú{% endblock %}
+
+{% block content %}
+  <h1>Importaciones Excel</h1>
+  <p class="notice"><strong>DATOS SINTÉTICOS.</strong> No cargue información personal, clínica ni de producción.</p>
+  <p><a href="{% url 'imports:upload' %}">Validar una nueva carga XLSX</a></p>
+
+  <h2>Plantillas vigentes</h2>
+  <table>
+    <thead><tr><th scope="col">Código</th><th scope="col">Plantilla</th><th scope="col">Destino</th><th scope="col">Versión</th><th scope="col">Descarga</th></tr></thead>
+    <tbody>
+      {% for template in templates %}
+        {% with version=template.effective_versions.0 %}
+          <tr>
+            <td>{{ template.code }}</td><td>{{ template.name }}</td><td>{{ template.get_target_type_display }}</td>
+            <td>{% if version %}v{{ version.version_no }}{% else %}—{% endif %}</td>
+            <td>{% if version %}<a href="{% url 'imports:download' version.id %}">Descargar XLSX</a>{% else %}No disponible{% endif %}</td>
+          </tr>
+        {% endwith %}
+      {% empty %}<tr><td colspan="5">No existen plantillas vigentes.</td></tr>{% endfor %}
+    </tbody>
+  </table>
+
+  <h2>Últimas cargas</h2>
+  <table>
+    <thead><tr><th scope="col">Fecha</th><th scope="col">Plantilla</th><th scope="col">Estado</th><th scope="col">Filas</th><th scope="col">Errores</th></tr></thead>
+    <tbody>
+      {% for job in jobs %}
+        <tr><td><a href="{% url 'imports:detail' job.id %}">{{ job.created_at }}</a></td><td>{{ job.template_version.template.code }} v{{ job.template_version.version_no }}</td><td>{{ job.get_status_display }}</td><td>{{ job.row_count }}</td><td>{{ job.error_count }}</td></tr>
+      {% empty %}<tr><td colspan="5">No existen cargas registradas.</td></tr>{% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
