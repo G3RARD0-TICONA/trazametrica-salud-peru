@@ -228,7 +228,8 @@ class Area(CodedLifecycleMaster):
 
     def clean(self) -> None:
         super().clean()
-        if self.parent_id and self.parent.organization_id != self.organization_id:
+        parent = self.parent
+        if parent is not None and parent.organization_id != self.organization_id:
             raise ValidationError({"parent": "El área padre debe pertenecer a la organización."})
 
 
