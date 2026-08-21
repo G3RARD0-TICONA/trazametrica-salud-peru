@@ -13,7 +13,7 @@ La documentación está organizada como expedientes consecutivos. Una parte solo
 | [P06](06-identidad-acceso/README.md) | Identidad, autenticación, roles y permisos | Aprobada internamente |
 | [P07](07-maestros-organizacionales/README.md) | Maestros organizacionales y catálogos | Aprobada internamente — G07 cerrada |
 | [P08](08-gestion-documental/README.md) | Gestión documental y control de versiones | Aprobada internamente — G08 cerrada |
-| [P09](09-procesos-sipoc/README.md) | Procesos, SIPOC y fichas | Lista para aceptación — G09 abierta (11/12) |
+| [P09](09-procesos-sipoc/README.md) | Procesos, SIPOC y fichas | Aprobada internamente — G09 cerrada |
 | [Roadmap](ROADMAP.md) | Secuencia P00–P18 | Activo |
 
 ## Convención de estados

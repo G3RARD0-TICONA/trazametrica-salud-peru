@@ -36,8 +36,8 @@ Este proyecto sigue [Versionado Semántico](https://semver.org/lang/es/) desde e
 - Relación documental `Document.process`, catálogo protegido y semilla determinista de 100 procesos y 500 elementos SIPOC.
 - Migraciones y 11 pruebas nuevas para autorización, integridad, inmutabilidad, vigencia, vínculo documental y semilla sintética.
 - CI de P09 conforme con 68 pruebas, 86 % de cobertura, seguridad y dependencias sin hallazgos, y contenedor reproducible.
-- Expediente P09 listo para aceptación y puerta G09 abierta con 11/12 controles conformes.
+- Expediente P09 aprobado internamente y puerta G09 cerrada con 12/12 controles conformes.
 
 ### Pendiente
 
-- Cierre de G09 e implementación de P10–P18.
+- Implementación de P10–P18.

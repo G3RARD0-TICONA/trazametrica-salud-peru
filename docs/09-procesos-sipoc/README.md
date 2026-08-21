@@ -1,8 +1,8 @@
 # P09 — Procesos, SIPOC y fichas
 
-**Estado:** lista para aceptación  
-**Puerta:** G09 abierta — 11/12 controles conformes  
-**Versión:** 0.9  
+**Estado:** aprobada internamente  
+**Puerta:** G09 cerrada — 12/12 controles conformes  
+**Versión:** 1.0  
 **Fecha de corte:** 20 de agosto de 2026
 
 ## 1. Objetivo
@@ -41,6 +41,6 @@ Implementar RF-006, RF-007, RF-009, CU-04, CU-05, RN-001–006 y las entidades E
 - [Semilla demostrativa](SEMILLA_DEMO.md)
 - [Trazabilidad, pruebas y puerta G09](TRAZABILIDAD_G09.md)
 
-## 5. Resultado actual
+## 5. Resultado aprobado
 
-La ejecución #38 de GitHub Actions aprobó 68 pruebas en Python 3.13.15 y PostgreSQL 17.11, con 86 % de cobertura, cero hallazgos de Bandit, cero vulnerabilidades conocidas y construcción correcta del contenedor. G09 conserva un único pendiente: aceptación formal del titular.
+La ejecución #39 de GitHub Actions aprobó 68 pruebas en Python 3.13.15 y PostgreSQL 17.11, con 86 % de cobertura, cero hallazgos de Bandit, cero vulnerabilidades conocidas y construcción correcta del contenedor. El titular aceptó formalmente el resultado el 20 de agosto de 2026; por ello, P09 está aprobada internamente y G09 queda cerrada con 12/12 controles conformes.

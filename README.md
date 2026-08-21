@@ -3,7 +3,7 @@
 Proyecto demostrativo de investigación aplicada para gestionar procesos, calidad, indicadores y analítica administrativa en clínicas privadas del Perú.
 
 > [!IMPORTANT]
-> Las Partes 0–8 tienen sus puertas cerradas. P09 es el cuarto incremento ejecutable y está listo para aceptación; G09 permanece abierta hasta la decisión formal del titular.
+> Las Partes 0–9 tienen sus puertas cerradas. P09 constituye el cuarto incremento ejecutable aprobado internamente.
 
 ## Propósito
 
@@ -45,7 +45,7 @@ El resultado final será un portafolio técnico que integre gestión por proceso
 | P06 | Identidad, autenticación, roles y permisos | Aprobada internamente | G06 cerrada |
 | P07 | Maestros organizacionales y catálogos | Aprobada internamente | G07 cerrada (12/12) |
 | P08 | Gestión documental y control de versiones | Aprobada internamente | G08 cerrada (12/12) |
-| P09 | Procesos, SIPOC y fichas | Lista para aceptación | G09 abierta (11/12) |
+| P09 | Procesos, SIPOC y fichas | Aprobada internamente | G09 cerrada (12/12) |
 | P10–P18 | Datos, calidad, analítica y publicación | No iniciadas | Pendientes |
 
 Consulta el [roadmap](docs/ROADMAP.md) y el [índice de documentación](docs/README.md).

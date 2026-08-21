@@ -32,7 +32,7 @@
 
 ## 3. Evaluación actual de G09
 
-La ejecución #38 de GitHub Actions del PR #8 aprobó 68 pruebas en PostgreSQL 17.11 y Python 3.13.15, con 86 % de cobertura. También aprobó migraciones, tipado, lint, Bandit, `pip-audit` y construcción del contenedor. Solo falta la aceptación formal.
+La ejecución #39 de GitHub Actions del PR #8 aprobó 68 pruebas en PostgreSQL 17.11 y Python 3.13.15, con 86 % de cobertura. También aprobó migraciones, tipado, lint, Bandit, `pip-audit` y construcción del contenedor. El titular autorizó expresamente el cierre y la integración el 20 de agosto de 2026.
 
 | # | Criterio | Evidencia | Estado |
 |---:|---|---|---|
@@ -46,7 +46,7 @@ La ejecución #38 de GitHub Actions del PR #8 aprobó 68 pruebas en PostgreSQL 1
 | 8 | Documento vinculado con integridad | FK protegida, ámbito y prueba | Conforme |
 | 9 | Auditoría append-only | eventos de servicio | Conforme |
 | 10 | Consulta y semilla sintética | HTTP 403/200 y 100/100/500 | Conforme |
-| 11 | CI en Python 3.13/PostgreSQL 17 | Ejecución #38: 68 pruebas, 86 % e imagen correcta | Conforme |
-| 12 | Aceptación formal del titular | Requiere autorización expresa posterior | Pendiente |
+| 11 | CI en Python 3.13/PostgreSQL 17 | Ejecución #39: 68 pruebas, 86 % e imagen correcta | Conforme |
+| 12 | Aceptación formal del titular | Autorización expresa del 20 de agosto de 2026 | Conforme |
 
-**Resultado actual:** 11/12. P09 está **LISTA PARA ACEPTACIÓN** y G09 permanece abierta. La aceptación interna no representa certificación, autorización sanitaria ni aptitud productiva.
+**Resultado final:** 12/12. P09 está **APROBADA INTERNAMENTE** y G09 queda cerrada. Esta decisión aprueba el incremento dentro del gobierno del proyecto; no representa certificación, autorización sanitaria ni aptitud productiva.
