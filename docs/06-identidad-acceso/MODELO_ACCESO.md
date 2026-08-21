@@ -51,4 +51,4 @@
 
 ## 6. Frontera con P05 y P07
 
-P05 definió 46 entidades funcionales. P06 implementa únicamente las tres entidades de identidad necesarias para iniciar Django correctamente; las tablas técnicas de sesiones, permisos, migraciones y administración pertenecen al framework y no se contabilizan como nuevas entidades del dominio. P07 implementará organización, sedes, servicios y catálogos, momento en que podrán evaluarse alcances por sede u organización.
+P05 definió 46 entidades funcionales. P06 implementa únicamente las tres entidades de identidad necesarias para iniciar Django correctamente; las tablas técnicas de sesiones, permisos, migraciones y administración pertenecen al framework y no se contabilizan como nuevas entidades del dominio. P07 implementa organización, sedes, servicios, áreas y responsabilidades, con comprobaciones de capacidad y ámbito organizacional.
