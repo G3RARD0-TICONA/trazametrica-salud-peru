@@ -3,7 +3,7 @@
 Proyecto demostrativo de investigación aplicada para gestionar procesos, calidad, indicadores y analítica administrativa en clínicas privadas del Perú.
 
 > [!IMPORTANT]
-> Las Partes 0–6 tienen sus puertas cerradas. P07 incorpora el segundo incremento ejecutable y se encuentra en pruebas.
+> Las Partes 0–7 tienen sus puertas cerradas. P07 constituye el segundo incremento ejecutable aprobado.
 
 ## Propósito
 
@@ -43,7 +43,7 @@ El resultado final será un portafolio técnico que integre gestión por proceso
 | P04 | Arquitectura, entornos y decisiones técnicas | Aprobada internamente | G04 cerrada |
 | P05 | Modelo de datos y diccionario | Aprobada internamente | G05 cerrada |
 | P06 | Identidad, autenticación, roles y permisos | Aprobada internamente | G06 cerrada |
-| P07 | Maestros organizacionales y catálogos | En pruebas | G07 abierta (11/12) |
+| P07 | Maestros organizacionales y catálogos | Aprobada internamente | G07 cerrada (12/12) |
 | P08–P18 | Construcción funcional, pruebas y publicación | No iniciadas | Pendientes |
 
 Consulta el [roadmap](docs/ROADMAP.md) y el [índice de documentación](docs/README.md).
@@ -75,7 +75,7 @@ docker compose exec web python src/manage.py bootstrap_access
 docker compose exec web python src/manage.py seed_organizations_demo --actor admin_demo
 ```
 
-Antes del bootstrap, define en `.env` una contraseña sintética de al menos 12 caracteres. Consulta las guías de [identidad](docs/06-identidad-acceso/EJECUCION.md) y [semilla organizacional](docs/07-maestros-organizacionales/SEMILLA_DEMO.md). La CI de P07 está conforme; G07 continuará abierta hasta la aceptación formal del titular.
+Antes del bootstrap, define en `.env` una contraseña sintética de al menos 12 caracteres. Consulta las guías de [identidad](docs/06-identidad-acceso/EJECUCION.md) y [semilla organizacional](docs/07-maestros-organizacionales/SEMILLA_DEMO.md). P07 y G07 están aprobadas internamente con evidencia automatizada conforme.
 
 ## Derechos de autor
 
