@@ -49,6 +49,6 @@ La ejecución #34 de GitHub Actions del PR #7 aprobó 56 pruebas en PostgreSQL 1
 | 9 | Auditoría append-only | ENT-046 y eventos de servicio | Conforme |
 | 10 | Consulta autorizada | `documents.view`, selector y HTTP 403/200 | Conforme |
 | 11 | CI en Python 3.13/PostgreSQL 17 | Ejecución #34: 56 pruebas, 86 % e imagen correcta | Conforme |
-| 12 | Aceptación formal del titular | Autorización expresa posterior a CI | Pendiente |
+| 12 | Aceptación formal del titular | Autorización expresa del 20 de agosto de 2026 | Conforme |
 
-**Resultado provisional:** 11/12. P08 está **EN REVISIÓN** y G08 permanece abierta. La aprobación interna solo procede después de la aceptación expresa; no representa certificación ni aptitud productiva.
+**Resultado final:** 12/12. P08 está **APROBADA INTERNAMENTE** y G08 queda cerrada. Esta decisión aprueba el incremento dentro del gobierno del proyecto; no representa certificación, autorización sanitaria ni aptitud productiva.

@@ -1,8 +1,8 @@
 # P08 — Gestión documental y control de versiones
 
-**Estado:** en revisión  
-**Puerta:** G08 abierta — 11/12 controles conformes  
-**Versión:** 0.9  
+**Estado:** aprobada internamente  
+**Puerta:** G08 cerrada — 12/12 controles conformes  
+**Versión:** 1.0  
 **Fecha de corte:** 20 de agosto de 2026
 
 ## 1. Objetivo
@@ -43,6 +43,6 @@ ENT-046 estaba prevista para una parte posterior, pero P08 la introduce antes po
 - [Archivos y seguridad](ARCHIVOS_SEGURIDAD.md)
 - [Trazabilidad, pruebas y puerta G08](TRAZABILIDAD_G08.md)
 
-## 6. Estado de aprobación
+## 6. Resultado aprobado
 
-La ejecución #34 de GitHub Actions validó 56 pruebas en Python 3.13.15 y PostgreSQL 17.11, con 86 % de cobertura, cero hallazgos de Bandit, cero vulnerabilidades conocidas y construcción correcta del contenedor. G08 permanece abierta únicamente hasta que el titular emita su aceptación formal.
+La ejecución #34 de GitHub Actions validó 56 pruebas en Python 3.13.15 y PostgreSQL 17.11, con 86 % de cobertura, cero hallazgos de Bandit, cero vulnerabilidades conocidas y construcción correcta del contenedor. El titular aceptó formalmente el resultado el 20 de agosto de 2026; por ello, P08 está aprobada internamente y G08 queda cerrada con 12/12 controles conformes.
