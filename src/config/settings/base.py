@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "apps.core",
     "apps.accounts",
+    "apps.organizations",
 ]
 
 MIDDLEWARE = [
@@ -141,4 +142,3 @@ LOGGING = {
     },
     "root": {"handlers": ["console"], "level": "INFO"},
 }
-

@@ -3,7 +3,7 @@
 Proyecto demostrativo de investigación aplicada para gestionar procesos, calidad, indicadores y analítica administrativa en clínicas privadas del Perú.
 
 > [!IMPORTANT]
-> El proyecto cuenta con un primer incremento ejecutable aprobado internamente. Las Partes 0–6 tienen sus puertas de calidad cerradas.
+> Las Partes 0–7 tienen sus puertas cerradas. P07 constituye el segundo incremento ejecutable aprobado.
 
 ## Propósito
 
@@ -43,7 +43,8 @@ El resultado final será un portafolio técnico que integre gestión por proceso
 | P04 | Arquitectura, entornos y decisiones técnicas | Aprobada internamente | G04 cerrada |
 | P05 | Modelo de datos y diccionario | Aprobada internamente | G05 cerrada |
 | P06 | Identidad, autenticación, roles y permisos | Aprobada internamente | G06 cerrada |
-| P07–P18 | Construcción funcional, pruebas y publicación | No iniciadas | Pendientes |
+| P07 | Maestros organizacionales y catálogos | Aprobada internamente | G07 cerrada (12/12) |
+| P08–P18 | Construcción funcional, pruebas y publicación | No iniciadas | Pendientes |
 
 Consulta el [roadmap](docs/ROADMAP.md) y el [índice de documentación](docs/README.md).
 
@@ -71,9 +72,10 @@ cp .env.example .env
 docker compose up --build -d
 docker compose exec web python src/manage.py migrate --noinput
 docker compose exec web python src/manage.py bootstrap_access
+docker compose exec web python src/manage.py seed_organizations_demo --actor admin_demo
 ```
 
-Antes del bootstrap, define en `.env` una contraseña sintética de al menos 12 caracteres. Consulta la [guía completa](docs/06-identidad-acceso/EJECUCION.md). G06 fue cerrada después de verificar CI y registrar la aceptación formal.
+Antes del bootstrap, define en `.env` una contraseña sintética de al menos 12 caracteres. Consulta las guías de [identidad](docs/06-identidad-acceso/EJECUCION.md) y [semilla organizacional](docs/07-maestros-organizacionales/SEMILLA_DEMO.md). P07 y G07 están aprobadas internamente con evidencia automatizada conforme.
 
 ## Derechos de autor
 

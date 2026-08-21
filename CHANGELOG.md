@@ -20,7 +20,11 @@ Este proyecto sigue [Versionado Semántico](https://semver.org/lang/es/) desde e
 - Usuario personalizado, ocho roles, 33 capacidades, vigencias, segregación de funciones y autorización en servidor.
 - Pruebas unitarias e integrales, controles de calidad, endpoints de salud y bootstrap sintético.
 - Expediente P06 aprobado y puerta G06 cerrada con 12/12 controles conformes.
+- Maestros P07 de organización, sedes, servicios, áreas y responsabilidades con migración PostgreSQL.
+- Semilla organizacional determinista, vista protegida y pruebas de integridad/autorización.
+- CI de P07 conforme con 36 pruebas, 86 % de cobertura, seguridad y dependencias sin hallazgos, y contenedor reproducible.
+- Expediente P07 aprobado y puerta G07 cerrada con 12/12 controles conformes.
 
 ### Pendiente
 
-- Implementación de P07–P18.
+- Implementación de P08–P18.
