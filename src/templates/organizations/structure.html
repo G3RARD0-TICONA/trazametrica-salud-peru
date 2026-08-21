@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}Estructura organizacional · Trazamétrica{% endblock %}
+{% block content %}
+  <h1>Estructura organizacional</h1>
+  {% if organization %}
+    <p class="notice">{{ organization.demo_label }}</p>
+    <dl>
+      <dt>Código</dt><dd>{{ organization.code }}</dd>
+      <dt>Nombre</dt><dd>{{ organization.name }}</dd>
+      <dt>Zona horaria</dt><dd>{{ organization.timezone }}</dd>
+    </dl>
+    <h2>Sedes y servicios</h2>
+    {% for site in organization.sites.all %}
+      <section>
+        <h3>{{ site.code }} — {{ site.name }}</h3>
+        <ul>
+          {% for service in site.services.all %}
+            <li>{{ service.code }} — {{ service.name }}</li>
+          {% empty %}
+            <li>Sin servicios activos.</li>
+          {% endfor %}
+        </ul>
+      </section>
+    {% empty %}
+      <p>Sin sedes activas.</p>
+    {% endfor %}
+    <h2>Áreas</h2>
+    <ul>
+      {% for area in organization.areas.all %}
+        <li>
+          {{ area.code }} — {{ area.name }}
+          {% if area.parent %}(depende de {{ area.parent.code }}){% endif %}
+        </li>
+      {% empty %}
+        <li>Sin áreas activas.</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p class="notice">Todavía no existe una organización activa.</p>
+  {% endif %}
+{% endblock %}

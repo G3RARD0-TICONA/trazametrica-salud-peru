@@ -19,6 +19,7 @@
     <a href="{% url 'accounts:home' %}">Inicio</a>
     {% if user.is_authenticated %}
       <a href="{% url 'accounts:access-profile' %}">Mi acceso</a>
+      <a href="{% url 'organizations:structure' %}">Organización</a>
       <form method="post" action="{% url 'accounts:logout' %}">
         {% csrf_token %}
         <button type="submit">Cerrar sesión</button>
@@ -30,4 +31,3 @@
   </main>
 </body>
 </html>
-

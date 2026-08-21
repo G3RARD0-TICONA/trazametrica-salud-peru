@@ -11,6 +11,7 @@ La documentación está organizada como expedientes consecutivos. Una parte solo
 | [P04](04-arquitectura-entornos/README.md) | Arquitectura, entornos y decisiones técnicas | Aprobada internamente |
 | [P05](05-modelo-datos/README.md) | Modelo de datos y diccionario | Aprobada internamente |
 | [P06](06-identidad-acceso/README.md) | Identidad, autenticación, roles y permisos | Aprobada internamente |
+| [P07](07-maestros-organizacionales/README.md) | Maestros organizacionales y catálogos | En pruebas — G07 abierta |
 | [Roadmap](ROADMAP.md) | Secuencia P00–P18 | Activo |
 
 ## Convención de estados
