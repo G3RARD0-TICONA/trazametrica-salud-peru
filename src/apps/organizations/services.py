@@ -1,8 +1,6 @@
 from __future__ import annotations
 
 from datetime import date
-from typing import TypeAlias
-
 from django.core.exceptions import PermissionDenied, ValidationError
 from django.db import models, transaction
 from django.utils import timezone
@@ -20,7 +18,7 @@ from .models import (
     Site,
 )
 
-Master: TypeAlias = Organization | Site | Service | Area
+type Master = Organization | Site | Service | Area
 
 
 def _require_management(actor: User) -> None:
