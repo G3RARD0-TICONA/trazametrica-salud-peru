@@ -776,7 +776,9 @@ def publish_indicator_result(
 ) -> IndicatorResult:
     _require(actor, Capability.PUBLISH_INDICATORS)
     locked = (
-        IndicatorResult.objects.select_for_update()
+        # supersedes es anulable; PostgreSQL solo debe bloquear el resultado
+        # que se publica, no el lado opcional del LEFT JOIN.
+        IndicatorResult.objects.select_for_update(of=("self",))
         .select_related("indicator_version__indicator", "supersedes")
         .get(pk=result.pk)
     )
