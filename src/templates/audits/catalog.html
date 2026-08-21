@@ -28,7 +28,7 @@
     <tbody>
       {% for finding, alert in findings %}
         <tr>
-          <td>{{ finding.code }}</td><td>{{ finding.get_finding_type_display }}</td>
+          <td><a href="{% url 'improvements:detail' finding.id %}">{{ finding.code }}</a></td><td>{{ finding.get_finding_type_display }}</td>
           <td>{{ finding.get_impact_display }}</td><td>{{ finding.owner.username }}</td>
           <td>{{ finding.due_date|default:"No definida" }}</td><td>{{ alert }}</td>
         </tr>

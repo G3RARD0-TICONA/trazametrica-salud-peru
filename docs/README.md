@@ -17,6 +17,7 @@ La documentación está organizada como expedientes consecutivos. Una parte solo
 | [P10](10-importacion-excel/README.md) | Importación Excel y calidad de datos | Aprobada internamente — G10 cerrada |
 | [P11](11-indicadores-kpi/README.md) | Catálogo, cálculo y seguimiento de KPI | Aprobada internamente — G11 cerrada (12/12) |
 | [P12](12-auditorias-hallazgos/README.md) | Auditorías, hallazgos y no conformidades | Aprobada internamente — G12 cerrada (12/12) |
+| [P13](13-acciones-correctivas-mejora/README.md) | Acciones correctivas, evidencias y mejora | En pruebas — G13 abierta (10/12) |
 | [Roadmap](ROADMAP.md) | Secuencia P00–P18 | Activo |
 
 ## Convención de estados

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}{{ finding.code }} | Mejora continua{% endblock %}
+
+{% block content %}
+  <p><a href="{% url 'improvements:catalog' %}">← Volver a mejora</a></p>
+  <h1>{{ finding.code }}</h1>
+  <p class="notice"><strong>DATOS SINTÉTICOS.</strong> CAPA demostrativa; no acredita cumplimiento institucional.</p>
+  <dl>
+    <dt>Auditoría</dt><dd>{{ finding.execution.audit_plan.code }}</dd>
+    <dt>Condición</dt><dd>{{ finding.condition }}</dd>
+    <dt>Impacto</dt><dd>{{ finding.get_impact_display }}</dd>
+    <dt>Estado</dt><dd>{{ finding.get_status_display }}</dd>
+  </dl>
+
+  <h2>Causa raíz</h2>
+  {% if finding.root_cause_analysis %}
+    <dl>
+      <dt>Método</dt><dd>{{ finding.root_cause_analysis.get_method_display }}</dd>
+      <dt>Análisis</dt><dd>{{ finding.root_cause_analysis.analysis }}</dd>
+      <dt>Conclusión</dt><dd>{{ finding.root_cause_analysis.conclusion }}</dd>
+      <dt>Estado</dt><dd>{{ finding.root_cause_analysis.get_status_display }}</dd>
+    </dl>
+  {% else %}<p>La causa aún no fue registrada.</p>{% endif %}
+
+  <h2>Acciones correctivas</h2>
+  <table>
+    <thead><tr><th>Código</th><th>Acción</th><th>Responsable</th><th>Estado</th><th>Evidencias</th><th>Revisiones</th></tr></thead>
+    <tbody>
+      {% for action in finding.ordered_actions %}
+        <tr>
+          <td>{{ action.code }}</td><td>{{ action.description }}</td>
+          <td>{{ action.owner.username }}</td><td>{{ action.get_status_display }}</td>
+          <td>{{ action.ordered_evidence|length }}</td><td>{{ action.ordered_reviews|length }}</td>
+        </tr>
+      {% empty %}<tr><td colspan="6">No existen acciones.</td></tr>{% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
