@@ -138,7 +138,7 @@ def move_area(*, actor: User, area: Area, parent: Area | None) -> Area:
     if parent is not None:
         if parent.pk == area.pk:
             raise ValidationError("Un área no puede ser su propio padre.")
-        ancestor = parent
+        ancestor: Area | None = parent
         visited: set[object] = set()
         while ancestor is not None:
             if ancestor.pk == area.pk:
