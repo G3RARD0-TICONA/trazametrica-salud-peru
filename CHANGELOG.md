@@ -28,9 +28,10 @@ Este proyecto sigue [Versionado Semántico](https://semver.org/lang/es/) desde e
 - Flujo transaccional de revisión, aprobación independiente, sustitución, anulación y desactivación.
 - Bitácora append-only ENT-046, hashes de integridad y catálogo protegido por `documents.view`.
 - Migraciones y pruebas P08 para integridad, autorización, vigencia, inmutabilidad y seguridad documental.
-- Expediente P08 y puerta G08 en pruebas con 10/12 controles conformes.
+- CI de P08 conforme con 56 pruebas, 86 % de cobertura, seguridad y dependencias sin hallazgos, y contenedor reproducible.
+- Expediente P08 en revisión y puerta G08 con 11/12 controles conformes.
 
 ### Pendiente
 
-- Validación CI y aceptación formal para cerrar G08.
+- Aceptación formal para cerrar G08.
 - Implementación de P09–P18.

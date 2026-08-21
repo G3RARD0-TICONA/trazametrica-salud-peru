@@ -3,7 +3,7 @@
 Proyecto demostrativo de investigación aplicada para gestionar procesos, calidad, indicadores y analítica administrativa en clínicas privadas del Perú.
 
 > [!IMPORTANT]
-> Las Partes 0–7 tienen sus puertas cerradas. P08 constituye el tercer incremento ejecutable y permanece en pruebas hasta superar G08.
+> Las Partes 0–7 tienen sus puertas cerradas. P08 constituye el tercer incremento ejecutable y permanece en revisión hasta recibir la aceptación formal de G08.
 
 ## Propósito
 
@@ -44,7 +44,7 @@ El resultado final será un portafolio técnico que integre gestión por proceso
 | P05 | Modelo de datos y diccionario | Aprobada internamente | G05 cerrada |
 | P06 | Identidad, autenticación, roles y permisos | Aprobada internamente | G06 cerrada |
 | P07 | Maestros organizacionales y catálogos | Aprobada internamente | G07 cerrada (12/12) |
-| P08 | Gestión documental y control de versiones | En pruebas | G08 abierta (10/12) |
+| P08 | Gestión documental y control de versiones | En revisión | G08 abierta (11/12) |
 | P09–P18 | Procesos, datos, calidad, analítica y publicación | No iniciadas | Pendientes |
 
 Consulta el [roadmap](docs/ROADMAP.md) y el [índice de documentación](docs/README.md).

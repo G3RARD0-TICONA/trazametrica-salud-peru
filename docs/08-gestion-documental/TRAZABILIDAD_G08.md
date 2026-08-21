@@ -34,6 +34,8 @@
 
 ## 3. Evaluación actual de G08
 
+La ejecución #34 de GitHub Actions del PR #7 aprobó 56 pruebas en PostgreSQL 17.11 y Python 3.13.15, con 86 % de cobertura. También aprobó migraciones, tipado, lint, Bandit, `pip-audit` y construcción del contenedor.
+
 | # | Criterio | Evidencia | Estado |
 |---:|---|---|---|
 | 1 | Alcance trazado a P03/P05 | RF, CU, RN y ENT identificadas | Conforme |
@@ -46,8 +48,7 @@
 | 8 | Referencias sin sobreafirmaciones | Validación y advertencia visible | Conforme |
 | 9 | Auditoría append-only | ENT-046 y eventos de servicio | Conforme |
 | 10 | Consulta autorizada | `documents.view`, selector y HTTP 403/200 | Conforme |
-| 11 | CI en Python 3.13/PostgreSQL 17 | GitHub Actions del PR de P08 | Pendiente |
+| 11 | CI en Python 3.13/PostgreSQL 17 | Ejecución #34: 56 pruebas, 86 % e imagen correcta | Conforme |
 | 12 | Aceptación formal del titular | Autorización expresa posterior a CI | Pendiente |
 
-**Resultado provisional:** 10/12. P08 está **EN PRUEBAS** y G08 permanece abierta. La aprobación interna solo procede después de CI conforme y aceptación expresa; no representa certificación ni aptitud productiva.
-
+**Resultado provisional:** 11/12. P08 está **EN REVISIÓN** y G08 permanece abierta. La aprobación interna solo procede después de la aceptación expresa; no representa certificación ni aptitud productiva.

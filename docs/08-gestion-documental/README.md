@@ -1,7 +1,7 @@
 # P08 — Gestión documental y control de versiones
 
-**Estado:** en pruebas  
-**Puerta:** G08 abierta — 10/12 controles conformes  
+**Estado:** en revisión  
+**Puerta:** G08 abierta — 11/12 controles conformes  
 **Versión:** 0.9  
 **Fecha de corte:** 20 de agosto de 2026
 
@@ -45,5 +45,4 @@ ENT-046 estaba prevista para una parte posterior, pero P08 la introduce antes po
 
 ## 6. Estado de aprobación
 
-La implementación, migraciones y pruebas locales están completas. G08 permanece abierta hasta que GitHub Actions valide PostgreSQL 17/Python 3.13 y el titular emita su aceptación formal. Ninguno de esos controles se presume por adelantado.
-
+La ejecución #34 de GitHub Actions validó 56 pruebas en Python 3.13.15 y PostgreSQL 17.11, con 86 % de cobertura, cero hallazgos de Bandit, cero vulnerabilidades conocidas y construcción correcta del contenedor. G08 permanece abierta únicamente hasta que el titular emita su aceptación formal.
