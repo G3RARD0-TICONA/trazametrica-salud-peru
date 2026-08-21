@@ -198,6 +198,13 @@ class Document(LifecycleDocumentRecord):
         on_delete=models.PROTECT,
         related_name="responsible_documents",
     )
+    process = models.ForeignKey(
+        "processes.Process",
+        null=True,
+        blank=True,
+        on_delete=models.PROTECT,
+        related_name="documents",
+    )
     code = models.CharField(max_length=50)
     title = models.CharField(max_length=300)
     document_type = models.CharField(max_length=30, choices=DocumentType.choices)
@@ -241,6 +248,14 @@ class Document(LifecycleDocumentRecord):
         if self.responsible_area.organization_id != self.organization_id:
             raise ValidationError(
                 {"responsible_area": "El área responsable debe pertenecer a la organización."}
+            )
+        linked_process = self.process if self.process_id is not None else None
+        if (
+            linked_process is not None
+            and linked_process.organization_id != self.organization_id
+        ):
+            raise ValidationError(
+                {"process": "El proceso debe pertenecer a la organización del documento."}
             )
 
 

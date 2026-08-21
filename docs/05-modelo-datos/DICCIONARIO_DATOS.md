@@ -45,11 +45,11 @@ Leyenda: `!` obligatorio, `?` opcional, `PK` clave primaria y `FK` clave foráne
 
 | ID | Tabla | Bloques | Campos específicos |
 |---|---|---|---|
-| ENT-009 | `processes_process` | B01, B02, B03 | `organization_id:uuid FK!`; `code:varchar(50)!`; `name:varchar(200)!`; `owner_area_id:uuid FK!` |
-| ENT-010 | `processes_process_version` | B01, B02, B04 | `process_id:uuid FK!`; `objective:text!`; `scope:text!`; `version_hash:varchar(64)!` |
+| ENT-009 | `processes_process` | B01, B02, B03 | `organization_id:uuid FK!`; `code:varchar(50)!`; `name:varchar(200)!`; `process_type:varchar(30)!`; `owner_area_id:uuid FK!` |
+| ENT-010 | `processes_process_version` | B01, B02, B04 | `process_id:uuid FK!`; `objective:text!`; `scope:text!`; `version_hash:varchar(64)!`; `submitted_at:timestamptz?`; `submitted_by:uuid FK?`; `reviewed_at:timestamptz?`; `reviewed_by:uuid FK?` |
 | ENT-011 | `processes_sipoc_entry` | B01, B02 | `process_version_id:uuid FK!`; `entry_type:varchar(20)!`; `position:integer!`; `name:varchar(200)!`; `description:text?` |
 | ENT-012 | `documents_file_asset` | B01, B02 | `storage_key:varchar(500)!`; `original_name:varchar(255)!`; `media_type:varchar(150)!`; `size_bytes:bigint!`; `sha256:varchar(64)!`; `scan_status:varchar(20)!`; `synthetic_confirmed:boolean!` |
-| ENT-013 | `documents_document` | B01, B02, B03 | `organization_id:uuid FK!`; `responsible_area_id:uuid FK!`; `process_id:uuid FK?` (desde P09); `code:varchar(50)!`; `title:varchar(300)!`; `document_type:varchar(30)!` |
+| ENT-013 | `documents_document` | B01, B02, B03 | `organization_id:uuid FK!`; `responsible_area_id:uuid FK!`; `process_id:uuid FK?`; `code:varchar(50)!`; `title:varchar(300)!`; `document_type:varchar(30)!` |
 | ENT-014 | `documents_document_version` | B01, B02, B04 | `document_id:uuid FK!`; `file_asset_id:uuid FK?`; `content:text?`; `version_hash:varchar(64)!` |
 | ENT-015 | `documents_reference_source` | B01, B02, B03 | `code:varchar(50)!`; `issuer:varchar(200)!`; `title:varchar(500)!`; `source_url:varchar(1000)?`; `reference_type:varchar(30)!` |
 | ENT-016 | `documents_reference_version` | B01, B02, B04 | `reference_source_id:uuid FK!`; `publication_date:date?`; `consulted_at:timestamptz!`; `summary:text!`; `content_hash:varchar(64)?` |
@@ -103,4 +103,4 @@ Leyenda: `!` obligatorio, `?` opcional, `PK` clave primaria y `FK` clave foráne
 
 El diccionario es el contrato de P05. P06–P15 podrán añadir campos justificados, pero cualquier cambio de tipo, nulabilidad, clave, cardinalidad o semántica deberá actualizar este archivo, la migración, la restricción afectada y las pruebas de trazabilidad.
 
-P08 materializa ENT-013 con `responsible_area_id` obligatorio para asignar responsabilidad desde el primer incremento documental. `process_id` se incorpora en P09, cuando exista la entidad ENT-009, evitando una clave foránea ficticia o sin integridad.
+P08 materializa ENT-013 con `responsible_area_id` obligatorio. P09 materializa ENT-009–011 y añade `process_id` a ENT-013 mediante una clave foránea opcional y protegida. También extiende ENT-009 con clasificación del proceso y ENT-010 con evidencia de envío y revisión; estos campos sustentan catálogo, segregación y auditoría sin alterar las cardinalidades aprobadas.

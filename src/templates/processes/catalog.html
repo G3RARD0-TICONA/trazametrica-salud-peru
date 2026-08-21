@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Mapa de procesos | Trazamétrica Salud Perú{% endblock %}
+
+{% block content %}
+  <h1>Mapa de procesos</h1>
+  <p class="notice"><strong>DATOS SINTÉTICOS.</strong> Este mapa no acredita cumplimiento institucional.</p>
+
+  {% regroup processes by get_process_type_display as process_groups %}
+  {% for group in process_groups %}
+    <h2>{{ group.grouper }}</h2>
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">Código</th>
+          <th scope="col">Proceso</th>
+          <th scope="col">Área propietaria</th>
+          <th scope="col">Última versión</th>
+          <th scope="col">Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for process in group.list %}
+          <tr>
+            <td><a href="{% url 'processes:detail' process.id %}">{{ process.code }}</a></td>
+            <td>{{ process.name }}</td>
+            <td>{{ process.owner_area.name }}</td>
+            {% with version=process.ordered_versions.0 %}
+              <td>{% if version %}v{{ version.version_no }}{% else %}Sin versión{% endif %}</td>
+              <td>{% if version %}{{ version.get_status_display }}{% else %}—{% endif %}</td>
+            {% endwith %}
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% empty %}
+    <p>No existen procesos activos.</p>
+  {% endfor %}
+{% endblock %}
+

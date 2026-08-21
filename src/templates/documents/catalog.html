@@ -13,6 +13,7 @@
         <th scope="col">Código</th>
         <th scope="col">Título</th>
         <th scope="col">Área responsable</th>
+        <th scope="col">Proceso</th>
         <th scope="col">Última versión</th>
         <th scope="col">Estado</th>
       </tr>
@@ -23,13 +24,14 @@
           <td>{{ document.code }}</td>
           <td>{{ document.title }}</td>
           <td>{{ document.responsible_area.name }}</td>
+          <td>{% if document.process %}{{ document.process.code }}{% else %}—{% endif %}</td>
           {% with version=document.ordered_versions.0 %}
             <td>{% if version %}v{{ version.version_no }}{% else %}Sin versión{% endif %}</td>
             <td>{% if version %}{{ version.get_status_display }}{% else %}—{% endif %}</td>
           {% endwith %}
         </tr>
       {% empty %}
-        <tr><td colspan="5">No existen documentos activos.</td></tr>
+        <tr><td colspan="6">No existen documentos activos.</td></tr>
       {% endfor %}
     </tbody>
   </table>
