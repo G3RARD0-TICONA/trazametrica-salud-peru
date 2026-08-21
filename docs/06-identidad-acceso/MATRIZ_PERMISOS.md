@@ -32,6 +32,7 @@
 | Gestionar documentos |  | ✓ | ✓ |  |  |  |  |  |
 | Revisar documentos |  | ✓ |  |  |  |  |  |  |
 | Aprobar documentos |  |  |  |  |  |  | ✓ |  |
+| Ver documentos | ✓ | ✓ | ✓ |  |  | ✓ | ✓ | ✓ |
 | Crear importaciones |  |  |  | ✓ | ✓ |  |  |  |
 | Revisar importaciones |  |  |  | ✓ |  |  |  |  |
 | Aprobar importaciones |  |  |  |  |  |  | ✓ |  |
@@ -58,5 +59,6 @@ Abreviaturas: ADM administrador; CAL calidad; PRO responsable de proceso; KPI an
 ## 3. Interpretación
 
 - El superusuario de bootstrap es una cuenta técnica de recuperación para entornos sintéticos; no representa un rol operativo y debe usarse solo para administración controlada.
-- La matriz define capacidades generales. P07 ya agrega comprobaciones de capacidad, estado y ámbito; los módulos P08–P15 deberán ampliarlas cuando corresponda.
+- La matriz base de P06 tenía 33 capacidades. P08 añade `documents.view` como capacidad 34 y conserva separadas gestión, revisión, aprobación y consulta.
+- P07 agrega comprobaciones de capacidad, estado y ámbito; P08 aplica además estado de versión, separación de autor/aprobador y ámbito organizacional.
 - Tener un rol no elimina reglas de negocio: por ejemplo, aprobar requiere además que el elemento esté en el estado correcto y que el aprobador no sea el autor cuando la separación aplique.

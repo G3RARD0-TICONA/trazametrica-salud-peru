@@ -24,7 +24,13 @@ Este proyecto sigue [Versionado Semántico](https://semver.org/lang/es/) desde e
 - Semilla organizacional determinista, vista protegida y pruebas de integridad/autorización.
 - CI de P07 conforme con 36 pruebas, 86 % de cobertura, seguridad y dependencias sin hallazgos, y contenedor reproducible.
 - Expediente P07 aprobado y puerta G07 cerrada con 12/12 controles conformes.
+- Dominio P08 de documentos, versiones, archivos sintéticos y fuentes de referencia.
+- Flujo transaccional de revisión, aprobación independiente, sustitución, anulación y desactivación.
+- Bitácora append-only ENT-046, hashes de integridad y catálogo protegido por `documents.view`.
+- Migraciones y pruebas P08 para integridad, autorización, vigencia, inmutabilidad y seguridad documental.
+- CI de P08 conforme con 56 pruebas, 86 % de cobertura, seguridad y dependencias sin hallazgos, y contenedor reproducible.
+- Expediente P08 aprobado internamente y puerta G08 cerrada con 12/12 controles conformes.
 
 ### Pendiente
 
-- Implementación de P08–P18.
+- Implementación de P09–P18.

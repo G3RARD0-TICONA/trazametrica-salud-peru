@@ -9,6 +9,8 @@
     nav { display: flex; gap: 1rem; align-items: center; border-bottom: 1px solid #d7dee8; padding-bottom: 1rem; }
     nav form { margin-left: auto; }
     button, input { font: inherit; padding: .5rem .75rem; }
+    table { border-collapse: collapse; width: 100%; margin-bottom: 2rem; }
+    th, td { border: 1px solid #d7dee8; padding: .55rem; text-align: left; vertical-align: top; }
     .notice { background: #eef6ff; border-left: .3rem solid #2563eb; padding: 1rem; }
     .errorlist { color: #9b1c1c; }
     dt { font-weight: 700; margin-top: .75rem; }
@@ -20,6 +22,7 @@
     {% if user.is_authenticated %}
       <a href="{% url 'accounts:access-profile' %}">Mi acceso</a>
       <a href="{% url 'organizations:structure' %}">Organización</a>
+      <a href="{% url 'documents:catalog' %}">Documentos</a>
       <form method="post" action="{% url 'accounts:logout' %}">
         {% csrf_token %}
         <button type="submit">Cerrar sesión</button>

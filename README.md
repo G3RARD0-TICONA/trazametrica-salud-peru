@@ -3,7 +3,7 @@
 Proyecto demostrativo de investigación aplicada para gestionar procesos, calidad, indicadores y analítica administrativa en clínicas privadas del Perú.
 
 > [!IMPORTANT]
-> Las Partes 0–7 tienen sus puertas cerradas. P07 constituye el segundo incremento ejecutable aprobado.
+> Las Partes 0–8 tienen sus puertas cerradas. P08 constituye el tercer incremento ejecutable aprobado internamente.
 
 ## Propósito
 
@@ -44,7 +44,8 @@ El resultado final será un portafolio técnico que integre gestión por proceso
 | P05 | Modelo de datos y diccionario | Aprobada internamente | G05 cerrada |
 | P06 | Identidad, autenticación, roles y permisos | Aprobada internamente | G06 cerrada |
 | P07 | Maestros organizacionales y catálogos | Aprobada internamente | G07 cerrada (12/12) |
-| P08–P18 | Construcción funcional, pruebas y publicación | No iniciadas | Pendientes |
+| P08 | Gestión documental y control de versiones | Aprobada internamente | G08 cerrada (12/12) |
+| P09–P18 | Procesos, datos, calidad, analítica y publicación | No iniciadas | Pendientes |
 
 Consulta el [roadmap](docs/ROADMAP.md) y el [índice de documentación](docs/README.md).
 
@@ -63,7 +64,7 @@ Las reglas completas se encuentran en [SECURITY.md](SECURITY.md).
 - Docker Compose Specification para entornos reproducibles.
 - Pruebas automatizadas y CI en GitHub Actions.
 
-La arquitectura y las versiones fueron fijadas en P04 y el modelo de datos en P05. P06 implementa el primer esqueleto ejecutable y conserva su evidencia en el [expediente de identidad y acceso](docs/06-identidad-acceso/README.md).
+La arquitectura y las versiones fueron fijadas en P04 y el modelo de datos en P05. P06 implementa el primer esqueleto ejecutable; P07 añade la estructura organizacional y P08 implementa el dominio documental con control de versiones y auditoría.
 
 ## Ejecución local
 
@@ -75,7 +76,7 @@ docker compose exec web python src/manage.py bootstrap_access
 docker compose exec web python src/manage.py seed_organizations_demo --actor admin_demo
 ```
 
-Antes del bootstrap, define en `.env` una contraseña sintética de al menos 12 caracteres. Consulta las guías de [identidad](docs/06-identidad-acceso/EJECUCION.md) y [semilla organizacional](docs/07-maestros-organizacionales/SEMILLA_DEMO.md). P07 y G07 están aprobadas internamente con evidencia automatizada conforme.
+Antes del bootstrap, define en `.env` una contraseña sintética de al menos 12 caracteres. Consulta las guías de [identidad](docs/06-identidad-acceso/EJECUCION.md), [semilla organizacional](docs/07-maestros-organizacionales/SEMILLA_DEMO.md) y [gestión documental](docs/08-gestion-documental/README.md). El catálogo protegido queda disponible en `/documents/` después de autenticar un usuario con `documents.view`.
 
 ## Derechos de autor
 

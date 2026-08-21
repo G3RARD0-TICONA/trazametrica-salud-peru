@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %}Gestión documental | Trazamétrica Salud Perú{% endblock %}
+
+{% block content %}
+  <h1>Gestión documental</h1>
+  <p class="notice"><strong>DATOS SINTÉTICOS.</strong> Este catálogo no acredita cumplimiento institucional.</p>
+
+  <h2>Documentos administrativos</h2>
+  <table>
+    <thead>
+      <tr>
+        <th scope="col">Código</th>
+        <th scope="col">Título</th>
+        <th scope="col">Área responsable</th>
+        <th scope="col">Última versión</th>
+        <th scope="col">Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for document in documents %}
+        <tr>
+          <td>{{ document.code }}</td>
+          <td>{{ document.title }}</td>
+          <td>{{ document.responsible_area.name }}</td>
+          {% with version=document.ordered_versions.0 %}
+            <td>{% if version %}v{{ version.version_no }}{% else %}Sin versión{% endif %}</td>
+            <td>{% if version %}{{ version.get_status_display }}{% else %}—{% endif %}</td>
+          {% endwith %}
+        </tr>
+      {% empty %}
+        <tr><td colspan="5">No existen documentos activos.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <h2>Fuentes de referencia</h2>
+  <table>
+    <thead>
+      <tr>
+        <th scope="col">Código</th>
+        <th scope="col">Emisor</th>
+        <th scope="col">Título</th>
+        <th scope="col">Última versión</th>
+        <th scope="col">Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for reference in references %}
+        <tr>
+          <td>{{ reference.code }}</td>
+          <td>{{ reference.issuer }}</td>
+          <td>{{ reference.title }}</td>
+          {% with version=reference.ordered_versions.0 %}
+            <td>{% if version %}v{{ version.version_no }}{% else %}Sin versión{% endif %}</td>
+            <td>{% if version %}{{ version.get_status_display }}{% else %}—{% endif %}</td>
+          {% endwith %}
+        </tr>
+      {% empty %}
+        <tr><td colspan="5">No existen referencias activas.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

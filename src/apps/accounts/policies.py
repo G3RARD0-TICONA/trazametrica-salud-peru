@@ -21,6 +21,7 @@ class Capability(StrEnum):
     MANAGE_DOCUMENTS = "documents.manage"
     REVIEW_DOCUMENTS = "documents.review"
     APPROVE_DOCUMENTS = "documents.approve"
+    VIEW_DOCUMENTS = "documents.view"
     CREATE_IMPORTS = "imports.create"
     REVIEW_IMPORTS = "imports.review"
     APPROVE_IMPORTS = "imports.approve"
@@ -51,6 +52,7 @@ ROLE_CAPABILITIES: dict[str, frozenset[Capability]] = {
             Capability.ASSIGN_ROLES,
             Capability.MANAGE_ORGANIZATION,
             Capability.VIEW_ORGANIZATION,
+            Capability.VIEW_DOCUMENTS,
             Capability.VIEW_AUDIT_LOG,
             Capability.VIEW_REPORTS,
         }
@@ -64,6 +66,7 @@ ROLE_CAPABILITIES: dict[str, frozenset[Capability]] = {
             Capability.VIEW_PROCESSES,
             Capability.MANAGE_DOCUMENTS,
             Capability.REVIEW_DOCUMENTS,
+            Capability.VIEW_DOCUMENTS,
             Capability.PLAN_AUDITS,
             Capability.REVIEW_AUDITS,
             Capability.MANAGE_IMPROVEMENTS,
@@ -83,6 +86,7 @@ ROLE_CAPABILITIES: dict[str, frozenset[Capability]] = {
             Capability.REVIEW_PROCESSES,
             Capability.VIEW_PROCESSES,
             Capability.MANAGE_DOCUMENTS,
+            Capability.VIEW_DOCUMENTS,
             Capability.MANAGE_IMPROVEMENTS,
             Capability.MANAGE_RISKS,
             Capability.VIEW_REPORTS,
@@ -116,6 +120,7 @@ ROLE_CAPABILITIES: dict[str, frozenset[Capability]] = {
             Capability.VIEW_ORGANIZATION,
             Capability.VIEW_PROCESSES,
             Capability.EXECUTE_AUDITS,
+            Capability.VIEW_DOCUMENTS,
             Capability.REVIEW_AUDITS,
             Capability.REVIEW_IMPROVEMENTS,
             Capability.REVIEW_RISKS,
@@ -130,6 +135,7 @@ ROLE_CAPABILITIES: dict[str, frozenset[Capability]] = {
             Capability.APPROVE_ACCESS,
             Capability.APPROVE_PROCESSES,
             Capability.APPROVE_DOCUMENTS,
+            Capability.VIEW_DOCUMENTS,
             Capability.APPROVE_IMPORTS,
             Capability.PUBLISH_INDICATORS,
             Capability.APPROVE_AUDITS,
@@ -145,6 +151,7 @@ ROLE_CAPABILITIES: dict[str, frozenset[Capability]] = {
         {
             Capability.VIEW_DASHBOARD,
             Capability.VIEW_ORGANIZATION,
+            Capability.VIEW_DOCUMENTS,
             Capability.VIEW_PROCESSES,
             Capability.VIEW_REPORTS,
             Capability.EXPORT_REPORTS,

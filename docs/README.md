@@ -12,6 +12,7 @@ La documentación está organizada como expedientes consecutivos. Una parte solo
 | [P05](05-modelo-datos/README.md) | Modelo de datos y diccionario | Aprobada internamente |
 | [P06](06-identidad-acceso/README.md) | Identidad, autenticación, roles y permisos | Aprobada internamente |
 | [P07](07-maestros-organizacionales/README.md) | Maestros organizacionales y catálogos | Aprobada internamente — G07 cerrada |
+| [P08](08-gestion-documental/README.md) | Gestión documental y control de versiones | Aprobada internamente — G08 cerrada |
 | [Roadmap](ROADMAP.md) | Secuencia P00–P18 | Activo |
 
 ## Convención de estados
