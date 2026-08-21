@@ -52,7 +52,7 @@ La cobertura mínima obligatoria es 80 % sobre `accounts` y `core`, excluyendo m
 | 8 | Separación administración/aprobación | Política y prueba unitaria | Conforme |
 | 9 | Arranque y bootstrap reproducibles | Compose, comando y guía | Conforme |
 | 10 | Pruebas y controles definidos | Suite y workflow | Conforme |
-| 11 | CI en Python 3.13.15/PostgreSQL 17.11 | GitHub Actions | Pendiente |
+| 11 | CI en Python 3.13.15/PostgreSQL 17.11 | 18 pruebas, 87 % cobertura y controles conformes | Conforme |
 | 12 | Aceptación formal del titular | Decisión posterior a CI | Pendiente |
 
-**Resultado actual:** 10/12. P06 está **EN PRUEBAS** y G06 permanece abierta. La aprobación solo procederá si CI finaliza conforme y el titular acepta el incremento; tampoco implica certificación, seguridad productiva ni autorización sanitaria.
+**Resultado actual:** 11/12. P06 está **EN PRUEBAS** y G06 permanece abierta. La CI finalizó conforme; la aprobación solo procederá cuando el titular acepte el incremento. El cierre tampoco implicará certificación, seguridad productiva ni autorización sanitaria.

@@ -1,7 +1,7 @@
 # P06 — Identidad, autenticación, roles y permisos
 
 **Estado:** en pruebas  
-**Puerta:** G06 abierta — 10/12 controles conformes; CI y aprobación pendientes  
+**Puerta:** G06 abierta — 11/12 controles conformes; aprobación pendiente  
 **Versión:** 0.1  
 **Fecha de corte:** 20 de agosto de 2026
 
@@ -47,4 +47,4 @@ Implementar el primer incremento ejecutable de Trazamétrica Salud Perú: config
 
 ## 6. Resultado provisional
 
-El código y las pruebas están preparados para revisión. G06 permanece abierta hasta que GitHub Actions ejecute la matriz completa en Python 3.13.15 y PostgreSQL 17.11, y el titular acepte formalmente el resultado. “En pruebas” no equivale a aprobación ni a aptitud productiva.
+GitHub Actions ejecutó conforme la matriz completa en Python 3.13.15 y PostgreSQL 17.11: 18 pruebas aprobadas, cobertura de 87 %, migraciones coherentes, análisis estático y de seguridad conformes, dependencias sin vulnerabilidades conocidas y contenedor construido. G06 permanece abierta hasta que el titular acepte formalmente el resultado. “En pruebas” no equivale a aprobación ni a aptitud productiva.

@@ -42,7 +42,7 @@ El resultado final será un portafolio técnico que integre gestión por proceso
 | P03 | Requisitos, actores y casos de uso | Aprobada internamente | G03 cerrada |
 | P04 | Arquitectura, entornos y decisiones técnicas | Aprobada internamente | G04 cerrada |
 | P05 | Modelo de datos y diccionario | Aprobada internamente | G05 cerrada |
-| P06 | Identidad, autenticación, roles y permisos | En pruebas | G06 abierta (10/12) |
+| P06 | Identidad, autenticación, roles y permisos | En pruebas | G06 abierta (11/12) |
 | P07–P18 | Construcción funcional, pruebas y publicación | No iniciadas | Pendientes |
 
 Consulta el [roadmap](docs/ROADMAP.md) y el [índice de documentación](docs/README.md).

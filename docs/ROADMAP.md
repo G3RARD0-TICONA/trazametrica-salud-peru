@@ -10,7 +10,7 @@ El roadmap controla el orden del proyecto; no sustituye los criterios de aceptac
 | P03 | Requisitos, actores y casos de uso | Aprobada internamente |
 | P04 | Arquitectura, entornos y decisiones técnicas | Aprobada internamente |
 | P05 | Modelo de datos y diccionario | Aprobada internamente |
-| P06 | Identidad, autenticación, roles y permisos | En pruebas — G06 abierta (10/12) |
+| P06 | Identidad, autenticación, roles y permisos | En pruebas — G06 abierta (11/12) |
 | P07 | Maestros organizacionales y catálogos | No iniciada |
 | P08 | Gestión documental y control de versiones | No iniciada |
 | P09 | Procesos, SIPOC y fichas | No iniciada |

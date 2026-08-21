@@ -22,5 +22,5 @@ Este proyecto sigue [Versionado Semántico](https://semver.org/lang/es/) desde e
 
 ### Pendiente
 
-- Ejecución conforme de CI y aprobación interna de G06.
+- Aprobación interna de G06 por el titular.
 - Implementación de P07–P18.
