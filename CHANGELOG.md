@@ -45,7 +45,16 @@ Este proyecto sigue [Versionado Semántico](https://semver.org/lang/es/) desde e
 - CI #42 de P10 conforme con 89 pruebas, 85 % de cobertura, seguridad y dependencias sin hallazgos, y contenedor reproducible.
 - CI final #43 conforme sobre el commit de evidencia de P10.
 - Expediente P10 aprobado internamente y puerta G10 cerrada con 12/12 controles conformes mediante autorización expresa del titular.
+- Dominio P11 de indicadores, fichas versionadas, observaciones, resultados y entradas trazables.
+- Motor declarativo decimal con operadores permitidos, límites estructurales, SHA-256 y prohibición de evaluación dinámica.
+- Materialización atómica desde cargas P10 procesadas y validación de periodo, sede, servicio y dimensión.
+- Flujo de cálculo, revisión, rechazo, publicación y corrección sin sobrescribir resultados publicados.
+- Estado automático de desempeño según meta, umbral y sentido del KPI.
+- Catálogo protegido y semilla determinista de 200 KPI, 260 fichas y hasta 100 000 observaciones sintéticas.
+- Expediente P11 aprobado internamente y puerta G11 cerrada con 12/12 controles conformes mediante autorización expresa del titular.
+- CI #48 de P11 conforme con 104 pruebas sobre PostgreSQL 17, 83 % de cobertura, seguridad y dependencias sin hallazgos, y contenedor reproducible.
+- CI final #49 conforme sobre el commit de evidencia de P11.
 
 ### Pendiente
 
-- Implementación de P11–P18.
+- Implementación de P12–P18.

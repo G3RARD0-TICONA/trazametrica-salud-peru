@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Indicadores | Trazamétrica Salud Perú{% endblock %}
+
+{% block content %}
+  <h1>Catálogo de indicadores</h1>
+  <p class="notice"><strong>DATOS SINTÉTICOS.</strong> Los estados son evidencia interna y no acreditan desempeño clínico.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th scope="col">Código</th>
+        <th scope="col">Indicador</th>
+        <th scope="col">Proceso</th>
+        <th scope="col">Responsable</th>
+        <th scope="col">Ficha</th>
+        <th scope="col">Último resultado</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for indicator in indicators %}
+        <tr>
+          <td><a href="{% url 'indicators:detail' indicator.id %}">{{ indicator.code }}</a></td>
+          <td>{{ indicator.name }}</td>
+          <td>{{ indicator.process.code }}</td>
+          <td>{{ indicator.owner.username }}</td>
+          {% with version=indicator.ordered_versions.0 %}
+            <td>{% if version %}v{{ version.version_no }} · {{ version.get_status_display }}{% else %}Sin ficha{% endif %}</td>
+            <td>
+              {% if version and version.published_results %}
+                {{ version.published_results.0.value }} {{ version.unit }} · {{ version.published_results.0.get_performance_status_display }}
+              {% else %}
+                Sin publicación
+              {% endif %}
+            </td>
+          {% endwith %}
+        </tr>
+      {% empty %}
+        <tr><td colspan="6">No existen indicadores activos.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

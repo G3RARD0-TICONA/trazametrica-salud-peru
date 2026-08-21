@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}{{ indicator.code }} | Indicadores{% endblock %}
+
+{% block content %}
+  <p><a href="{% url 'indicators:catalog' %}">Volver al catálogo</a></p>
+  <h1>{{ indicator.code }} — {{ indicator.name }}</h1>
+  <p class="notice"><strong>DATOS SINTÉTICOS.</strong> Este expediente no representa información de una clínica real.</p>
+
+  <dl>
+    <dt>Proceso</dt><dd>{{ indicator.process.code }} — {{ indicator.process.name }}</dd>
+    <dt>Responsable</dt><dd>{{ indicator.owner.username }}</dd>
+  </dl>
+
+  {% for version in indicator.ordered_versions %}
+    <section>
+      <h2>Ficha v{{ version.version_no }} · {{ version.get_status_display }}</h2>
+      <dl>
+        <dt>Propósito</dt><dd>{{ version.purpose }}</dd>
+        <dt>Unidad</dt><dd>{{ version.unit }}</dd>
+        <dt>Frecuencia</dt><dd>{{ version.get_frequency_display }}</dd>
+        <dt>Sentido</dt><dd>{{ version.get_direction_display }}</dd>
+        <dt>Meta</dt><dd>{{ version.target_value|default_if_none:"Sin meta" }}</dd>
+        <dt>Umbral</dt><dd>{{ version.warning_threshold|default_if_none:"Sin umbral" }}</dd>
+        <dt>Hash de fórmula</dt><dd><code>{{ version.formula_hash }}</code></dd>
+      </dl>
+
+      <h3>Resultados</h3>
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Periodo</th>
+            <th scope="col">Ámbito</th>
+            <th scope="col">Valor</th>
+            <th scope="col">Desempeño</th>
+            <th scope="col">Flujo</th>
+            <th scope="col">Entradas</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for result in version.ordered_results %}
+            <tr>
+              <td>{{ result.period_start|date:"Y-m-d" }} — {{ result.period_end|date:"Y-m-d" }}</td>
+              <td>{% if result.service %}{{ result.site.code }}/{{ result.service.code }}{% elif result.site %}{{ result.site.code }}{% else %}Organización{% endif %}</td>
+              <td>{{ result.value }} {{ version.unit }}</td>
+              <td>{{ result.get_performance_status_display }}</td>
+              <td>{{ result.get_status_display }}</td>
+              <td>{{ result.ordered_inputs|length }}</td>
+            </tr>
+          {% empty %}
+            <tr><td colspan="6">Esta ficha no tiene resultados.</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </section>
+  {% empty %}
+    <p>El indicador todavía no tiene fichas versionadas.</p>
+  {% endfor %}
+{% endblock %}

@@ -3,7 +3,7 @@
 Proyecto demostrativo de investigación aplicada para gestionar procesos, calidad, indicadores y analítica administrativa en clínicas privadas del Perú.
 
 > [!IMPORTANT]
-> Las Partes 0–10 tienen sus puertas cerradas. P10 es el quinto incremento ejecutable aprobado internamente; P11 es la siguiente parte del proyecto.
+> Las Partes 0–11 tienen sus puertas cerradas. P11 es el sexto incremento ejecutable y quedó aprobada internamente después de superar sus controles técnicos y la aceptación formal.
 
 ## Propósito
 
@@ -47,7 +47,8 @@ El resultado final será un portafolio técnico que integre gestión por proceso
 | P08 | Gestión documental y control de versiones | Aprobada internamente | G08 cerrada (12/12) |
 | P09 | Procesos, SIPOC y fichas | Aprobada internamente | G09 cerrada (12/12) |
 | P10 | Importación Excel y calidad de datos | Aprobada internamente | G10 cerrada (12/12) |
-| P11–P18 | KPI, calidad, analítica y publicación | No iniciadas | Pendientes |
+| P11 | Catálogo, cálculo y seguimiento de KPI | Aprobada internamente | G11 cerrada (12/12) |
+| P12–P18 | Calidad, mejora, riesgos, analítica y publicación | No iniciadas | Pendientes |
 
 Consulta el [roadmap](docs/ROADMAP.md) y el [índice de documentación](docs/README.md).
 
@@ -66,7 +67,7 @@ Las reglas completas se encuentran en [SECURITY.md](SECURITY.md).
 - Docker Compose Specification para entornos reproducibles.
 - Pruebas automatizadas y CI en GitHub Actions.
 
-La arquitectura y las versiones fueron fijadas en P04 y el modelo de datos en P05. P06 implementa identidad; P07 la estructura organizacional; P08 documentos; P09 procesos y SIPOC; P10 incorpora plantillas Excel versionadas, staging, validación, errores y trazabilidad de cargas.
+La arquitectura y las versiones fueron fijadas en P04 y el modelo de datos en P05. P06 implementa identidad; P07 la estructura organizacional; P08 documentos; P09 procesos y SIPOC; P10 incorpora plantillas Excel y trazabilidad de cargas; P11 añade fichas KPI, fórmulas seguras, observaciones y resultados reproducibles.
 
 ## Ejecución local
 
@@ -78,9 +79,10 @@ docker compose exec web python src/manage.py bootstrap_access
 docker compose exec web python src/manage.py seed_organizations_demo --actor admin_demo
 docker compose exec web python src/manage.py seed_processes_demo --actor admin_demo
 docker compose exec web python src/manage.py seed_import_templates_demo --actor admin_demo
+docker compose exec web python src/manage.py seed_indicators_demo --actor admin_demo
 ```
 
-Antes del bootstrap, define en `.env` una contraseña sintética de al menos 12 caracteres. Consulta las guías de [identidad](docs/06-identidad-acceso/EJECUCION.md), [semilla organizacional](docs/07-maestros-organizacionales/SEMILLA_DEMO.md), [gestión documental](docs/08-gestion-documental/README.md), [procesos/SIPOC](docs/09-procesos-sipoc/README.md) e [importación Excel](docs/10-importacion-excel/README.md). Los catálogos protegidos quedan disponibles en `/documents/`, `/processes/` e `/imports/`.
+Antes del bootstrap, define en `.env` una contraseña sintética de al menos 12 caracteres. Consulta las guías de [identidad](docs/06-identidad-acceso/EJECUCION.md), [semilla organizacional](docs/07-maestros-organizacionales/SEMILLA_DEMO.md), [gestión documental](docs/08-gestion-documental/README.md), [procesos/SIPOC](docs/09-procesos-sipoc/README.md), [importación Excel](docs/10-importacion-excel/README.md) e [indicadores](docs/11-indicadores-kpi/README.md). Los catálogos protegidos quedan disponibles en `/documents/`, `/processes/`, `/imports/` e `/indicators/`.
 
 ## Derechos de autor
 
