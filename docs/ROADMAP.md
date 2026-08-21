@@ -10,7 +10,7 @@ El roadmap controla el orden del proyecto; no sustituye los criterios de aceptac
 | P03 | Requisitos, actores y casos de uso | Aprobada internamente |
 | P04 | Arquitectura, entornos y decisiones técnicas | Aprobada internamente |
 | P05 | Modelo de datos y diccionario | Aprobada internamente |
-| P06 | Identidad, autenticación, roles y permisos | No iniciada |
+| P06 | Identidad, autenticación, roles y permisos | Aprobada internamente |
 | P07 | Maestros organizacionales y catálogos | No iniciada |
 | P08 | Gestión documental y control de versiones | No iniciada |
 | P09 | Procesos, SIPOC y fichas | No iniciada |
@@ -32,4 +32,4 @@ El roadmap controla el orden del proyecto; no sustituye los criterios de aceptac
 4. Implementar únicamente requisitos aprobados.
 5. Integrar, probar y registrar evidencia antes de cerrar la parte.
 
-P04 y P05 ya están aprobadas; P06 podrá iniciar el esqueleto ejecutable de forma incremental. No se publicará una fecha artificial antes de validar identidad, permisos y migraciones.
+P04, P05 y P06 están aprobadas. El esqueleto ejecutable superó CI en Python 3.13/PostgreSQL 17 y G06 cerró con aceptación formal. Esto habilita el inicio de P07, que conservará su propia puerta y no heredará una aprobación automática.

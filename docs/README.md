@@ -10,6 +10,7 @@ La documentación está organizada como expedientes consecutivos. Una parte solo
 | [P03](03-requisitos-casos-uso/README.md) | Requisitos, actores y casos de uso | Aprobada internamente |
 | [P04](04-arquitectura-entornos/README.md) | Arquitectura, entornos y decisiones técnicas | Aprobada internamente |
 | [P05](05-modelo-datos/README.md) | Modelo de datos y diccionario | Aprobada internamente |
+| [P06](06-identidad-acceso/README.md) | Identidad, autenticación, roles y permisos | Aprobada internamente |
 | [Roadmap](ROADMAP.md) | Secuencia P00–P18 | Activo |
 
 ## Convención de estados

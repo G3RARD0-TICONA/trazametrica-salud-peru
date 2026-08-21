@@ -1,6 +1,6 @@
 # Registro de cambios
 
-Este proyecto seguirá [Versionado Semántico](https://semver.org/lang/es/) cuando exista software ejecutable. Durante la fase documental, cada cambio se registrará bajo `Sin publicar`.
+Este proyecto sigue [Versionado Semántico](https://semver.org/lang/es/) desde el primer incremento ejecutable. Los cambios todavía no publicados se registran bajo `Sin publicar`.
 
 ## Sin publicar
 
@@ -16,7 +16,11 @@ Este proyecto seguirá [Versionado Semántico](https://semver.org/lang/es/) cuan
 - Expediente P04 de arquitectura, entornos, seguridad, calidad y 14 decisiones técnicas aceptado; G04 aprobada con 12/12 controles conformes.
 - Expediente P05 de modelo de dominio, diccionario físico, integridad, índices, migraciones y semillas sintéticas aprobado; G05 cerrada con 12/12 controles conformes.
 - Roadmap de P00 a P18.
+- Base ejecutable P06 con Django 5.2 LTS, PostgreSQL 17, Docker Compose y GitHub Actions.
+- Usuario personalizado, ocho roles, 33 capacidades, vigencias, segregación de funciones y autorización en servidor.
+- Pruebas unitarias e integrales, controles de calidad, endpoints de salud y bootstrap sintético.
+- Expediente P06 aprobado y puerta G06 cerrada con 12/12 controles conformes.
 
 ### Pendiente
 
-- Primera versión ejecutable.
+- Implementación de P07–P18.
