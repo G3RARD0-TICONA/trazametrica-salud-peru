@@ -15,7 +15,7 @@ El roadmap controla el orden del proyecto; no sustituye los criterios de aceptac
 | P08 | Gestión documental y control de versiones | Aprobada internamente — G08 cerrada (12/12) |
 | P09 | Procesos, SIPOC y fichas | Aprobada internamente — G09 cerrada (12/12) |
 | P10 | Importación Excel y calidad de datos | Aprobada internamente — G10 cerrada (12/12) |
-| P11 | Catálogo, cálculo y seguimiento de KPI | En revisión — G11 abierta (11/12) |
+| P11 | Catálogo, cálculo y seguimiento de KPI | Aprobada internamente — G11 cerrada (12/12) |
 | P12 | Auditorías, hallazgos y no conformidades | No iniciada |
 | P13 | Acciones correctivas, evidencias y mejora | No iniciada |
 | P14 | Riesgos, alertas y controles | No iniciada |
@@ -32,4 +32,4 @@ El roadmap controla el orden del proyecto; no sustituye los criterios de aceptac
 4. Implementar únicamente requisitos aprobados.
 5. Integrar, probar y registrar evidencia antes de cerrar la parte.
 
-P04–P10 están aprobadas internamente. P11 materializa fichas KPI versionadas, fórmulas declarativas, observaciones, cálculo reproducible y publicación corregible; superó las verificaciones locales y el CI #48 sobre PostgreSQL 17, pero no hereda aprobación automática. G11 requiere todavía la aceptación formal del titular.
+P04–P11 están aprobadas internamente. P11 materializa fichas KPI versionadas, fórmulas declarativas, observaciones, cálculo reproducible y publicación corregible; superó las verificaciones locales, los CI #48 y #49 sobre PostgreSQL 17 y la aceptación formal del titular. G11 queda cerrada con 12/12 controles conformes.

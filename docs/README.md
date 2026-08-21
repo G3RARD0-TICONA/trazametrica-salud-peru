@@ -15,7 +15,7 @@ La documentación está organizada como expedientes consecutivos. Una parte solo
 | [P08](08-gestion-documental/README.md) | Gestión documental y control de versiones | Aprobada internamente — G08 cerrada |
 | [P09](09-procesos-sipoc/README.md) | Procesos, SIPOC y fichas | Aprobada internamente — G09 cerrada |
 | [P10](10-importacion-excel/README.md) | Importación Excel y calidad de datos | Aprobada internamente — G10 cerrada |
-| [P11](11-indicadores-kpi/README.md) | Catálogo, cálculo y seguimiento de KPI | En revisión — G11 abierta (11/12) |
+| [P11](11-indicadores-kpi/README.md) | Catálogo, cálculo y seguimiento de KPI | Aprobada internamente — G11 cerrada (12/12) |
 | [Roadmap](ROADMAP.md) | Secuencia P00–P18 | Activo |
 
 ## Convención de estados

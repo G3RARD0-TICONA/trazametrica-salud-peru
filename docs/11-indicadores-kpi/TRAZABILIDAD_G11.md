@@ -26,7 +26,7 @@
 
 ## Evaluación actual de G11
 
-El CI #48 aprobó 104 pruebas sobre PostgreSQL 17 y 83 % de cobertura. La aceptación formal es el único control pendiente.
+Los CI #48 y #49 aprobaron 104 pruebas sobre PostgreSQL 17 y 83 % de cobertura. El titular autorizó expresamente el cierre de G11 el 20 de agosto de 2026.
 
 | # | Criterio | Evidencia | Estado |
 |---:|---|---|---|
@@ -40,7 +40,7 @@ El CI #48 aprobó 104 pruebas sobre PostgreSQL 17 y 83 % de cobertura. La acepta
 | 8 | Revisión y publicación independiente | flujo y permisos negativos | Conforme |
 | 9 | Correcciones sin sobrescritura | resultado anterior y `supersedes` conservados | Conforme |
 | 10 | Consulta y semilla sintética | HTTP protegido y catálogo 200/260/100 000 | Conforme |
-| 11 | CI en Python 3.13/PostgreSQL 17 | CI #48: 104 pruebas, 83 % de cobertura, seguridad, dependencias y contenedor conformes | Conforme |
-| 12 | Aceptación formal del titular | Requiere autorización expresa posterior | Pendiente |
+| 11 | CI en Python 3.13/PostgreSQL 17 | CI #48 y CI final #49: 104 pruebas, 83 % de cobertura, seguridad, dependencias y contenedor conformes | Conforme |
+| 12 | Aceptación formal del titular | Autorización expresa registrada el 20 de agosto de 2026 | Conforme |
 
-**Resultado actual:** 11/12. P11 está **EN REVISIÓN** y G11 permanece abierta únicamente por la aceptación del titular. La aprobación interna no representa certificación, autorización sanitaria ni aptitud productiva.
+**Resultado final:** 12/12. P11 está **APROBADA INTERNAMENTE** y G11 queda cerrada. Esta aprobación interna no representa certificación, autorización sanitaria ni aptitud productiva.
