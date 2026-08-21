@@ -27,6 +27,7 @@ source = [
     "src/apps/organizations",
     "src/apps/processes",
     "src/apps/imports",
+    "src/apps/indicators",
 ]
 omit = ["*/migrations/*", "*/admin.py", "*/apps.py"]
 
@@ -51,6 +52,7 @@ ignore = ["DJ001"]
 "src/apps/documents/migrations/*.py" = ["E501", "I001"]
 "src/apps/processes/migrations/*.py" = ["E501", "I001"]
 "src/apps/imports/migrations/*.py" = ["E501", "I001"]
+"src/apps/indicators/migrations/*.py" = ["E501", "I001"]
 "src/apps/imports/xlsx.py" = ["E501"]
 
 [tool.mypy]
@@ -60,7 +62,7 @@ mypy_path = "src"
 check_untyped_defs = true
 disallow_untyped_defs = true
 ignore_missing_imports = true
-exclude = ["src/apps/(accounts|auditlog|documents|organizations|processes|imports)/migrations/"]
+exclude = ["src/apps/(accounts|auditlog|documents|organizations|processes|imports|indicators)/migrations/"]
 
 [tool.django-stubs]
 django_settings_module = "config.settings.test"
@@ -74,4 +76,5 @@ exclude_dirs = [
     "src/apps/documents/migrations",
     "src/apps/processes/migrations",
     "src/apps/imports/migrations",
+    "src/apps/indicators/migrations",
 ]
