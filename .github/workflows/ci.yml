@@ -52,7 +52,7 @@ jobs:
       - name: Django checks and migrations
         run: |
           python src/manage.py check
-          python src/manage.py makemigrations --check --dry-run
+          python src/manage.py makemigrations --check --dry-run --verbosity 3
           python src/manage.py migrate --noinput
       - name: Tests and coverage
         run: |
