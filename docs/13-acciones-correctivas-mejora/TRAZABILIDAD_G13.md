@@ -31,7 +31,7 @@
 
 ## Evaluación actual de G13
 
-Las verificaciones locales aprobaron 124 pruebas aplicables y 83 % de cobertura. La comprobación PostgreSQL integral y la aceptación formal siguen pendientes.
+Las verificaciones locales aprobaron 124 pruebas aplicables y 83 % de cobertura. La CI #56 aprobó 125 pruebas sobre PostgreSQL 17, mantuvo 83 % de cobertura y verificó documentación, lint, tipado, migraciones, seguridad, dependencias y construcción del contenedor. Solo falta la aceptación formal del titular.
 
 | # | Criterio | Evidencia | Estado |
 |---:|---|---|---|
@@ -45,7 +45,7 @@ Las verificaciones locales aprobaron 124 pruebas aplicables y 83 % de cobertura.
 | 8 | Cierre condicionado RN-019 | todas las acciones obligatorias eficaces | Conforme |
 | 9 | Historia protegida | bitácora, `PROTECT`, sin update/delete masivo | Conforme |
 | 10 | Semilla contractual | 12 causas, 24 acciones, 18 evidencias y 15 revisiones | Conforme |
-| 11 | CI en Python 3.13/PostgreSQL 17 | Pendiente de ejecución en GitHub | Pendiente |
+| 11 | CI en Python 3.13/PostgreSQL 17 | CI #56: 125 pruebas, 83 %, seguridad, dependencias e imagen conformes | Conforme |
 | 12 | Aceptación formal del titular | Requiere autorización expresa posterior | Pendiente |
 
-**Resultado actual:** 10/12. P13 está **EN PRUEBAS** y G13 permanece abierta. La aprobación interna no representa certificación, autorización sanitaria ni aptitud productiva.
+**Resultado actual:** 11/12. P13 está **EN REVISIÓN** y G13 permanece abierta hasta la aceptación formal del titular. La aprobación interna no representa certificación, autorización sanitaria ni aptitud productiva.

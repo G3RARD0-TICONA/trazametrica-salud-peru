@@ -66,7 +66,8 @@ Este proyecto sigue [Versionado Semántico](https://semver.org/lang/es/) desde e
 - Flujo segregado de causa, aprobación del plan, ejecución, verificación, cierre y reapertura.
 - RN-015–019 implementadas con atomicidad, reasignación trazable y cierre condicionado.
 - Alertas de vencimiento y responsable inactivo, catálogo protegido y semilla determinista 12/24/18/15.
-- Expediente P13 en pruebas y puerta G13 abierta con 10/12 controles conformes antes de CI y aceptación.
+- CI #56 de P13 conforme con 125 pruebas sobre PostgreSQL 17, 83 % de cobertura, seguridad y dependencias sin hallazgos, y contenedor reproducible.
+- Expediente P13 en revisión y puerta G13 abierta con 11/12 controles conformes; solo falta la aceptación formal del titular.
 
 ### Pendiente
 
