@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Auditorías | Trazamétrica Salud Perú{% endblock %}
+
+{% block content %}
+  <h1>Auditorías y hallazgos</h1>
+  <p class="notice"><strong>DATOS SINTÉTICOS.</strong> Demostración administrativa; no acredita cumplimiento ni reemplaza una auditoría sanitaria.</p>
+
+  <h2>Planes</h2>
+  <table>
+    <thead><tr><th>Código</th><th>Alcance</th><th>Auditor líder</th><th>Fechas</th><th>Estado</th></tr></thead>
+    <tbody>
+      {% for plan in audit_plans %}
+        <tr>
+          <td><a href="{% url 'audits:detail' plan.id %}">{{ plan.code }}</a></td>
+          <td>{{ plan.scope }}</td>
+          <td>{{ plan.lead_auditor.username }}</td>
+          <td>{{ plan.planned_start }} — {{ plan.planned_end }}</td>
+          <td>{{ plan.get_status_display }}</td>
+        </tr>
+      {% empty %}<tr><td colspan="5">No existen planes sintéticos.</td></tr>{% endfor %}
+    </tbody>
+  </table>
+
+  <h2>Hallazgos vigentes</h2>
+  <table>
+    <thead><tr><th>Código</th><th>Tipo</th><th>Impacto</th><th>Responsable</th><th>Vencimiento</th><th>Alerta</th></tr></thead>
+    <tbody>
+      {% for finding, alert in findings %}
+        <tr>
+          <td>{{ finding.code }}</td><td>{{ finding.get_finding_type_display }}</td>
+          <td>{{ finding.get_impact_display }}</td><td>{{ finding.owner.username }}</td>
+          <td>{{ finding.due_date|default:"No definida" }}</td><td>{{ alert }}</td>
+        </tr>
+      {% empty %}<tr><td colspan="6">No existen hallazgos vigentes.</td></tr>{% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

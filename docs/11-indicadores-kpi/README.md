@@ -43,4 +43,4 @@ Implementar RF-015–018, CU-08–09, RN-011–013, RNF-005 y ENT-022–026: fic
 
 ## 5. Resultado actual
 
-Los CI #48 y #49 aprobaron 104 pruebas sobre PostgreSQL 17 con 83 % de cobertura, documentación, lint, tipado, modelos, migraciones, seguridad, dependencias y contenedor conformes. El titular autorizó expresamente el cierre el 20 de agosto de 2026; G11 queda cerrada con 12/12 controles conformes.
+Los CI #48, #49 y #50 aprobaron 104 pruebas sobre PostgreSQL 17 con 83 % de cobertura, documentación, lint, tipado, modelos, migraciones, seguridad, dependencias y contenedor conformes. El titular autorizó expresamente el cierre el 20 de agosto de 2026; G11 queda cerrada con 12/12 controles conformes.

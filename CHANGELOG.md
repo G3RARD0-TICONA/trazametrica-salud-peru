@@ -53,8 +53,15 @@ Este proyecto sigue [Versionado Semántico](https://semver.org/lang/es/) desde e
 - Catálogo protegido y semilla determinista de 200 KPI, 260 fichas y hasta 100 000 observaciones sintéticas.
 - Expediente P11 aprobado internamente y puerta G11 cerrada con 12/12 controles conformes mediante autorización expresa del titular.
 - CI #48 de P11 conforme con 104 pruebas sobre PostgreSQL 17, 83 % de cobertura, seguridad y dependencias sin hallazgos, y contenedor reproducible.
-- CI final #49 conforme sobre el commit de evidencia de P11.
+- CI #49 conforme sobre el commit de evidencia de P11 y CI final #50 conforme sobre su cierre G11.
+- Dominio P12 de planes, listas versionadas, criterios, ejecuciones, respuestas, hallazgos y evidencias.
+- Flujos segregados de planificación, aprobación, ejecución, devolución y término de auditoría.
+- RN-014 implementada mediante evidencia sintética validada o justificación expresa de ausencia.
+- Bloqueo de ejecución incompleta y de no conformidad sin hallazgo trazable.
+- Alertas de vencimiento, catálogo protegido y semilla determinista de 12 planes y 180 hallazgos.
+- CI #52 y #53 de P12 conformes con 115 pruebas sobre PostgreSQL 17, 83 % de cobertura, seguridad y dependencias sin hallazgos, y contenedor reproducible.
+- Expediente P12 aprobado internamente y puerta G12 cerrada con 12/12 controles conformes mediante autorización expresa del titular.
 
 ### Pendiente
 
-- Implementación de P12–P18.
+- Implementación de P13–P18.
