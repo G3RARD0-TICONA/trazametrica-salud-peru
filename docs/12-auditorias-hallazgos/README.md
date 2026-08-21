@@ -1,9 +1,9 @@
 # P12 — Auditorías, hallazgos y no conformidades
 
-**Estado:** en revisión  
-**Puerta:** G12 abierta — 11/12 controles conformes  
-**Versión:** 0.10  
-**Fecha de corte:** 20 de agosto de 2026
+**Estado:** aprobada internamente  
+**Puerta:** G12 cerrada — 12/12 controles conformes  
+**Versión:** 1.0  
+**Fecha de corte:** 21 de agosto de 2026
 
 ## 1. Objetivo
 
@@ -44,4 +44,4 @@ Implementar RF-019–021, CU-10–11, RN-014, RNF-004 y ENT-027–034: planes de
 
 ## 5. Resultado actual
 
-Las verificaciones locales aprobaron 114 pruebas aplicables con 83 % de cobertura. La CI #52 aprobó 115 pruebas sobre PostgreSQL 17, mantuvo 83 % de cobertura y dejó conformes documentación, lint, tipado, migraciones, seguridad, dependencias y construcción del contenedor. G12 conserva un único pendiente: la aceptación formal del titular.
+Las verificaciones locales aprobaron 114 pruebas aplicables con 83 % de cobertura. Los CI #52 y #53 aprobaron 115 pruebas sobre PostgreSQL 17, mantuvieron 83 % de cobertura y dejaron conformes documentación, lint, tipado, migraciones, seguridad, dependencias y construcción del contenedor. El titular aceptó formalmente P12 el 21 de agosto de 2026; G12 queda cerrada con 12/12 controles conformes.

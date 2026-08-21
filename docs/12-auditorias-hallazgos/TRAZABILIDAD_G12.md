@@ -28,7 +28,7 @@
 
 ## Evaluación actual de G12
 
-Las verificaciones locales aprobaron 114 pruebas aplicables y 83 % de cobertura. La CI #52 aprobó 115 pruebas sobre PostgreSQL 17, mantuvo 83 % de cobertura y verificó documentación, lint, tipado, migraciones, seguridad, dependencias y construcción del contenedor. Solo falta la aceptación formal del titular.
+Las verificaciones locales aprobaron 114 pruebas aplicables y 83 % de cobertura. Los CI #52 y #53 aprobaron 115 pruebas sobre PostgreSQL 17, mantuvieron 83 % de cobertura y verificaron documentación, lint, tipado, migraciones, seguridad, dependencias y construcción del contenedor. El titular autorizó expresamente el cierre de G12 el 21 de agosto de 2026.
 
 | # | Criterio | Evidencia | Estado |
 |---:|---|---|---|
@@ -42,7 +42,7 @@ Las verificaciones locales aprobaron 114 pruebas aplicables y 83 % de cobertura.
 | 8 | Revisión independiente | auditor líder no aprueba su ejecución | Conforme |
 | 9 | Consulta y alertas | HTTP protegido y vencimiento derivado | Conforme |
 | 10 | Semilla contractual | 12 planes, 180 respuestas y 180 hallazgos | Conforme |
-| 11 | CI en Python 3.13/PostgreSQL 17 | CI #52: 115 pruebas, 83 %, seguridad, dependencias e imagen conformes | Conforme |
-| 12 | Aceptación formal del titular | Requiere autorización expresa posterior | Pendiente |
+| 11 | CI en Python 3.13/PostgreSQL 17 | CI #52 y #53: 115 pruebas, 83 %, seguridad, dependencias e imagen conformes | Conforme |
+| 12 | Aceptación formal del titular | Autorización expresa registrada el 21 de agosto de 2026 | Conforme |
 
-**Resultado actual:** 11/12. P12 está **EN REVISIÓN** y G12 permanece abierta hasta la aceptación formal del titular. La aprobación interna no representa certificación, autorización sanitaria ni aptitud productiva.
+**Resultado final:** 12/12. P12 está **APROBADA INTERNAMENTE** y G12 queda cerrada. Esta aprobación interna no representa certificación, autorización sanitaria ni aptitud productiva.

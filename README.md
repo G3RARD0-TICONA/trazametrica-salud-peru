@@ -3,7 +3,7 @@
 Proyecto demostrativo de investigación aplicada para gestionar procesos, calidad, indicadores y analítica administrativa en clínicas privadas del Perú.
 
 > [!IMPORTANT]
-> Las Partes 0–11 tienen sus puertas cerradas. P12 es el séptimo incremento ejecutable y está en revisión; G12 permanece abierta únicamente hasta recibir la aceptación formal del titular.
+> Las Partes 0–12 tienen sus puertas cerradas. P12 es el séptimo incremento ejecutable aprobado internamente y mantiene separados de su alcance el análisis causal y CAPA de P13.
 
 ## Propósito
 
@@ -48,7 +48,7 @@ El resultado final será un portafolio técnico que integre gestión por proceso
 | P09 | Procesos, SIPOC y fichas | Aprobada internamente | G09 cerrada (12/12) |
 | P10 | Importación Excel y calidad de datos | Aprobada internamente | G10 cerrada (12/12) |
 | P11 | Catálogo, cálculo y seguimiento de KPI | Aprobada internamente | G11 cerrada (12/12) |
-| P12 | Auditorías, hallazgos y no conformidades | En revisión | G12 abierta (11/12) |
+| P12 | Auditorías, hallazgos y no conformidades | Aprobada internamente | G12 cerrada (12/12) |
 | P13–P18 | Mejora, riesgos, analítica y publicación | No iniciadas | Pendientes |
 
 Consulta el [roadmap](docs/ROADMAP.md) y el [índice de documentación](docs/README.md).
