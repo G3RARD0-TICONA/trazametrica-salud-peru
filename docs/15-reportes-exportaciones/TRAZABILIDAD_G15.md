@@ -25,7 +25,7 @@
 | 8 | Metadatos RN-021 | contrato, fecha, filtros y marca sintética | Conforme |
 | 9 | Autorización e historia | capacidades, `PROTECT`, bitácora y sin borrado | Conforme |
 | 10 | Semilla contractual | siete contratos deterministas e idempotentes | Conforme |
-| 11 | CI PostgreSQL 17 | pendiente de ejecución en el PR de P15 | Pendiente |
+| 11 | CI PostgreSQL 17 | CI #67: 151 pruebas, 82 %, seguridad, dependencias e imagen conformes | Conforme |
 | 12 | Aceptación formal | requiere autorización expresa del titular | Pendiente |
 
-**Resultado actual:** 10/12. P15 está en pruebas y G15 permanece abierta.
+**Resultado actual:** 11/12. P15 está en pruebas y G15 permanece abierta hasta la aceptación formal del titular.

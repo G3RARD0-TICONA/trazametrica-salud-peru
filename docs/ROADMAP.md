@@ -19,7 +19,7 @@ El roadmap controla el orden del proyecto; no sustituye los criterios de aceptac
 | P12 | Auditorías, hallazgos y no conformidades | Aprobada internamente — G12 cerrada (12/12) |
 | P13 | Acciones correctivas, evidencias y mejora | Aprobada internamente — G13 cerrada (12/12) |
 | P14 | Riesgos, alertas y controles | Aprobada internamente — G14 cerrada (12/12) |
-| P15 | Exportaciones, Power BI Desktop y reportes | En pruebas — G15 abierta (10/12) |
+| P15 | Exportaciones, Power BI Desktop y reportes | En pruebas — G15 abierta (11/12) |
 | P16 | Analítica estadística y capacidades avanzadas | No iniciada |
 | P17 | Pruebas, seguridad, rendimiento y accesibilidad | No iniciada |
 | P18 | Despliegue demostrativo, documentación y publicación | No iniciada |
@@ -40,4 +40,4 @@ P13 materializa causa raíz, acciones correctivas, evidencia de ejecución, aler
 
 P14 materializa riesgos por proceso, matriz inherente y residual, controles versionados, relaciones explícitas con KPI, hallazgos y acciones, revisión independiente, alertas y cierre condicionado. Las CI #61 y #62 aprobaron 140 pruebas sobre PostgreSQL 17 con 82 % de cobertura. El titular autorizó expresamente el cierre el 28 de agosto de 2026; G14 queda cerrada con 12/12 controles conformes.
 
-P15 materializa tablero filtrable, contratos de exportación versionados, archivos CSV/XLSX/PDF auditables y un conjunto estable para Power BI Desktop. La implementación local deja G15 en 10/12; faltan la evidencia CI del PR y la aceptación formal del titular.
+P15 materializa tablero filtrable, contratos de exportación versionados, archivos CSV/XLSX/PDF auditables y un conjunto estable para Power BI Desktop. La CI #67 aprobó 151 pruebas sobre PostgreSQL 17 con 82 % de cobertura, seguridad y dependencias conformes. G15 queda en 11/12; falta la aceptación formal del titular.
