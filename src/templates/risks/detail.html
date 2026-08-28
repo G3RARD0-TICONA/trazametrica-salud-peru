@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %}{{ risk.code }} | Riesgos{% endblock %}
+
+{% block content %}
+  <p><a href="{% url 'risks:catalog' %}">← Volver a riesgos</a></p>
+  <h1>{{ risk.code }}</h1>
+  <p class="notice"><strong>DATOS SINTÉTICOS.</strong> Matriz administrativa demostrativa; no sustituye juicio profesional ni acredita cumplimiento.</p>
+  <dl>
+    <dt>Proceso</dt><dd>{{ risk.process.code }} — {{ risk.process.name }}</dd>
+    <dt>Causa</dt><dd>{{ risk.cause }}</dd>
+    <dt>Evento</dt><dd>{{ risk.event }}</dd>
+    <dt>Consecuencia</dt><dd>{{ risk.consequence }}</dd>
+    <dt>Responsable</dt><dd>{{ risk.owner.username }}</dd>
+    <dt>Estado</dt><dd>{{ risk.get_status_display }}</dd>
+  </dl>
+
+  <h2>Evaluaciones versionadas</h2>
+  <table>
+    <thead><tr><th>Versión</th><th>Estado</th><th>Inherente</th><th>Residual</th><th>Próxima revisión</th><th>Aprobador</th></tr></thead>
+    <tbody>
+      {% for assessment in risk.assessments.all %}
+        <tr>
+          <td>{{ assessment.version_no }}</td><td>{{ assessment.get_status_display }}</td>
+          <td>{{ assessment.inherent_level }} — {{ assessment.get_inherent_band_display }}</td>
+          <td>{% if assessment.residual_level %}{{ assessment.residual_level }} — {{ assessment.get_residual_band_display }}{% else %}Pendiente{% endif %}</td>
+          <td>{{ assessment.next_review_date }}</td>
+          <td>{% if assessment.approved_by %}{{ assessment.approved_by.username }}{% else %}—{% endif %}</td>
+        </tr>
+      {% empty %}<tr><td colspan="6">No existen evaluaciones.</td></tr>{% endfor %}
+    </tbody>
+  </table>
+
+  <h2>Controles y revisiones</h2>
+  <table>
+    <thead><tr><th>Control</th><th>Tipo</th><th>Frecuencia</th><th>Eficacia esperada</th><th>Última revisión</th></tr></thead>
+    <tbody>
+      {% for link in risk.ordered_controls %}
+        <tr>
+          <td>{{ link.control_version.control.code }} — {{ link.control_version.control.name }}</td>
+          <td>{{ link.control_version.get_control_type_display }}</td>
+          <td>{{ link.control_version.get_frequency_display }}</td>
+          <td>{{ link.get_effectiveness_expected_display }}</td>
+          <td>{% if link.ordered_reviews %}{{ link.ordered_reviews.0.get_result_display }} · {{ link.ordered_reviews.0.next_review_date }}{% else %}Pendiente{% endif %}</td>
+        </tr>
+      {% empty %}<tr><td colspan="5">No existen controles.</td></tr>{% endfor %}
+    </tbody>
+  </table>
+
+  <h2>Trazabilidad relacionada</h2>
+  <ul>
+    <li>Indicadores: {% for link in risk.indicator_links.all %}{{ link.indicator.code }}{% if not forloop.last %}, {% endif %}{% empty %}ninguno{% endfor %}</li>
+    <li>Hallazgos: {% for link in risk.finding_links.all %}{{ link.finding.code }}{% if not forloop.last %}, {% endif %}{% empty %}ninguno{% endfor %}</li>
+    <li>Acciones: {% for link in risk.action_links.all %}{{ link.action.code }}{% if not forloop.last %}, {% endif %}{% empty %}ninguna{% endfor %}</li>
+  </ul>
+{% endblock %}

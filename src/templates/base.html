@@ -28,6 +28,7 @@
       <a href="{% url 'indicators:catalog' %}">Indicadores</a>
       <a href="{% url 'audits:catalog' %}">Auditorías</a>
       <a href="{% url 'improvements:catalog' %}">Mejora</a>
+      <a href="{% url 'risks:catalog' %}">Riesgos</a>
       <form method="post" action="{% url 'accounts:logout' %}">
         {% csrf_token %}
         <button type="submit">Cerrar sesión</button>

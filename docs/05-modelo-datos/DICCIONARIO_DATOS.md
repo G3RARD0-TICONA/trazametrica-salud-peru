@@ -91,13 +91,17 @@ Leyenda: `!` obligatorio, `?` opcional, `PK` clave primaria y `FK` clave foráne
 | ID | Tabla | Bloques | Campos específicos |
 |---|---|---|---|
 | ENT-039 | `risks_risk` | B01, B02, B03 | `organization_id:uuid FK!`; `process_id:uuid FK!`; `code:varchar(50)!`; `cause:text!`; `event:text!`; `consequence:text!`; `owner_id:uuid FK!`; `status:varchar(30)!` |
-| ENT-040 | `risks_risk_assessment` | B01, B02 | `risk_id:uuid FK!`; `version_no:integer!`; `probability:smallint!`; `impact:smallint!`; `inherent_level:smallint!`; `residual_probability:smallint?`; `residual_impact:smallint?`; `residual_level:smallint?`; `assessed_at:timestamptz!`; `approved_at:timestamptz?`; `approved_by_id:uuid FK?` |
-| ENT-041 | `risks_control` | B01, B02, B03 | `organization_id:uuid FK!`; `code:varchar(50)!`; `name:varchar(200)!`; `description:text!`; `owner_id:uuid FK!`; `frequency:varchar(20)!` |
-| ENT-042 | `risks_risk_control` | B01, B02 | `risk_id:uuid FK!`; `control_id:uuid FK!`; `valid_from:date!`; `valid_to:date?`; `effectiveness_expected:varchar(20)!` |
-| ENT-043 | `risks_control_review` | B01, B02 | `control_id:uuid FK!`; `reviewer_id:uuid FK!`; `reviewed_at:timestamptz!`; `result:varchar(20)!`; `notes:text!`; `next_review_date:date!` |
+| ENT-040 | `risks_risk_assessment` | B01, B02 | `risk_id:uuid FK!`; `version_no:integer!`; `status:varchar(30)!`; `probability:smallint!`; `impact:smallint!`; `inherent_level:smallint!`; `inherent_band:varchar(20)!`; `residual_probability:smallint?`; `residual_impact:smallint?`; `residual_level:smallint?`; `residual_band:varchar(20)?`; `assessed_at:timestamptz!`; `next_review_date:date!`; `submitted_at:timestamptz?`; `submitted_by_id:uuid FK?`; `approved_at:timestamptz?`; `approved_by_id:uuid FK?`; `decision_reason:varchar(500)?` |
+| ENT-041 | `risks_control` | B01, B02, B03 | `organization_id:uuid FK!`; `code:varchar(50)!`; `name:varchar(200)!`; `owner_id:uuid FK!` |
+| ENT-042 | `risks_risk_control` | B01, B02 | `risk_id:uuid FK!`; `control_version_id:uuid FK!`; `valid_from:date!`; `valid_to:date?`; `effectiveness_expected:varchar(20)!` |
+| ENT-043 | `risks_control_review` | B01, B02 | `risk_control_id:uuid FK!`; `reviewer_id:uuid FK!`; `reviewed_at:timestamptz!`; `result:varchar(20)!`; `notes:text!`; `next_review_date:date!` |
 | ENT-044 | `reports_export_contract` | B01, B02, B04 | `code:varchar(50)!`; `name:varchar(200)!`; `format:varchar(20)!`; `schema_definition:jsonb!`; `schema_hash:varchar(64)!` |
 | ENT-045 | `reports_export_run` | B01, B02 | `contract_id:uuid FK!`; `requested_by_id:uuid FK!`; `filters:jsonb!`; `file_asset_id:uuid FK!`; `row_count:integer!`; `generated_at:timestamptz!`; `output_hash:varchar(64)!` |
 | ENT-046 | `auditlog_event` | B01 | `occurred_at:timestamptz!`; `actor_id:uuid FK?`; `correlation_id:uuid!`; `object_type:varchar(100)!`; `object_id:uuid?`; `action:varchar(50)!`; `result:varchar(20)!`; `reason:varchar(500)?`; `context:jsonb!`; `event_hash:varchar(64)!` |
+| ENT-047 | `risks_control_version` | B01, B02, B04 | `control_id:uuid FK!`; `description:text!`; `control_type:varchar(20)!`; `frequency:varchar(20)!`; `submitted_at:timestamptz?`; `submitted_by_id:uuid FK?` |
+| ENT-048 | `risks_risk_indicator` | B01, B02 | `risk_id:uuid FK!`; `indicator_id:uuid FK!` |
+| ENT-049 | `risks_risk_finding` | B01, B02 | `risk_id:uuid FK!`; `finding_id:uuid FK!` |
+| ENT-050 | `risks_risk_action` | B01, B02 | `risk_id:uuid FK!`; `action_id:uuid FK!` |
 
 ## 8. Regla de implementación
 
@@ -106,3 +110,5 @@ El diccionario es el contrato de P05. P06–P15 podrán añadir campos justifica
 P08 materializa ENT-013 con `responsible_area_id` obligatorio. P09 materializa ENT-009–011 y añade `process_id` a ENT-013 mediante una clave foránea opcional y protegida. También extiende ENT-009 con clasificación del proceso y ENT-010 con evidencia de envío y revisión; estos campos sustentan catálogo, segregación y auditoría sin alterar las cardinalidades aprobadas.
 
 P10 materializa ENT-017–021. ENT-018 registra envío a revisión para sustentar publicación independiente; ENT-019 añade autorrelaciones opcionales `duplicate_of_id` y `retry_of_id` para demostrar RN-009 y RF-014 sin copiar ni sobrescribir la carga antecedente.
+
+P14 materializa ENT-039–043 y añade ENT-047–050. La evaluación conserva nivel inherente y residual calculados, el control se versiona antes de aplicarse y las revisiones recaen sobre la asignación exacta riesgo-control. Los enlaces con KPI, hallazgos y acciones son claves foráneas explícitas y verificables.
