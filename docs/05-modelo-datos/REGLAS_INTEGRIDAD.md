@@ -34,9 +34,11 @@
 | UQ-05-19 | `indicator_result.result_hash` es único y cada vínculo `(result_id, observation_id)` no se repite |
 | UQ-05-20 | Plan, lista, hallazgo y acción conservan códigos únicos dentro de su organización/objeto padre |
 | UQ-05-21 | Respuesta única por `(execution_id, checklist_item_id)` |
-| UQ-05-22 | Evaluación de riesgo única por `(risk_id, version_no)` y vínculo único por `(risk_id, control_id, valid_from)` |
+| UQ-05-22 | Evaluación de riesgo única por `(risk_id, version_no)` y vínculo único por `(risk_id, control_version_id, valid_from)` |
 | UQ-05-23 | Contrato de exportación único por `(code, version_no)` |
 | UQ-05-24 | `auditlog_event.event_hash` es único |
+| UQ-05-25 | Versión de control única por `(control_id, version_no)` |
+| UQ-05-26 | Los vínculos `(risk_id, indicator_id)`, `(risk_id, finding_id)` y `(risk_id, action_id)` no se repiten |
 
 Las condiciones de unicidad parcial —por ejemplo, un solo trabajo promovido para un hash— se implementan con `UniqueConstraint(condition=...)`. La prevención de intervalos de vigencia superpuestos se completa en servicio y con pruebas transaccionales.
 
@@ -67,6 +69,9 @@ Las condiciones de unicidad parcial —por ejemplo, un solo trabajo promovido pa
 | CK-05-21 | `row_count >= 0` en exportaciones y su hash tiene 64 caracteres |
 | CK-05-22 | Resultado de evento pertenece a `success`, `denied`, `error` o `cancelled` |
 | CK-05-23 | Solo el usuario técnico inicial puede tener `created_by IS NULL`, ser superusuario y registrar `bootstrap_reason` |
+| CK-05-24 | La clasificación inherente y residual corresponde al nivel calculado según las bandas aprobadas |
+| CK-05-25 | Una versión de control vigente tiene fecha inicial, fecha y actor de aprobación |
+| CK-05-26 | La próxima revisión de un control es posterior a la revisión realizada |
 
 Las reglas que consultan otras filas o tablas —autoaprobación, solapamiento, transición y eficacia— se ejecutan dentro de servicios transaccionales. La base continúa protegiendo nulabilidad, tipos, FK, unicidad y comprobaciones locales.
 
@@ -81,6 +86,8 @@ Las reglas que consultan otras filas o tablas —autoaprobación, solapamiento, 
 | Hallazgo | `open`, `under_analysis`, `with_plan`, `under_verification`, `closed`, `reopened` |
 | Acción | `pending`, `in_progress`, `under_verification`, `effective`, `ineffective`, `closed`, `reopened` |
 | Riesgo | `identified`, `assessed`, `under_treatment`, `controlled`, `accepted`, `closed`, `reopened` |
+| Evaluación de riesgo | `draft`, `in_review`, `approved`, `superseded` |
+| Versión de control | `draft`, `in_review`, `effective`, `superseded`, `annulled` |
 | Escaneo de archivo | `pending`, `clean`, `rejected`, `error` |
 
 Cada familia se implementará con `TextChoices` y `CheckConstraint`; mostrar etiquetas en español no cambia el valor físico estable.
@@ -95,6 +102,7 @@ Cada familia se implementará con `TextChoices` y `CheckConstraint`; mostrar eti
 | `import_template` | `template_version` | Código y destino | Esquema, plantilla, vigencia y hash |
 | `indicator` | `indicator_version` | Código, proceso, responsable | Fórmula, unidad, frecuencia, meta y umbrales |
 | `checklist` | `checklist_version` | Código y nombre | Ítems, orden, criterios y obligatoriedad |
+| `control` | `control_version` | Código, organización y responsable | Descripción, tipo, frecuencia, vigencia y aprobación |
 | `export_contract` | misma tabla por versión | Código y nombre | Columnas, tipos, orden, formato y hash |
 
 La aplicación rechazará `UPDATE` y `DELETE` de una versión aprobada. P17 deberá probar la restricción desde interfaz, servicio y operación directa autorizada de prueba. No se agregará un disparador PostgreSQL en el MVP sin una nueva ADR, porque ocultaría lógica fuera del ORM; la defensa se basa en servicios, permisos de la cuenta DB y pruebas.
@@ -123,7 +131,7 @@ La aplicación rechazará `UPDATE` y `DELETE` de una versión aprobada. P17 debe
 | IX-05-18 | `audits_finding (status, due_date, owner_id)` | Hallazgos vencidos |
 | IX-05-19 | `improvements_corrective_action (status, due_date, owner_id)` | Acciones y alertas |
 | IX-05-20 | `risks_risk (organization_id, process_id, status)` | Matriz de riesgos |
-| IX-05-21 | `risks_control_review (control_id, next_review_date)` | Controles por revisar |
+| IX-05-21 | `risks_control_review (next_review_date)` y FK `risk_control_id` | Controles por revisar y su asignación exacta |
 | IX-05-22 | `reports_export_run (requested_by_id, -generated_at)` | Historial de exportaciones |
 | IX-05-23 | `auditlog_event (object_type, object_id, -occurred_at)` | Historia de un objeto |
 | IX-05-24 | `auditlog_event (correlation_id, occurred_at)` | Trazabilidad de operación |

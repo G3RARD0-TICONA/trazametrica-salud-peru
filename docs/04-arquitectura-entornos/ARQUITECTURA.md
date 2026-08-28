@@ -42,7 +42,7 @@ Las consultas de lectura complejas usarán `selectors`; las operaciones usarán 
 | MOD-07 | `indicators` | Fichas, fórmulas seguras, resultados y metas | `core`, `organizations`, `processes`, `imports` |
 | MOD-08 | `audits` | Planes, listas, ejecución, hallazgos y no conformidades | `core`, `organizations`, `processes`, `documents` |
 | MOD-09 | `improvements` | Causa, acciones, evidencia, eficacia y cierre | `core`, `accounts`, `audits` |
-| MOD-10 | `risks` | Riesgos, controles, evaluaciones y revisiones | `core`, `organizations`, `processes`, `improvements` |
+| MOD-10 | `risks` | Riesgos, controles versionados, evaluaciones, revisiones y alertas | `core`, `accounts`, `organizations`, `processes`, `indicators`, `audits`, `improvements` |
 | MOD-11 | `reports` | Consultas, tableros y contratos de exportación | Lectura controlada de módulos funcionales |
 | MOD-12 | `auditlog` | Eventos append-only, correlación y consulta | `core`, referencias desacopladas |
 
@@ -54,7 +54,7 @@ Las consultas de lectura complejas usarán `selectors`; las operaciones usarán 
 - `reports` no modifica datos funcionales.
 - `imports` no conoce fórmulas KPI; publica conjuntos aceptados que `indicators` consume.
 - `accounts` no depende de módulos de negocio.
-- Los enlaces entre auditoría, mejora y riesgo usan servicios públicos, no acceso a tablas internas.
+- Los enlaces entre indicadores, auditoría, mejora y riesgo usan relaciones explícitas y servicios públicos; no importan vistas ni consultas internas de otro módulo.
 - Los ciclos de importación entre aplicaciones se consideran falla de arquitectura.
 
 ## 5. Flujo de importación

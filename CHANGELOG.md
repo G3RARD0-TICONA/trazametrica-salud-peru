@@ -68,7 +68,11 @@ Este proyecto sigue [Versionado Semántico](https://semver.org/lang/es/) desde e
 - Alertas de vencimiento y responsable inactivo, catálogo protegido y semilla determinista 12/24/18/15.
 - CI #56 y #57 de P13 conformes con 125 pruebas sobre PostgreSQL 17, 83 % de cobertura, seguridad y dependencias sin hallazgos, y contenedor reproducible.
 - Expediente P13 aprobado internamente y puerta G13 cerrada con 12/12 controles conformes mediante autorización expresa del titular.
+- Dominio P14 de riesgos por proceso, evaluaciones inherentes/residuales, controles versionados y revisiones independientes.
+- Matriz 5×5 reproducible, alertas derivadas, vínculos explícitos con KPI, hallazgos y acciones, aceptación residual y cierre condicionado.
+- Catálogo protegido y semilla determinista de 20 riesgos, 24 evaluaciones, 12 controles, 24 asignaciones y 18 revisiones con datos sintéticos.
+- Expediente P14 en pruebas y puerta G14 abierta con 10/12 controles conformes antes de CI y aceptación formal.
 
 ### Pendiente
 
-- Implementación de P14–P18.
+- Cierre de G14 e implementación de P15–P18.

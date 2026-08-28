@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     "apps.indicators",
     "apps.audits",
     "apps.improvements",
+    "apps.risks",
 ]
 
 MIDDLEWARE = [

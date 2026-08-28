@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Riesgos y controles | Trazamétrica Salud Perú{% endblock %}
+
+{% block content %}
+  <h1>Riesgos, controles y alertas</h1>
+  <p class="notice"><strong>DATOS SINTÉTICOS.</strong> Evaluación administrativa demostrativa; no constituye decisión clínica, certificación ni autorización sanitaria.</p>
+
+  <h2>Catálogo de riesgos</h2>
+  <table>
+    <thead><tr><th>Riesgo</th><th>Proceso</th><th>Responsable</th><th>Estado</th><th>Nivel vigente</th><th>Alerta</th></tr></thead>
+    <tbody>
+      {% for risk, alert in risks %}
+        <tr>
+          <td><a href="{% url 'risks:detail' risk.id %}">{{ risk.code }}</a></td>
+          <td>{{ risk.process.code }}</td><td>{{ risk.owner.username }}</td>
+          <td>{{ risk.get_status_display }}</td>
+          <td>
+            {% with assessment=risk.approved_assessments.0 %}
+              {% if assessment %}{% if assessment.residual_level %}{{ assessment.get_residual_band_display }} ({{ assessment.residual_level }}){% else %}{{ assessment.get_inherent_band_display }} ({{ assessment.inherent_level }}){% endif %}{% else %}Pendiente{% endif %}
+            {% endwith %}
+          </td>
+          <td>{{ alert }}</td>
+        </tr>
+      {% empty %}<tr><td colspan="6">No existen riesgos registrados.</td></tr>{% endfor %}
+    </tbody>
+  </table>
+
+  <h2>Alertas de controles</h2>
+  <table>
+    <thead><tr><th>Riesgo</th><th>Control</th><th>Versión</th><th>Responsable</th><th>Alerta</th></tr></thead>
+    <tbody>
+      {% for risk, link, alert in control_alerts %}
+        <tr>
+          <td>{{ risk.code }}</td><td>{{ link.control_version.control.code }}</td>
+          <td>{{ link.control_version.version_no }}</td>
+          <td>{{ link.control_version.control.owner.username }}</td><td>{{ alert }}</td>
+        </tr>
+      {% empty %}<tr><td colspan="5">No existen controles vinculados.</td></tr>{% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

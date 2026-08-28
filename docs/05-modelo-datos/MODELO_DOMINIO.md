@@ -57,11 +57,16 @@ erDiagram
     FINDING ||--o{ CORRECTIVE_ACTION : corrige
     CORRECTIVE_ACTION ||--o{ EFFECTIVENESS_REVIEW : verifica
     RISK ||--o{ RISK_ASSESSMENT : evalua
-    RISK }o--o{ CONTROL : mitiga
-    CONTROL ||--o{ CONTROL_REVIEW : revisa
+    CONTROL ||--o{ CONTROL_VERSION : versiona
+    RISK ||--o{ RISK_CONTROL : mitiga
+    CONTROL_VERSION ||--o{ RISK_CONTROL : aplica
+    RISK_CONTROL ||--o{ CONTROL_REVIEW : revisa
+    RISK ||--o{ RISK_INDICATOR_LINK : monitorea
+    RISK ||--o{ RISK_FINDING_LINK : relaciona
+    RISK ||--o{ RISK_ACTION_LINK : trata
 ```
 
-Las relaciones muchos-a-muchos se materializan mediante tablas explícitas cuando contienen contexto, por ejemplo `risk_control`. Las evidencias se enlazan con tablas específicas `finding_evidence` y `action_evidence`, evitando una clave foránea polimórfica.
+Las relaciones muchos-a-muchos se materializan mediante tablas explícitas cuando contienen contexto. `risk_control` conserva la versión aprobada del control aplicada al riesgo; `risk_indicator_link`, `risk_finding_link` y `risk_action_link` preservan vínculos verificables sin claves polimórficas. Las evidencias se enlazan con tablas específicas `finding_evidence` y `action_evidence`.
 
 ## 5. Trazabilidad y reportes
 
@@ -83,9 +88,9 @@ Las relaciones muchos-a-muchos se materializan mediante tablas explícitas cuand
 | `indicators` | 5 | `imports`, `processes`, `organizations`, `accounts` |
 | `audits` | 8 | `processes`, `documents`, `organizations`, `accounts` |
 | `improvements` | 4 | `audits`, `documents`, `accounts` |
-| `risks` | 5 | `processes`, `improvements`, `organizations`, `accounts` |
+| `risks` | 9 | `processes`, `indicators`, `audits`, `improvements`, `organizations`, `accounts` |
 | `reports` | 2 | Lectura de módulos funcionales y `documents` |
 | `auditlog` | 1 | Referencias desacopladas por identificador y etiqueta |
-| **Total** | **46** | |
+| **Total** | **50** | |
 
 `core` define tipos, bases abstractas y utilidades, pero no tendrá una tabla funcional propia en P05.

@@ -3,7 +3,7 @@
 Proyecto demostrativo de investigación aplicada para gestionar procesos, calidad, indicadores y analítica administrativa en clínicas privadas del Perú.
 
 > [!IMPORTANT]
-> Las Partes 0–13 tienen sus puertas cerradas. P13 está aprobada internamente y G13 quedó cerrada con 12/12 controles conformes tras la aceptación formal del titular.
+> Las Partes 0–13 tienen sus puertas cerradas. P14 es el noveno incremento ejecutable y está en pruebas con G14 abierta; su cierre requiere CI conforme y aceptación formal del titular.
 
 ## Propósito
 
@@ -50,7 +50,8 @@ El resultado final será un portafolio técnico que integre gestión por proceso
 | P11 | Catálogo, cálculo y seguimiento de KPI | Aprobada internamente | G11 cerrada (12/12) |
 | P12 | Auditorías, hallazgos y no conformidades | Aprobada internamente | G12 cerrada (12/12) |
 | P13 | Acciones correctivas, evidencias y mejora | Aprobada internamente | G13 cerrada (12/12) |
-| P14–P18 | Riesgos, analítica y publicación | No iniciadas | Pendientes |
+| P14 | Riesgos, controles versionados y alertas | En pruebas | G14 abierta (10/12) |
+| P15–P18 | Reportes, analítica, endurecimiento y publicación | No iniciadas | Pendientes |
 
 Consulta el [roadmap](docs/ROADMAP.md) y el [índice de documentación](docs/README.md).
 
@@ -69,7 +70,7 @@ Las reglas completas se encuentran en [SECURITY.md](SECURITY.md).
 - Docker Compose Specification para entornos reproducibles.
 - Pruebas automatizadas y CI en GitHub Actions.
 
-La arquitectura y las versiones fueron fijadas en P04 y el modelo de datos en P05. P06 implementa identidad; P07 la estructura organizacional; P08 documentos; P09 procesos y SIPOC; P10 incorpora plantillas Excel y trazabilidad de cargas; P11 añade KPI reproducibles; P12 incorpora auditorías y hallazgos; P13 añade causa raíz, acciones correctivas y eficacia.
+La arquitectura y las versiones fueron fijadas en P04 y el modelo de datos en P05. P06 implementa identidad; P07 la estructura organizacional; P08 documentos; P09 procesos y SIPOC; P10 incorpora plantillas Excel y trazabilidad de cargas; P11 añade KPI reproducibles; P12 incorpora auditorías y hallazgos; P13 añade causa raíz, acciones correctivas y eficacia; P14 incorpora riesgos, controles versionados y alertas.
 
 ## Ejecución local
 
@@ -84,9 +85,10 @@ docker compose exec web python src/manage.py seed_import_templates_demo --actor 
 docker compose exec web python src/manage.py seed_indicators_demo --actor admin_demo
 docker compose exec web python src/manage.py seed_audits_demo --actor admin_demo
 docker compose exec web python src/manage.py seed_improvements_demo --actor admin_demo
+docker compose exec web python src/manage.py seed_risks_demo --actor admin_demo
 ```
 
-Antes del bootstrap, define en `.env` una contraseña sintética de al menos 12 caracteres. Consulta las guías de [identidad](docs/06-identidad-acceso/EJECUCION.md), [semilla organizacional](docs/07-maestros-organizacionales/SEMILLA_DEMO.md), [gestión documental](docs/08-gestion-documental/README.md), [procesos/SIPOC](docs/09-procesos-sipoc/README.md), [importación Excel](docs/10-importacion-excel/README.md), [indicadores](docs/11-indicadores-kpi/README.md), [auditorías](docs/12-auditorias-hallazgos/README.md) y [mejora](docs/13-acciones-correctivas-mejora/README.md). Los catálogos protegidos quedan disponibles en `/documents/`, `/processes/`, `/imports/`, `/indicators/`, `/audits/` e `/improvements/`.
+Antes del bootstrap, define en `.env` una contraseña sintética de al menos 12 caracteres. Consulta las guías de [identidad](docs/06-identidad-acceso/EJECUCION.md), [semilla organizacional](docs/07-maestros-organizacionales/SEMILLA_DEMO.md), [gestión documental](docs/08-gestion-documental/README.md), [procesos/SIPOC](docs/09-procesos-sipoc/README.md), [importación Excel](docs/10-importacion-excel/README.md), [indicadores](docs/11-indicadores-kpi/README.md), [auditorías](docs/12-auditorias-hallazgos/README.md), [mejora](docs/13-acciones-correctivas-mejora/README.md) y [riesgos](docs/14-riesgos-controles-alertas/README.md). Los catálogos protegidos quedan disponibles en `/documents/`, `/processes/`, `/imports/`, `/indicators/`, `/audits/`, `/improvements/` y `/risks/`.
 
 ## Derechos de autor
 
