@@ -3,7 +3,7 @@
 Proyecto demostrativo de investigación aplicada para gestionar procesos, calidad, indicadores y analítica administrativa en clínicas privadas del Perú.
 
 > [!IMPORTANT]
-> Las Partes 0–13 tienen sus puertas cerradas. P14 es el noveno incremento ejecutable y está en pruebas con G14 abierta; su cierre requiere CI conforme y aceptación formal del titular.
+> Las Partes 0–14 tienen sus puertas cerradas. P14 está aprobada internamente y G14 quedó cerrada con 12/12 controles conformes tras la aceptación formal del titular.
 
 ## Propósito
 
@@ -50,7 +50,7 @@ El resultado final será un portafolio técnico que integre gestión por proceso
 | P11 | Catálogo, cálculo y seguimiento de KPI | Aprobada internamente | G11 cerrada (12/12) |
 | P12 | Auditorías, hallazgos y no conformidades | Aprobada internamente | G12 cerrada (12/12) |
 | P13 | Acciones correctivas, evidencias y mejora | Aprobada internamente | G13 cerrada (12/12) |
-| P14 | Riesgos, controles versionados y alertas | En pruebas | G14 abierta (11/12) |
+| P14 | Riesgos, controles versionados y alertas | Aprobada internamente | G14 cerrada (12/12) |
 | P15–P18 | Reportes, analítica, endurecimiento y publicación | No iniciadas | Pendientes |
 
 Consulta el [roadmap](docs/ROADMAP.md) y el [índice de documentación](docs/README.md).

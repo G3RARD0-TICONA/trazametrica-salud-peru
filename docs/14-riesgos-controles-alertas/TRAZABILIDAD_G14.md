@@ -30,7 +30,7 @@
 
 ## Evaluación actual de G14
 
-Las comprobaciones locales verificaron documentación, lint, tipado sobre 117 archivos, modelos y ausencia de migraciones pendientes. La CI #61 aprobó 140 pruebas sobre PostgreSQL 17, 82 % de cobertura, seguridad, dependencias y construcción del contenedor. La aceptación formal sigue pendiente.
+Las comprobaciones locales verificaron documentación, lint, tipado sobre 117 archivos, modelos y ausencia de migraciones pendientes. Las CI #61 y #62 aprobaron 140 pruebas sobre PostgreSQL 17, 82 % de cobertura, seguridad, dependencias y construcción del contenedor. El titular autorizó expresamente el cierre de G14 el 28 de agosto de 2026.
 
 | # | Criterio | Evidencia | Estado |
 |---:|---|---|---|
@@ -44,7 +44,7 @@ Las comprobaciones locales verificaron documentación, lint, tipado sobre 117 ar
 | 8 | Cierre condicionado RN-026 | residual y controles revisados | Conforme |
 | 9 | Historia protegida | `PROTECT`, servicios, bitácora y sin borrado masivo | Conforme |
 | 10 | Semilla contractual | 20 riesgos, 24 evaluaciones y relaciones sintéticas | Conforme |
-| 11 | CI en Python 3.13/PostgreSQL 17 | CI #61: 140 pruebas, 82 %, seguridad, dependencias e imagen conformes | Conforme |
-| 12 | Aceptación formal del titular | Requiere autorización expresa posterior | Pendiente |
+| 11 | CI en Python 3.13/PostgreSQL 17 | CI #61 y #62: 140 pruebas, 82 %, seguridad, dependencias e imagen conformes | Conforme |
+| 12 | Aceptación formal del titular | Autorización expresa registrada el 28 de agosto de 2026 | Conforme |
 
-**Resultado actual:** 11/12. P14 está **EN PRUEBAS** y G14 permanece abierta hasta la aceptación formal. La aprobación interna no representa certificación, autorización sanitaria ni aptitud productiva.
+**Resultado final:** 12/12. P14 está **APROBADA INTERNAMENTE** y G14 queda cerrada. Esta aprobación interna no representa certificación, autorización sanitaria ni aptitud productiva.
