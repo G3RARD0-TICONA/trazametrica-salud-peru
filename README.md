@@ -50,7 +50,7 @@ El resultado final será un portafolio técnico que integre gestión por proceso
 | P11 | Catálogo, cálculo y seguimiento de KPI | Aprobada internamente | G11 cerrada (12/12) |
 | P12 | Auditorías, hallazgos y no conformidades | Aprobada internamente | G12 cerrada (12/12) |
 | P13 | Acciones correctivas, evidencias y mejora | Aprobada internamente | G13 cerrada (12/12) |
-| P14 | Riesgos, controles versionados y alertas | En pruebas | G14 abierta (10/12) |
+| P14 | Riesgos, controles versionados y alertas | En pruebas | G14 abierta (11/12) |
 | P15–P18 | Reportes, analítica, endurecimiento y publicación | No iniciadas | Pendientes |
 
 Consulta el [roadmap](docs/ROADMAP.md) y el [índice de documentación](docs/README.md).

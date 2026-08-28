@@ -30,7 +30,7 @@
 
 ## Evaluación actual de G14
 
-Las comprobaciones locales disponibles verificaron documentación, lint, tipado sobre 117 archivos, modelos y ausencia de migraciones pendientes. La ejecución completa sobre PostgreSQL 17 y la aceptación formal siguen pendientes.
+Las comprobaciones locales verificaron documentación, lint, tipado sobre 117 archivos, modelos y ausencia de migraciones pendientes. La CI #61 aprobó 140 pruebas sobre PostgreSQL 17, 82 % de cobertura, seguridad, dependencias y construcción del contenedor. La aceptación formal sigue pendiente.
 
 | # | Criterio | Evidencia | Estado |
 |---:|---|---|---|
@@ -44,7 +44,7 @@ Las comprobaciones locales disponibles verificaron documentación, lint, tipado 
 | 8 | Cierre condicionado RN-026 | residual y controles revisados | Conforme |
 | 9 | Historia protegida | `PROTECT`, servicios, bitácora y sin borrado masivo | Conforme |
 | 10 | Semilla contractual | 20 riesgos, 24 evaluaciones y relaciones sintéticas | Conforme |
-| 11 | CI en Python 3.13/PostgreSQL 17 | Pendiente de ejecución en GitHub | Pendiente |
+| 11 | CI en Python 3.13/PostgreSQL 17 | CI #61: 140 pruebas, 82 %, seguridad, dependencias e imagen conformes | Conforme |
 | 12 | Aceptación formal del titular | Requiere autorización expresa posterior | Pendiente |
 
-**Resultado actual:** 10/12. P14 está **EN PRUEBAS** y G14 permanece abierta. La aprobación interna no representa certificación, autorización sanitaria ni aptitud productiva.
+**Resultado actual:** 11/12. P14 está **EN PRUEBAS** y G14 permanece abierta hasta la aceptación formal. La aprobación interna no representa certificación, autorización sanitaria ni aptitud productiva.

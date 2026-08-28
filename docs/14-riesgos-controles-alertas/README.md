@@ -1,7 +1,7 @@
 # P14 — Riesgos, controles y alertas
 
 **Estado:** en pruebas
-**Puerta:** G14 abierta — 10/12 controles conformes antes de CI y aceptación
+**Puerta:** G14 abierta — 11/12 controles conformes antes de la aceptación
 **Versión:** 0.9
 **Fecha de corte:** 21 de agosto de 2026
 
@@ -43,4 +43,4 @@ Implementar RF-033–035, CU-20, RN-025–026, RNF-004 y ENT-039–043 con sus e
 
 ## 5. Resultado actual
 
-El módulo, la migración, la semilla, la interfaz y las pruebas P14 están preparados. Las comprobaciones locales disponibles dejan conformes documentación, lint, tipado, modelos y migraciones; la ejecución integral en CI con PostgreSQL 17 y la aceptación formal del titular permanecen pendientes.
+El módulo, la migración, la semilla, la interfaz y las pruebas P14 están preparados. La CI #61 aprobó 140 pruebas sobre PostgreSQL 17, mantuvo 82 % de cobertura y dejó conformes documentación, lint, tipado, migraciones, seguridad, dependencias y construcción del contenedor. Solo permanece pendiente la aceptación formal del titular.

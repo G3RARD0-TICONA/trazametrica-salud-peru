@@ -18,7 +18,7 @@ El roadmap controla el orden del proyecto; no sustituye los criterios de aceptac
 | P11 | Catálogo, cálculo y seguimiento de KPI | Aprobada internamente — G11 cerrada (12/12) |
 | P12 | Auditorías, hallazgos y no conformidades | Aprobada internamente — G12 cerrada (12/12) |
 | P13 | Acciones correctivas, evidencias y mejora | Aprobada internamente — G13 cerrada (12/12) |
-| P14 | Riesgos, alertas y controles | En pruebas — G14 abierta (10/12) |
+| P14 | Riesgos, alertas y controles | En pruebas — G14 abierta (11/12) |
 | P15 | Exportaciones, Power BI Desktop y reportes | No iniciada |
 | P16 | Analítica estadística y capacidades avanzadas | No iniciada |
 | P17 | Pruebas, seguridad, rendimiento y accesibilidad | No iniciada |
@@ -38,4 +38,4 @@ P12 materializa planes, listas versionadas, respuestas, hallazgos/no conformidad
 
 P13 materializa causa raíz, acciones correctivas, evidencia de ejecución, alertas y revisión independiente de eficacia. Superó las verificaciones locales y las CI #56 y #57 sobre PostgreSQL 17 con 125 pruebas y 83 % de cobertura. El titular autorizó formalmente su aprobación e integración el 21 de agosto de 2026; G13 queda cerrada con 12/12 controles conformes.
 
-P14 materializa riesgos por proceso, matriz inherente y residual, controles versionados, relaciones explícitas con KPI, hallazgos y acciones, revisión independiente, alertas y cierre condicionado. La implementación está en pruebas con 10/12 controles conformes; quedan la CI integral sobre PostgreSQL 17 y la aceptación formal del titular para cerrar G14.
+P14 materializa riesgos por proceso, matriz inherente y residual, controles versionados, relaciones explícitas con KPI, hallazgos y acciones, revisión independiente, alertas y cierre condicionado. La CI #61 aprobó 140 pruebas sobre PostgreSQL 17 con 82 % de cobertura y dejó 11/12 controles conformes; queda la aceptación formal del titular para cerrar G14.
