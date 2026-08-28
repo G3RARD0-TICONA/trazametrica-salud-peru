@@ -39,9 +39,12 @@ def test_report_seed_is_deterministic_idempotent_and_power_bi_ready(admin_user: 
         for contract in ExportContract.objects.order_by("code")
     ]
     assert len(artifacts) == 7
-    assert all(artifact.run.row_count > 0 for artifact in artifacts)
+    assert any(artifact.run.row_count == 0 for artifact in artifacts)
+    assert any(artifact.run.row_count > 0 for artifact in artifacts)
     for artifact in artifacts:
         if artifact.run.contract.format == ExportFormat.XLSX:
             assert parse_workbook(artifact.content).marker == "DATOS SINTÉTICOS"
+        elif artifact.run.contract.format == ExportFormat.CSV and artifact.run.row_count == 0:
+            assert artifact.content.startswith(b"\xef\xbb\xbfsynthetic_marker,")
         else:
             assert b"DATOS SINT" in artifact.content
