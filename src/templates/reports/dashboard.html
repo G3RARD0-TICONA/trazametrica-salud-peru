@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block title %}Reportes y Power BI | Trazamétrica Salud Perú{% endblock %}
+
+{% block content %}
+  <h1>Reportes, exportaciones y Power BI Desktop</h1>
+  <p class="notice"><strong>DATOS SINTÉTICOS.</strong> Las salidas son demostrativas, no contienen información clínica real y no acreditan certificación ni autorización sanitaria.</p>
+
+  <h2>Filtros del tablero KPI</h2>
+  {% if filter_error %}<p class="errorlist">{{ filter_error }}</p>{% endif %}
+  <form method="get">
+    <label>Desde <input type="date" name="period_start" value="{{ filter_values.period_start }}"></label>
+    <label>Hasta <input type="date" name="period_end" value="{{ filter_values.period_end }}"></label>
+    <label>Sede
+      <select name="site_id"><option value="">Todas</option>
+        {% for site in sites %}<option value="{{ site.id }}" {% if filter_values.site_id == site.id|stringformat:"s" %}selected{% endif %}>{{ site.code }}</option>{% endfor %}
+      </select>
+    </label>
+    <label>Servicio
+      <select name="service_id"><option value="">Todos</option>
+        {% for service in services %}<option value="{{ service.id }}" {% if filter_values.service_id == service.id|stringformat:"s" %}selected{% endif %}>{{ service.site.code }} / {{ service.code }}</option>{% endfor %}
+      </select>
+    </label>
+    <label>Proceso
+      <select name="process_id"><option value="">Todos</option>
+        {% for process in processes %}<option value="{{ process.id }}" {% if filter_values.process_id == process.id|stringformat:"s" %}selected{% endif %}>{{ process.code }}</option>{% endfor %}
+      </select>
+    </label>
+    <label>Indicador
+      <select name="indicator_id"><option value="">Todos</option>
+        {% for indicator in indicators %}<option value="{{ indicator.id }}" {% if filter_values.indicator_id == indicator.id|stringformat:"s" %}selected{% endif %}>{{ indicator.code }}</option>{% endfor %}
+      </select>
+    </label>
+    <label>Estado
+      <select name="status"><option value="">Todos</option>
+        {% for value, label in result_statuses %}<option value="{{ value }}" {% if filter_values.status == value %}selected{% endif %}>{{ label }}</option>{% endfor %}
+      </select>
+    </label>
+    <button type="submit">Aplicar filtros</button>
+  </form>
+
+  <h2>Resumen</h2>
+  <table>
+    <thead><tr><th>Métrica</th><th>Estado</th><th>Valor</th></tr></thead>
+    <tbody>
+      {% for row in metrics %}<tr><td>{{ row.metric }}</td><td>{{ row.status }}</td><td>{{ row.value }}</td></tr>
+      {% empty %}<tr><td colspan="3">No existen resultados para los filtros.</td></tr>{% endfor %}
+    </tbody>
+  </table>
+
+  <h2>Resultados KPI filtrados</h2>
+  <table>
+    <thead><tr><th>Indicador</th><th>Sede/servicio</th><th>Periodo</th><th>Valor</th><th>Desempeño</th><th>Estado</th></tr></thead>
+    <tbody>
+      {% for row in indicator_rows %}
+        <tr><td>{{ row.indicator_code }}</td><td>{{ row.site_code }} / {{ row.service_code }}</td><td>{{ row.period_start }} — {{ row.period_end }}</td><td>{{ row.value }} {{ row.unit }}</td><td>{{ row.performance_status }}</td><td>{{ row.result_status }}</td></tr>
+      {% empty %}<tr><td colspan="6">No existen resultados para los filtros.</td></tr>{% endfor %}
+    </tbody>
+  </table>
+
+  <h2>Contratos publicados</h2>
+  <table>
+    <thead><tr><th>Contrato</th><th>Conjunto</th><th>Formato</th><th>Consumidor</th><th>Esquema</th><th>Acción</th></tr></thead>
+    <tbody>
+      {% for contract in contracts %}
+        <tr>
+          <td>{{ contract.code }} v{{ contract.version_no }}</td><td>{{ contract.get_dataset_display }}</td><td>{{ contract.get_format_display }}</td><td>{{ contract.get_consumer_display }}</td><td><code>{{ contract.schema_hash|slice:":12" }}</code></td>
+          <td>
+            {% if can_export %}
+              <form method="post" action="{% url 'reports:export-contract' contract.id %}">
+                {% csrf_token %}
+                {% for key, value in filter_values.items %}<input type="hidden" name="{{ key }}" value="{{ value }}">{% endfor %}
+                <button type="submit">Exportar</button>
+              </form>
+            {% else %}Solo consulta{% endif %}
+          </td>
+        </tr>
+      {% empty %}<tr><td colspan="6">No existen contratos publicados.</td></tr>{% endfor %}
+    </tbody>
+  </table>
+
+  <h2>Historial de exportaciones</h2>
+  <table>
+    <thead><tr><th>Fecha</th><th>Contrato</th><th>Solicitante</th><th>Filas</th><th>Archivo</th><th>SHA-256</th></tr></thead>
+    <tbody>
+      {% for run in recent_runs %}<tr><td>{{ run.generated_at }}</td><td>{{ run.contract.code }} v{{ run.contract.version_no }}</td><td>{{ run.requested_by.username }}</td><td>{{ run.row_count }}</td><td>{{ run.file_asset.original_name }}</td><td><code>{{ run.output_hash|slice:":12" }}</code></td></tr>
+      {% empty %}<tr><td colspan="6">Todavía no existen exportaciones.</td></tr>{% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

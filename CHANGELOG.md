@@ -6,6 +6,8 @@ Este proyecto sigue [Versionado Semántico](https://semver.org/lang/es/) desde e
 
 ### Añadido
 
+- P15 con tablero KPI filtrable, contratos de exportación versionados, CSV/XLSX/PDF auditables, conjunto estable para Power BI Desktop y semilla sintética determinista.
+
 - Identidad pública de Trazamétrica Salud Perú.
 - Alcance, exclusiones, estado modular y tecnología prevista.
 - Aviso de derechos para un repositorio público sin licencia.

@@ -86,7 +86,7 @@ El worker será único en el MVP. Reclamará trabajos con bloqueo de fila, regis
 - JavaScript se limita a mejora progresiva; los flujos críticos funcionarán con envío HTTP tradicional.
 - No habrá API pública en el MVP. Endpoints JSON internos requerirán sesión y la misma autorización.
 - Power BI Desktop recibirá archivos o vistas exportadas con contrato versionado; no accederá directamente a tablas operativas.
-- PDF y Excel se implementarán mediante adaptadores sustituibles definidos en P15.
+- PDF, CSV y Excel se implementan en P15 mediante adaptadores aislados y sustituibles; el dominio solo consume bytes y metadatos del resultado.
 
 ## 7. Estructura prevista
 
@@ -137,5 +137,5 @@ Una decisión aceptada no se edita para ocultar su historia. Se crea una ADR que
 - P05: claves, relaciones, historización, precisión decimal e índices.
 - P06: modelo granular de permisos y cuentas de demostración.
 - P10: formato definitivo de plantillas y staging.
-- P15: bibliotecas concretas de Excel/PDF y contratos Power BI.
+- P15: adaptadores concretos CSV/XLSX/PDF y contratos estables para Power BI Desktop.
 - P18: servidor WSGI, proxy, proveedor y dominio de demo.

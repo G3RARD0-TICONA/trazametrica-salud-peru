@@ -122,10 +122,11 @@ ALLOWED_FILE_MEDIA_TYPES = frozenset(
         "application/pdf",
         "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
         "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "text/csv",
         "text/plain",
     }
 )
-ALLOWED_FILE_SUFFIXES = frozenset({".pdf", ".xlsx", ".docx", ".txt"})
+ALLOWED_FILE_SUFFIXES = frozenset({".pdf", ".xlsx", ".docx", ".csv", ".txt"})
 SHA256_PATTERN = re.compile(r"^[0-9a-f]{64}$")
 
 
@@ -177,7 +178,7 @@ class FileAsset(AuditedDocumentRecord):
             raise ValidationError(
                 {"sha256": "El hash SHA-256 debe tener 64 caracteres hexadecimales."}
             )
-        allowed_prefixes = ("documents/", "imports/")
+        allowed_prefixes = ("documents/", "imports/", "reports/")
         if not self.storage_key.startswith(allowed_prefixes) or ".." in self.storage_key:
             raise ValidationError(
                 {"storage_key": "La clave de almacenamiento no es opaca y segura."}
