@@ -602,10 +602,15 @@ def _controls_current(risk: Risk, on_date: date) -> bool:
         version = link.control_version
         control = version.control
         review = link.reviews.order_by("-reviewed_at").first()
+        version_applies = version.status == ControlVersionStatus.EFFECTIVE or (
+            version.status == ControlVersionStatus.SUPERSEDED
+            and version.valid_to is not None
+            and version.valid_to >= on_date
+        )
         if (
             not control.is_active
             or not control.owner.is_active
-            or version.status != ControlVersionStatus.EFFECTIVE
+            or not version_applies
             or version.valid_from is None
             or version.valid_from > on_date
             or (version.valid_to is not None and version.valid_to < on_date)

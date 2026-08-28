@@ -3,6 +3,7 @@ from __future__ import annotations
 import pytest
 from django.test import Client
 from django.urls import reverse
+from django.utils import timezone
 
 from apps.accounts.models import Role, User
 from apps.accounts.services import assign_role
@@ -34,7 +35,7 @@ def test_improvement_catalog_and_detail_require_report_permission(
         actor=admin_user,
         user=regular_user,
         role=role,
-        valid_from=finding.created_at.date(),
+        valid_from=timezone.localdate(),
     )
     catalog = client.get(reverse("improvements:catalog"))
     detail = client.get(reverse("improvements:detail", args=[finding.pk]))

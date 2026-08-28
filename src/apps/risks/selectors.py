@@ -80,7 +80,10 @@ def risk_alert_status(*, risk: Risk, on_date: date | None = None) -> str:
         current_controls = (
             risk.risk_controls.filter(
                 valid_from__lte=current,
-                control_version__status=ControlVersionStatus.EFFECTIVE,
+                control_version__status__in=(
+                    ControlVersionStatus.EFFECTIVE,
+                    ControlVersionStatus.SUPERSEDED,
+                ),
                 control_version__valid_from__lte=current,
                 control_version__control__is_active=True,
                 control_version__control__owner__is_active=True,
@@ -99,10 +102,15 @@ def risk_alert_status(*, risk: Risk, on_date: date | None = None) -> str:
 def control_alert_status(*, link: RiskControl, on_date: date | None = None) -> str:
     current = on_date or timezone.localdate()
     control = link.control_version.control
+    version_applies = link.control_version.status == ControlVersionStatus.EFFECTIVE or (
+        link.control_version.status == ControlVersionStatus.SUPERSEDED
+        and link.control_version.valid_to is not None
+        and link.control_version.valid_to >= current
+    )
     if link.valid_to is not None and link.valid_to < current:
         return "not_applicable"
     if (
-        link.control_version.status != ControlVersionStatus.EFFECTIVE
+        not version_applies
         or link.control_version.valid_from is None
         or link.control_version.valid_from > current
         or (

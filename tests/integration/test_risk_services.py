@@ -323,5 +323,9 @@ def test_control_alerts_cover_pending_ineffective_and_upcoming(
         reason="Sustitución controlada",
     )
     version.refresh_from_db()
+    link.refresh_from_db()
     assert version.status == ControlVersionStatus.SUPERSEDED
-    assert control_alert_status(link=link) == "not_applicable"
+    assert control_alert_status(link=link) == "ineffective"
+    assert control_alert_status(
+        link=link, on_date=timezone.localdate() + timedelta(days=1)
+    ) == "not_applicable"
