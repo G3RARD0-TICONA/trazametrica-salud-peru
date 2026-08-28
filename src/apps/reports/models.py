@@ -208,7 +208,7 @@ class ExportRun(AuditedReportRecord):
         on_delete=models.PROTECT,
         related_name="requested_exports",
     )
-    filters = models.JSONField(default=dict)
+    filters = models.JSONField(default=dict, blank=True)
     file_asset = models.ForeignKey(FileAsset, on_delete=models.PROTECT, related_name="export_runs")
     row_count = models.PositiveIntegerField()
     generated_at = models.DateTimeField()

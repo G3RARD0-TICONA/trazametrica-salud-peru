@@ -120,7 +120,7 @@ class Migration(migrations.Migration):
                 ),
                 ("created_at", models.DateTimeField(auto_now_add=True)),
                 ("updated_at", models.DateTimeField(auto_now=True)),
-                ("filters", models.JSONField(default=dict)),
+                ("filters", models.JSONField(blank=True, default=dict)),
                 ("row_count", models.PositiveIntegerField()),
                 ("generated_at", models.DateTimeField()),
                 ("output_hash", models.CharField(max_length=64)),
