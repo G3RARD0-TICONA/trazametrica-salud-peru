@@ -3,7 +3,7 @@
 Proyecto demostrativo de investigación aplicada para gestionar procesos, calidad, indicadores y analítica administrativa en clínicas privadas del Perú.
 
 > [!IMPORTANT]
-> Las Partes 0–14 tienen sus puertas cerradas. P15 está en pruebas y G15 permanece abierta con 11/12 controles conformes hasta la aceptación formal.
+> Las Partes 0–15 tienen sus puertas cerradas. P15 está aprobada internamente y G15 quedó cerrada con 12/12 controles conformes tras la aceptación formal del titular.
 
 ## Propósito
 
@@ -51,7 +51,7 @@ El resultado final será un portafolio técnico que integre gestión por proceso
 | P12 | Auditorías, hallazgos y no conformidades | Aprobada internamente | G12 cerrada (12/12) |
 | P13 | Acciones correctivas, evidencias y mejora | Aprobada internamente | G13 cerrada (12/12) |
 | P14 | Riesgos, controles versionados y alertas | Aprobada internamente | G14 cerrada (12/12) |
-| P15 | Reportes, Excel, PDF y Power BI Desktop | En pruebas | G15 abierta (11/12) |
+| P15 | Reportes, Excel, PDF y Power BI Desktop | Aprobada internamente | G15 cerrada (12/12) |
 | P16–P18 | Analítica, endurecimiento y publicación | No iniciadas | Pendientes |
 
 Consulta el [roadmap](docs/ROADMAP.md) y el [índice de documentación](docs/README.md).

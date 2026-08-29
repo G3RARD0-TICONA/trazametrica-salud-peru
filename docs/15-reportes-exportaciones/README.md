@@ -1,8 +1,8 @@
 # P15 — Reportes, Excel, PDF y Power BI Desktop
 
-**Estado:** en pruebas
+**Estado:** aprobada internamente
 
-**Puerta:** G15 abierta — 11/12 controles conformes
+**Puerta:** G15 cerrada — 12/12 controles conformes
 
 **Versión:** 1.0
 
@@ -39,4 +39,4 @@ P15 no incluye Power BI Service, publicación en la nube, regresión, predicció
 
 ## Resultado actual
 
-La CI #67 aprobó 151 pruebas sobre PostgreSQL 17, 82 % de cobertura, documentación, lint, tipado, migraciones, seguridad, dependencias y construcción del contenedor. G15 permanece abierta únicamente hasta que el titular emita la aceptación formal del control 12.
+Las CI #67 y #68 aprobaron 151 pruebas sobre PostgreSQL 17, 82 % de cobertura, documentación, lint, tipado, migraciones, seguridad, dependencias y construcción del contenedor. El titular aceptó formalmente P15 el 29 de agosto de 2026; G15 queda cerrada con 12/12 controles conformes.

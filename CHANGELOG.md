@@ -7,7 +7,8 @@ Este proyecto sigue [Versionado Semántico](https://semver.org/lang/es/) desde e
 ### Añadido
 
 - P15 con tablero KPI filtrable, contratos de exportación versionados, CSV/XLSX/PDF auditables, conjunto estable para Power BI Desktop y semilla sintética determinista.
-- CI #67 conforme para P15 con 151 pruebas en PostgreSQL 17, 82 % de cobertura y controles de seguridad y dependencias aprobados.
+- CI #67 y #68 conformes para P15 con 151 pruebas en PostgreSQL 17, 82 % de cobertura y controles de seguridad y dependencias aprobados.
+- P15 aprobada internamente y G15 cerrada con 12/12 controles tras la aceptación formal del titular del 29 de agosto de 2026.
 
 - Identidad pública de Trazamétrica Salud Perú.
 - Alcance, exclusiones, estado modular y tecnología prevista.
