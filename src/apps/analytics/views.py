@@ -47,7 +47,7 @@ def execute(request: HttpRequest, definition_id: UUID) -> HttpResponse:
         definition = AnalysisDefinition.objects.get(
             pk=definition_id, status=DefinitionStatus.PUBLISHED
         )
-    except AnalysisRun.DoesNotExist as exc:
+    except AnalysisDefinition.DoesNotExist as exc:
         raise Http404("Definición analítica no encontrada.") from exc
     actor = request.user
     if not isinstance(actor, User):
@@ -68,6 +68,6 @@ def execute(request: HttpRequest, definition_id: UUID) -> HttpResponse:
 def run_detail(request: HttpRequest, run_id: UUID) -> HttpResponse:
     try:
         run = analysis_run_detail(run_id=run_id)
-    except AnalysisDefinition.DoesNotExist as exc:
+    except AnalysisRun.DoesNotExist as exc:
         raise Http404("Ejecución analítica no encontrada.") from exc
     return render(request, "analytics/run_detail.html", {"run": run})

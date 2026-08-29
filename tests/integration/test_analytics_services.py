@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import uuid
+
 import pytest
 from django.core.exceptions import PermissionDenied, ValidationError
 from django.core.management import call_command
@@ -98,6 +100,8 @@ def test_definition_governance_run_reproducibility_seed_and_web(client, admin_us
     )
     assert invalid.status_code == 400
     assert "AAAA-MM-DD" in invalid.content.decode()
+    assert client.post(reverse("analytics:execute", args=[uuid.uuid4()]), {}).status_code == 404
+    assert client.get(reverse("analytics:run-detail", args=[uuid.uuid4()])).status_code == 404
 
 
 def test_analytics_catalog_denies_user_without_role(client, regular_user: User) -> None:
