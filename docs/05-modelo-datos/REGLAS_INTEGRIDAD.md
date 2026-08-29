@@ -89,6 +89,7 @@ Las reglas que consultan otras filas o tablas —autoaprobación, solapamiento, 
 | Evaluación de riesgo | `draft`, `in_review`, `approved`, `superseded` |
 | Versión de control | `draft`, `in_review`, `effective`, `superseded`, `annulled` |
 | Escaneo de archivo | `pending`, `clean`, `rejected`, `error` |
+| Contrato de exportación | `draft`, `published`, `superseded`, `annulled` |
 
 Cada familia se implementará con `TextChoices` y `CheckConstraint`; mostrar etiquetas en español no cambia el valor físico estable.
 

@@ -95,7 +95,7 @@ Leyenda: `!` obligatorio, `?` opcional, `PK` clave primaria y `FK` clave foráne
 | ENT-041 | `risks_control` | B01, B02, B03 | `organization_id:uuid FK!`; `code:varchar(50)!`; `name:varchar(200)!`; `owner_id:uuid FK!` |
 | ENT-042 | `risks_risk_control` | B01, B02 | `risk_id:uuid FK!`; `control_version_id:uuid FK!`; `valid_from:date!`; `valid_to:date?`; `effectiveness_expected:varchar(20)!` |
 | ENT-043 | `risks_control_review` | B01, B02 | `risk_control_id:uuid FK!`; `reviewer_id:uuid FK!`; `reviewed_at:timestamptz!`; `result:varchar(20)!`; `notes:text!`; `next_review_date:date!` |
-| ENT-044 | `reports_export_contract` | B01, B02, B04 | `code:varchar(50)!`; `name:varchar(200)!`; `format:varchar(20)!`; `schema_definition:jsonb!`; `schema_hash:varchar(64)!` |
+| ENT-044 | `reports_export_contract` | B01, B02 | `code:varchar(50)!`; `version_no:integer!`; `name:varchar(200)!`; `dataset:varchar(40)!`; `format:varchar(10)!`; `consumer:varchar(30)!`; `schema_definition:jsonb!`; `schema_hash:varchar(64)!`; `status:varchar(20)!`; `published_at:timestamptz?`; `published_by_id:uuid FK?` |
 | ENT-045 | `reports_export_run` | B01, B02 | `contract_id:uuid FK!`; `requested_by_id:uuid FK!`; `filters:jsonb!`; `file_asset_id:uuid FK!`; `row_count:integer!`; `generated_at:timestamptz!`; `output_hash:varchar(64)!` |
 | ENT-046 | `auditlog_event` | B01 | `occurred_at:timestamptz!`; `actor_id:uuid FK?`; `correlation_id:uuid!`; `object_type:varchar(100)!`; `object_id:uuid?`; `action:varchar(50)!`; `result:varchar(20)!`; `reason:varchar(500)?`; `context:jsonb!`; `event_hash:varchar(64)!` |
 | ENT-047 | `risks_control_version` | B01, B02, B04 | `control_id:uuid FK!`; `description:text!`; `control_type:varchar(20)!`; `frequency:varchar(20)!`; `submitted_at:timestamptz?`; `submitted_by_id:uuid FK?` |
@@ -112,3 +112,5 @@ P08 materializa ENT-013 con `responsible_area_id` obligatorio. P09 materializa E
 P10 materializa ENT-017–021. ENT-018 registra envío a revisión para sustentar publicación independiente; ENT-019 añade autorrelaciones opcionales `duplicate_of_id` y `retry_of_id` para demostrar RN-009 y RF-014 sin copiar ni sobrescribir la carga antecedente.
 
 P14 materializa ENT-039–043 y añade ENT-047–050. La evaluación conserva nivel inherente y residual calculados, el control se versiona antes de aplicarse y las revisiones recaen sobre la asignación exacta riesgo-control. Los enlaces con KPI, hallazgos y acciones son claves foráneas explícitas y verificables.
+
+P15 materializa ENT-044–045. El contrato identifica conjunto, formato, consumidor, versión y esquema ordenado; la ejecución enlaza el archivo sintético generado y conserva filtros, actor, cantidad, fecha y hash.
