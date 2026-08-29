@@ -102,6 +102,8 @@ Leyenda: `!` obligatorio, `?` opcional, `PK` clave primaria y `FK` clave foráne
 | ENT-048 | `risks_risk_indicator` | B01, B02 | `risk_id:uuid FK!`; `indicator_id:uuid FK!` |
 | ENT-049 | `risks_risk_finding` | B01, B02 | `risk_id:uuid FK!`; `finding_id:uuid FK!` |
 | ENT-050 | `risks_risk_action` | B01, B02 | `risk_id:uuid FK!`; `action_id:uuid FK!` |
+| ENT-051 | `analytics_definition` | B01, B02, B04 | `code:varchar(50)!`; `version_no:integer!`; `name:varchar(200)!`; `analysis_type:varchar(30)!`; `target_indicator_id:uuid FK!`; `parameters:jsonb!`; `parameters_hash:varchar(64)!`; `status:varchar(20)!`; `published_at:timestamptz?`; `published_by_id:uuid FK?` |
+| ENT-052 | `analytics_run` | B01, B02 | `definition_id:uuid FK!`; `requested_by_id:uuid FK!`; `period_start:date?`; `period_end:date?`; `executed_at:timestamptz!`; `status:varchar(30)!`; `input_count:integer!`; `train_count:integer!`; `test_count:integer!`; `input_hash:varchar(64)!`; `output_hash:varchar(64)!`; `metrics:jsonb!`; `assumptions:jsonb!`; `result:jsonb!`; `quality_gate_passed:boolean!`; `synthetic_confirmed:boolean!` |
 
 ## 8. Regla de implementación
 
@@ -114,3 +116,5 @@ P10 materializa ENT-017–021. ENT-018 registra envío a revisión para sustenta
 P14 materializa ENT-039–043 y añade ENT-047–050. La evaluación conserva nivel inherente y residual calculados, el control se versiona antes de aplicarse y las revisiones recaen sobre la asignación exacta riesgo-control. Los enlaces con KPI, hallazgos y acciones son claves foráneas explícitas y verificables.
 
 P15 materializa ENT-044–045. El contrato identifica conjunto, formato, consumidor, versión y esquema ordenado; la ejecución enlaza el archivo sintético generado y conserva filtros, actor, cantidad, fecha y hash.
+
+P16 añade ENT-051–052. La definición conserva el tipo, indicador, parámetros y versión publicable; la ejecución fija entradas, separación, métricas, supuestos, resultados y hashes sin sobrescribir evidencia.

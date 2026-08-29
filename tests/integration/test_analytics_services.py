@@ -1,0 +1,105 @@
+from __future__ import annotations
+
+import pytest
+from django.core.exceptions import PermissionDenied, ValidationError
+from django.core.management import call_command
+from django.urls import reverse
+
+from apps.accounts.models import User
+from apps.analytics.demo_seed import seed_analytics
+from apps.analytics.models import AnalysisDefinition, AnalysisRun, AnalysisType, DefinitionStatus
+from apps.analytics.services import (
+    create_analysis_definition,
+    publish_analysis_definition,
+    run_analysis,
+)
+from apps.auditlog.models import AuditEvent
+from apps.indicators.models import Indicator
+
+pytestmark = [pytest.mark.django_db, pytest.mark.integration]
+
+
+def _seed_dependencies(admin_user: User) -> None:
+    call_command("seed_organizations_demo", actor=admin_user.username, dataset_version="1")
+    call_command("seed_processes_demo", actor=admin_user.username, dataset_version="1")
+    call_command("seed_import_templates_demo", actor=admin_user.username, dataset_version="1")
+    call_command(
+        "seed_indicators_demo",
+        actor=admin_user.username,
+        dataset_version="1",
+        observation_count=5000,
+    )
+
+
+def test_definition_governance_run_reproducibility_seed_and_web(client, admin_user: User) -> None:
+    _seed_dependencies(admin_user)
+    indicator = Indicator.objects.order_by("code").first()
+    assert indicator is not None
+    definition = create_analysis_definition(
+        actor=admin_user,
+        code="ANA-TEST",
+        name="Análisis sintético",
+        analysis_type=AnalysisType.DESCRIPTIVE,
+        target_indicator=indicator,
+    )
+    with pytest.raises(PermissionDenied, match="propia definición"):
+        publish_analysis_definition(actor=admin_user, definition=definition)
+    approver = User.objects.create_superuser(
+        username="aprobador_analitica_test",
+        password="Clave-Sintetica-2026",
+        email="aprobador.analitica@example.invalid",
+    )
+    definition = publish_analysis_definition(actor=approver, definition=definition)
+    assert definition.status == DefinitionStatus.PUBLISHED
+    first = run_analysis(actor=admin_user, definition=definition)
+    second = run_analysis(actor=admin_user, definition=definition)
+    assert first.input_hash == second.input_hash
+    assert first.output_hash == second.output_hash
+    assert first.synthetic_confirmed is True
+    assert first.assumptions["clinical_decision"] is False
+    assert AuditEvent.objects.filter(action="analysis.executed", object_id=first.pk).exists()
+    definition.name = "Cambio prohibido"
+    with pytest.raises(ValidationError, match="inmutable"):
+        definition.save()
+    definition.refresh_from_db()
+    replacement = create_analysis_definition(
+        actor=admin_user,
+        code="ANA-TEST",
+        name="Análisis sintético v2",
+        analysis_type=AnalysisType.DESCRIPTIVE,
+        target_indicator=indicator,
+    )
+    assert replacement.version_no == 2
+    publish_analysis_definition(actor=approver, definition=replacement)
+    definition.refresh_from_db()
+    assert definition.status == DefinitionStatus.SUPERSEDED
+
+    seeded = seed_analytics(actor=admin_user)
+    repeated = seed_analytics(actor=admin_user)
+    assert seeded == repeated
+    assert seeded["definitions"] == 6
+    assert seeded["runs"] == 6
+    call_command("seed_analytics_demo", actor=admin_user.username, dataset_version="1")
+    call_command("seed_analytics_demo", actor=admin_user.username, dataset_version="1")
+    with pytest.raises(ValidationError, match="versión de semilla"):
+        seed_analytics(actor=admin_user, dataset_version="2")
+
+    client.force_login(admin_user)
+    response = client.get(reverse("analytics:catalog"))
+    assert response.status_code == 200
+    assert b"DATOS SINT" in response.content
+    seeded_definition = AnalysisDefinition.objects.get(code="ANA-DESC-001")
+    response = client.post(reverse("analytics:execute", args=[seeded_definition.pk]), {})
+    assert response.status_code == 302
+    assert AnalysisRun.objects.filter(definition=seeded_definition).count() == 2
+    invalid = client.post(
+        reverse("analytics:execute", args=[seeded_definition.pk]),
+        {"period_start": "fecha-invalida"},
+    )
+    assert invalid.status_code == 400
+    assert "AAAA-MM-DD" in invalid.content.decode()
+
+
+def test_analytics_catalog_denies_user_without_role(client, regular_user: User) -> None:
+    client.force_login(regular_user)
+    assert client.get(reverse("analytics:catalog")).status_code == 403

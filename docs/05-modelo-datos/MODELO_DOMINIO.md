@@ -75,6 +75,7 @@ Las relaciones muchos-a-muchos se materializan mediante tablas explícitas cuand
 - `ExportRun` guarda contrato, filtros, archivo resultante, hash, actor y fecha.
 - `FileAsset` solo contiene metadatos; la ruta física es opaca y el acceso siempre pasa por autorización.
 - Los reportes leen tablas funcionales mediante consultas controladas; no mantienen copias editables del negocio.
+- `AnalysisDefinition` versiona algoritmo, indicador y parámetros; `AnalysisRun` conserva entradas, métricas, supuestos, resultados y hashes.
 
 ## 6. Límites de módulos
 
@@ -90,7 +91,8 @@ Las relaciones muchos-a-muchos se materializan mediante tablas explícitas cuand
 | `improvements` | 4 | `audits`, `documents`, `accounts` |
 | `risks` | 9 | `processes`, `indicators`, `audits`, `improvements`, `organizations`, `accounts` |
 | `reports` | 2 | Lectura de módulos funcionales y `documents` |
+| `analytics` | 2 | `indicators`, `accounts`, `auditlog` |
 | `auditlog` | 1 | Referencias desacopladas por identificador y etiqueta |
-| **Total** | **50** | |
+| **Total** | **52** | |
 
 `core` define tipos, bases abstractas y utilidades, pero no tendrá una tabla funcional propia en P05.

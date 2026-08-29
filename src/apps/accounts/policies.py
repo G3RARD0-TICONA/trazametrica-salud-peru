@@ -40,6 +40,10 @@ class Capability(StrEnum):
     APPROVE_RISKS = "risks.approve"
     VIEW_REPORTS = "reports.view"
     EXPORT_REPORTS = "reports.export"
+    VIEW_ANALYTICS = "analytics.view"
+    MANAGE_ANALYTICS = "analytics.manage"
+    APPROVE_ANALYTICS = "analytics.approve"
+    RUN_ANALYTICS = "analytics.run"
     VIEW_AUDIT_LOG = "auditlog.view"
     EXPORT_AUDIT_LOG = "auditlog.export"
 
@@ -55,6 +59,7 @@ ROLE_CAPABILITIES: dict[str, frozenset[Capability]] = {
             Capability.VIEW_DOCUMENTS,
             Capability.VIEW_AUDIT_LOG,
             Capability.VIEW_REPORTS,
+            Capability.VIEW_ANALYTICS,
         }
     ),
     "QUALITY_MANAGER": frozenset(
@@ -75,6 +80,9 @@ ROLE_CAPABILITIES: dict[str, frozenset[Capability]] = {
             Capability.REVIEW_RISKS,
             Capability.VIEW_REPORTS,
             Capability.EXPORT_REPORTS,
+            Capability.VIEW_ANALYTICS,
+            Capability.MANAGE_ANALYTICS,
+            Capability.RUN_ANALYTICS,
             Capability.VIEW_AUDIT_LOG,
         }
     ),
@@ -91,6 +99,7 @@ ROLE_CAPABILITIES: dict[str, frozenset[Capability]] = {
             Capability.MANAGE_RISKS,
             Capability.VIEW_REPORTS,
             Capability.EXPORT_REPORTS,
+            Capability.VIEW_ANALYTICS,
         }
     ),
     "INDICATOR_ANALYST": frozenset(
@@ -104,6 +113,9 @@ ROLE_CAPABILITIES: dict[str, frozenset[Capability]] = {
             Capability.REVIEW_INDICATORS,
             Capability.VIEW_REPORTS,
             Capability.EXPORT_REPORTS,
+            Capability.VIEW_ANALYTICS,
+            Capability.MANAGE_ANALYTICS,
+            Capability.RUN_ANALYTICS,
         }
     ),
     "DATA_LOADER": frozenset(
@@ -112,6 +124,7 @@ ROLE_CAPABILITIES: dict[str, frozenset[Capability]] = {
             Capability.VIEW_ORGANIZATION,
             Capability.CREATE_IMPORTS,
             Capability.VIEW_REPORTS,
+            Capability.VIEW_ANALYTICS,
         }
     ),
     "AUDITOR": frozenset(
@@ -126,6 +139,7 @@ ROLE_CAPABILITIES: dict[str, frozenset[Capability]] = {
             Capability.REVIEW_RISKS,
             Capability.VIEW_REPORTS,
             Capability.EXPORT_REPORTS,
+            Capability.VIEW_ANALYTICS,
         }
     ),
     "APPROVER": frozenset(
@@ -143,6 +157,8 @@ ROLE_CAPABILITIES: dict[str, frozenset[Capability]] = {
             Capability.APPROVE_RISKS,
             Capability.VIEW_REPORTS,
             Capability.EXPORT_REPORTS,
+            Capability.VIEW_ANALYTICS,
+            Capability.APPROVE_ANALYTICS,
             Capability.VIEW_AUDIT_LOG,
             Capability.EXPORT_AUDIT_LOG,
         }
@@ -155,6 +171,7 @@ ROLE_CAPABILITIES: dict[str, frozenset[Capability]] = {
             Capability.VIEW_PROCESSES,
             Capability.VIEW_REPORTS,
             Capability.EXPORT_REPORTS,
+            Capability.VIEW_ANALYTICS,
         }
     ),
 }

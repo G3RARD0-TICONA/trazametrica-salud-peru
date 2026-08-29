@@ -6,6 +6,9 @@ Este proyecto sigue [Versionado Semántico](https://semver.org/lang/es/) desde e
 
 ### Añadido
 
+- P16 en revisión con estadística descriptiva, atípicos, Pareto, gráficos de control, medias móviles, regresión lineal y logística reproducibles.
+- Definiciones analíticas versionadas, ejecuciones inmutables, separación cronológica entrenamiento/prueba, métricas, supuestos, líneas base y hashes SHA-256.
+
 - P15 con tablero KPI filtrable, contratos de exportación versionados, CSV/XLSX/PDF auditables, conjunto estable para Power BI Desktop y semilla sintética determinista.
 - CI #67 y #68 conformes para P15 con 151 pruebas en PostgreSQL 17, 82 % de cobertura y controles de seguridad y dependencias aprobados.
 - P15 aprobada internamente y G15 cerrada con 12/12 controles tras la aceptación formal del titular del 29 de agosto de 2026.

@@ -20,6 +20,7 @@ La documentación está organizada como expedientes consecutivos. Una parte solo
 | [P13](13-acciones-correctivas-mejora/README.md) | Acciones correctivas, evidencias y mejora | Aprobada internamente — G13 cerrada (12/12) |
 | [P14](14-riesgos-controles-alertas/README.md) | Riesgos, controles versionados y alertas | Aprobada internamente — G14 cerrada |
 | [P15](15-reportes-exportaciones/README.md) | Reportes, Excel, PDF y Power BI Desktop | Aprobada internamente — G15 cerrada (12/12) |
+| [P16](16-analitica-avanzada/README.md) | Estadística y analítica avanzada | En revisión — G16 abierta (11/12) |
 | [Roadmap](ROADMAP.md) | Secuencia P00–P18 | Activo |
 
 ## Convención de estados

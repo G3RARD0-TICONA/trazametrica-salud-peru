@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}Analítica avanzada | Trazamétrica Salud Perú{% endblock %}
+
+{% block content %}
+  <h1>Estadística y analítica avanzada</h1>
+  <p class="notice"><strong>DATOS SINTÉTICOS.</strong> Los resultados son administrativos, demostrativos y no constituyen diagnóstico, pronóstico clínico ni decisión sanitaria.</p>
+
+  <h2>Definiciones publicadas</h2>
+  <table>
+    <thead><tr><th>Definición</th><th>Tipo</th><th>Indicador</th><th>Parámetros</th><th>Acción</th></tr></thead>
+    <tbody>
+      {% for definition in definitions %}
+        <tr>
+          <td>{{ definition.code }} v{{ definition.version_no }}<br>{{ definition.name }}</td>
+          <td>{{ definition.get_analysis_type_display }}</td>
+          <td>{{ definition.target_indicator.code }}</td>
+          <td><code>{{ definition.parameters }}</code></td>
+          <td>
+            {% if can_run %}
+              <form method="post" action="{% url 'analytics:execute' definition.id %}">
+                {% csrf_token %}
+                <label>Desde <input type="date" name="period_start"></label>
+                <label>Hasta <input type="date" name="period_end"></label>
+                <button type="submit">Ejecutar</button>
+              </form>
+            {% else %}Solo consulta{% endif %}
+          </td>
+        </tr>
+      {% empty %}<tr><td colspan="5">No existen definiciones publicadas.</td></tr>{% endfor %}
+    </tbody>
+  </table>
+
+  <h2>Historial reproducible</h2>
+  <table>
+    <thead><tr><th>Fecha</th><th>Definición</th><th>Entradas</th><th>Entrenamiento/prueba</th><th>Calidad</th><th>Hash</th></tr></thead>
+    <tbody>
+      {% for run in recent_runs %}
+        <tr>
+          <td><a href="{% url 'analytics:run-detail' run.id %}">{{ run.executed_at }}</a></td>
+          <td>{{ run.definition.code }}</td><td>{{ run.input_count }}</td>
+          <td>{{ run.train_count }} / {{ run.test_count }}</td>
+          <td>{% if run.quality_gate_passed %}Superada{% else %}No superada{% endif %}</td>
+          <td><code>{{ run.output_hash|slice:":12" }}</code></td>
+        </tr>
+      {% empty %}<tr><td colspan="6">Todavía no existen ejecuciones.</td></tr>{% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
+
