@@ -6,6 +6,9 @@ Este proyecto sigue [Versionado Semántico](https://semver.org/lang/es/) desde e
 
 ### Añadido
 
+- P18 en pruebas con contenedor WSGI, proxy TLS configurable, PostgreSQL 17 aislado, operación, recuperación y publicación final trazable.
+- Contrato automatizado de despliegue, sondas sin caché y aviso visible de demo pública con datos sintéticos y no clínica.
+
 - P17 con regresión integral, seguridad transversal, rendimiento de referencia, accesibilidad WCAG 2.2 AA y manifiesto de recuperación.
 - Argon2, CSP, política de permisos, correlación de solicitudes, caché privada y bitácora de autorizaciones denegadas.
 - Puertas CI de repositorio seguro, `check --deploy`, accesibilidad estructural, p95, presupuestos SQL y conjunto de 100 000 observaciones.

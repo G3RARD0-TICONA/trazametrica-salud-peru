@@ -64,6 +64,8 @@ jobs:
           DJANGO_ALLOWED_HOSTS: demo.example.invalid
           DJANGO_CSRF_TRUSTED_ORIGINS: https://demo.example.invalid
         run: python src/manage.py check --deploy
+      - name: Demonstration deployment contract
+        run: python scripts/check_deployment.py
       - name: Accessibility structure
         run: python scripts/check_accessibility.py
       - name: Tests and coverage

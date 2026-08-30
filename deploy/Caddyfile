@@ -1,0 +1,21 @@
+{$DEMO_CADDY_ADDRESS::80} {
+    encode zstd gzip
+
+    header {
+        -Server
+        X-Content-Type-Options "nosniff"
+        Referrer-Policy "same-origin"
+        X-Frame-Options "DENY"
+    }
+
+    handle_path /static/* {
+        root * /srv/static
+        file_server
+    }
+
+    handle {
+        reverse_proxy web:8000 {
+            health_uri /health/live/
+        }
+    }
+}
