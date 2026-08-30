@@ -2,7 +2,7 @@
 
 **Estado:** en pruebas
 
-**Puerta:** G18 abierta — 10/12 controles conformes; CI, simulacro externo y aceptación pendientes
+**Puerta:** G18 abierta — 11/12 controles conformes; simulacro externo y aceptación pendientes
 
 **Versión:** 1.0-rc.1
 
@@ -37,4 +37,4 @@ P18 publica únicamente una demo administrativa y no clínica. No habilita pacie
 
 ## Resultado actual
 
-La rama incorpora la infraestructura reproducible y los manuales. Antes de declarar la publicación final se exige que la CI del PR sea conforme, que el titular ejecute el simulacro sobre un proveedor y dominio que controle, y que registre la aceptación formal.
+La CI #79 aprobó 172 pruebas sobre PostgreSQL 17, 82 % de cobertura, documentación, lint, tipado, migraciones, seguridad, contrato de despliegue, accesibilidad, Bandit, dependencias e imagen. Antes de declarar la publicación final se exige que el titular ejecute el simulacro sobre un proveedor y dominio que controle, y que registre la aceptación formal.

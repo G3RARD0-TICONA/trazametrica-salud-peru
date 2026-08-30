@@ -14,7 +14,7 @@
 | 8 | Operación documentada | manual de arranque, detención e incidentes | Conforme |
 | 9 | Recuperación operativa | respaldo, manifiesto y restauración aislada | Conforme |
 | 10 | Publicación trazable | procedimiento de tag y GitHub Release | Conforme |
-| 11 | CI oficial P18 | contrato, pruebas, seguridad, dependencias e imagen | Pendiente |
+| 11 | CI oficial P18 | CI #79: 172 pruebas, 82 %, contrato, seguridad, dependencias e imagen | Conforme |
 | 12 | Simulacro externo y aceptación formal | URL del titular, TLS, evidencia y autorización | Pendiente |
 
-**Resultado previo a CI:** 10/12 controles conformes. G18 permanece abierta. No se publica una URL, release ni dominio antes de una CI conforme, simulacro externo y aceptación expresa del titular.
+**Resultado previo al simulacro externo:** 11/12 controles conformes. G18 permanece abierta. No se publica una URL, release ni dominio antes de un simulacro externo y aceptación expresa del titular.
