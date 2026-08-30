@@ -10,6 +10,7 @@ from django.test.utils import CaptureQueriesContext
 from django.urls import reverse
 
 from apps.accounts.models import User
+from apps.imports.demo_seed import seed_import_templates
 from apps.indicators.demo_seed import seed_indicators
 from apps.organizations.demo_seed import seed_organization_catalog
 from apps.processes.demo_seed import seed_processes
@@ -25,6 +26,7 @@ def test_reference_catalogs_meet_p95_and_query_budgets(
 
     seed_organization_catalog(actor=admin_user)
     seed_processes(actor=admin_user)
+    seed_import_templates(actor=admin_user)
     counts = seed_indicators(actor=admin_user, observation_count=100_000)
     assert counts == {"indicators": 200, "versions": 260, "observations": 100_000}
 
