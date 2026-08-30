@@ -2,7 +2,7 @@
 
 **Estado:** en pruebas
 
-**Puerta:** G18 abierta — 10/12 controles conformes; CI del simulacro local y aceptación pendientes
+**Puerta:** G18 abierta — 11/12 controles conformes; aceptación y release final pendientes
 
 **Versión:** 1.0-rc.1
 
@@ -37,4 +37,4 @@ P18 publica únicamente código y documentación de una demo administrativa y no
 
 ## Resultado actual
 
-La CI #79 aprobó 172 pruebas sobre PostgreSQL 17, 82 % de cobertura, documentación, lint, tipado, migraciones, seguridad, contrato de despliegue, accesibilidad, Bandit, dependencias e imagen. El nuevo control levanta PostgreSQL, Django/Gunicorn y Caddy mediante Docker Compose y comprueba las dos sondas locales. G18 espera esa ejecución oficial y la aceptación formal del titular.
+La CI #82 aprobó 172 pruebas sobre PostgreSQL 17, 82 % de cobertura, documentación, lint, tipado, migraciones, seguridad, accesibilidad, Bandit y dependencias. También construyó y levantó PostgreSQL, Django/Gunicorn y Caddy mediante Docker Compose, comprobó las dos sondas locales y eliminó el entorno de prueba. Solo quedan la aceptación formal, la integración y la GitHub Release `v0.1.0`.

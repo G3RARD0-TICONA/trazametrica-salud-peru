@@ -22,7 +22,7 @@ El roadmap controla el orden del proyecto; no sustituye los criterios de aceptac
 | P15 | Exportaciones, Power BI Desktop y reportes | Aprobada internamente — G15 cerrada (12/12) |
 | P16 | Analítica estadística y capacidades avanzadas | Aprobada internamente — G16 cerrada (12/12) |
 | P17 | Pruebas, seguridad, rendimiento y accesibilidad | Aprobada internamente — G17 cerrada (12/12) |
-| P18 | Despliegue demostrativo, documentación y publicación | En pruebas — G18 abierta (10/12) |
+| P18 | Despliegue demostrativo, documentación y publicación | En pruebas — G18 abierta (11/12) |
 
 ## Regla de avance
 
@@ -46,4 +46,4 @@ P16 materializa estadística descriptiva, Pareto, gráficos de control, tendenci
 
 P17 valida regresión integral, seguridad transversal, rendimiento con el conjunto sintético de referencia, accesibilidad WCAG 2.2 AA y recuperación mediante manifiesto. Las CI #75 y #76 aprobaron 170 pruebas sobre PostgreSQL 17 con 82 % de cobertura y dejaron conformes seguridad, dependencias, accesibilidad, rendimiento e imagen. El titular autorizó formalmente su aprobación e integración el 30 de agosto de 2026; G17 queda cerrada con 12/12 controles conformes.
 
-P18 incorpora una demostración gratuita y reproducible con Gunicorn, Caddy, PostgreSQL 17 aislado, manuales de operación/usuario/recuperación y publicación mediante GitHub Release. La CI #79 aprobó 172 pruebas sobre PostgreSQL 17 con 82 % de cobertura, seguridad, dependencias e imagen. G18 queda abierta con 10/12 controles mientras la nueva CI ejecuta el stack Docker local completo y se registra la aceptación formal.
+P18 incorpora una demostración gratuita y reproducible con Gunicorn, Caddy, PostgreSQL 17 aislado, manuales de operación/usuario/recuperación y publicación mediante GitHub Release. La CI #82 aprobó 172 pruebas sobre PostgreSQL 17 con 82 % de cobertura, seguridad y dependencias, y ejecutó el stack Docker local completo con sondas conformes. G18 queda abierta con 11/12 controles mientras se registra la aceptación formal y se publica la release final.

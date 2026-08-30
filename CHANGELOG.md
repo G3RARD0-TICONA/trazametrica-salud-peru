@@ -10,6 +10,7 @@ Este proyecto sigue [Versionado Semántico](https://semver.org/lang/es/) desde e
 - P18 adopta publicación gratuita del código en GitHub y demo local con Docker, sin hosting público ni dominio; la CI levanta y verifica el stack completo.
 - Contrato automatizado de despliegue, sondas sin caché y aviso visible de demo pública con datos sintéticos y no clínica.
 - CI #79 conforme para P18 con 172 pruebas en PostgreSQL 17, 82 % de cobertura, contrato de despliegue, seguridad, dependencias e imagen aprobados.
+- CI #82 conforme para P18 con 172 pruebas, 82 % de cobertura y simulacro Docker local completo aprobado.
 
 - P17 con regresión integral, seguridad transversal, rendimiento de referencia, accesibilidad WCAG 2.2 AA y manifiesto de recuperación.
 - Argon2, CSP, política de permisos, correlación de solicitudes, caché privada y bitácora de autorizaciones denegadas.

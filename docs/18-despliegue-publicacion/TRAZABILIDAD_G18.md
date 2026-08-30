@@ -14,7 +14,7 @@
 | 8 | Operación documentada | manual de arranque, detención e incidentes | Conforme |
 | 9 | Recuperación operativa | respaldo, manifiesto y restauración aislada | Conforme |
 | 10 | Publicación trazable | procedimiento de tag y GitHub Release sin URL de aplicación | Conforme |
-| 11 | Simulacro Docker oficial | arranque Compose y sondas en la nueva CI P18 | Pendiente |
+| 11 | Simulacro Docker oficial | CI #82: build, Compose, sondas y cierre limpio | Conforme |
 | 12 | Aceptación y release final | autorización, integración y publicación de `v0.1.0` | Pendiente |
 
-**Resultado previo a la nueva CI:** 10/12 controles conformes. G18 permanece abierta. No se publica una URL de aplicación; la release `v0.1.0` se crea únicamente después de la aceptación expresa del titular y la integración del PR.
+**Resultado posterior a la CI #82:** 11/12 controles conformes. G18 permanece abierta. No se publica una URL de aplicación; la release `v0.1.0` se crea únicamente después de la aceptación expresa del titular y la integración del PR.
