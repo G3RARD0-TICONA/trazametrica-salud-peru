@@ -1,8 +1,8 @@
 # P17 — Pruebas, seguridad, rendimiento y accesibilidad
 
-**Estado:** en pruebas
+**Estado:** aprobada internamente
 
-**Puerta:** G17 abierta — 11/12 controles conformes; aceptación pendiente
+**Puerta:** G17 cerrada — 12/12 controles conformes
 
 **Versión:** 1.0
 
@@ -41,4 +41,4 @@ P17 no publica el sistema, no selecciona proveedor o dominio, no configura un pr
 
 ## Resultado actual
 
-La CI #75 aprobó 170 pruebas sobre PostgreSQL 17, 82 % de cobertura, documentación, lint, tipado, migraciones, seguridad del repositorio, `check --deploy`, accesibilidad, rendimiento, Bandit, dependencias y construcción del contenedor. G17 conserva pendiente únicamente la aceptación formal del titular.
+Las CI #75 y #76 aprobaron 170 pruebas sobre PostgreSQL 17, 82 % de cobertura, documentación, lint, tipado, migraciones, seguridad del repositorio, `check --deploy`, accesibilidad, rendimiento, Bandit, dependencias y construcción del contenedor. El titular aceptó formalmente P17 el 30 de agosto de 2026; G17 queda cerrada con 12/12 controles conformes.

@@ -25,7 +25,7 @@
 | 8 | Accesibilidad | auditor estructural y checklist WCAG 2.2 AA | Conforme |
 | 9 | Observabilidad segura | correlación y denegaciones sin entrada sensible | Conforme |
 | 10 | Documentación y límites | expediente P17 y exclusiones productivas | Conforme |
-| 11 | CI oficial PostgreSQL 17 | CI #75: 170 pruebas, 82 %, deploy check, seguridad, dependencias, accesibilidad, rendimiento e imagen | Conforme |
-| 12 | Aceptación formal del titular | autorización explícita de cierre e integración | Pendiente |
+| 11 | CI oficial PostgreSQL 17 | CI #75 y #76: 170 pruebas, 82 %, deploy check, seguridad, dependencias, accesibilidad, rendimiento e imagen | Conforme |
+| 12 | Aceptación formal del titular | autorización expresa registrada el 30 de agosto de 2026 | Conforme |
 
-**Resultado previo a aceptación:** 11/12 controles conformes. G17 permanece abierta y el PR debe permanecer en borrador hasta autorización expresa.
+**Resultado final:** 12/12 controles conformes. P17 está **APROBADA INTERNAMENTE** y G17 queda cerrada. Esta aprobación interna no representa pentest, certificación WCAG/OWASP, autorización sanitaria ni aptitud productiva.

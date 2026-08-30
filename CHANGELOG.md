@@ -6,10 +6,11 @@ Este proyecto sigue [Versionado Semántico](https://semver.org/lang/es/) desde e
 
 ### Añadido
 
-- P17 en pruebas con regresión integral, seguridad transversal, rendimiento de referencia, accesibilidad WCAG 2.2 AA y manifiesto de recuperación.
+- P17 con regresión integral, seguridad transversal, rendimiento de referencia, accesibilidad WCAG 2.2 AA y manifiesto de recuperación.
 - Argon2, CSP, política de permisos, correlación de solicitudes, caché privada y bitácora de autorizaciones denegadas.
 - Puertas CI de repositorio seguro, `check --deploy`, accesibilidad estructural, p95, presupuestos SQL y conjunto de 100 000 observaciones.
-- CI #75 conforme para P17 con 170 pruebas en PostgreSQL 17, 82 % de cobertura, seguridad, dependencias, accesibilidad, rendimiento e imagen aprobados.
+- CI #75 y #76 conformes para P17 con 170 pruebas en PostgreSQL 17, 82 % de cobertura, seguridad, dependencias, accesibilidad, rendimiento e imagen aprobados.
+- P17 aprobada internamente y G17 cerrada con 12/12 controles tras la aceptación formal del titular del 30 de agosto de 2026.
 
 - P16 con estadística descriptiva, atípicos, Pareto, gráficos de control, medias móviles, regresión lineal y logística reproducibles.
 - Definiciones analíticas versionadas, ejecuciones inmutables, separación cronológica entrenamiento/prueba, métricas, supuestos, líneas base y hashes SHA-256.
