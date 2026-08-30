@@ -42,6 +42,8 @@ def main() -> int:
             "deploy/Caddyfile",
             "reverse_proxy web:8000",
             "health_uri /health/live/",
+            "health_headers",
+            "Host localhost",
             "handle_path /static/*",
             "X-Content-Type-Options",
         )

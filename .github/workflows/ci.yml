@@ -90,6 +90,9 @@ jobs:
           curl --fail --retry 30 --retry-delay 2 --retry-all-errors http://127.0.0.1:8080/health/live/
           curl --fail --retry 15 --retry-delay 2 --retry-all-errors http://127.0.0.1:8080/health/ready/
           docker compose --env-file .env.demo -f compose.demo.yaml exec -T web python src/manage.py check --deploy
+      - name: Diagnose local demonstration
+        if: failure()
+        run: docker compose --env-file .env.demo -f compose.demo.yaml logs --no-color
       - name: Stop local demonstration
         if: always()
         run: docker compose --env-file .env.demo -f compose.demo.yaml down --volumes
