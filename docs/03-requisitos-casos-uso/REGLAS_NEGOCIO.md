@@ -28,6 +28,10 @@
 | RN-024 | Ningún texto o estado del sistema equivale a certificación o autorización sanitaria | Sustituir por referencia o evidencia interna |
 | RN-025 | El nivel de riesgo inherente y residual se deriva de escalas aprobadas de probabilidad e impacto | Impedir edición manual del resultado derivado |
 | RN-026 | Un riesgo alto o crítico no se cierra con controles vencidos o sin evaluación residual | Rechazar cierre y generar alerta |
+| RN-027 | Todo análisis usa exclusivamente observaciones sintéticas provenientes de cargas procesadas | Rechazar origen no controlado |
+| RN-028 | Una definición publicada y una ejecución analítica son inmutables; mismas entradas, versión y parámetros producen el mismo hash | Crear nueva versión o ejecución |
+| RN-029 | Un modelo predictivo separa entrenamiento/prueba sin fuga temporal y debe igualar su línea base | Registrar rechazo de calidad |
+| RN-030 | Ningún resultado analítico equivale a diagnóstico, pronóstico o decisión clínica | Bloquear interpretación clínica |
 
 ## Estados mínimos
 

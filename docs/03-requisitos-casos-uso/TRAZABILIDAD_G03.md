@@ -9,6 +9,7 @@
 | P01 | KPI y Power BI Desktop | RF-015–018, RF-028–030 | CU-08–09, CU-16 | Cálculos reproducibles y exportaciones |
 | P01 | Procesos, auditoría y mejora | RF-006–009, RF-019–024 | CU-04–05, CU-10–15 | Flujo proceso–hallazgo–acción–cierre |
 | P00/P01 | Riesgos y controles de gestión | RF-033–035 | CU-20 | Evaluación, tratamiento, revisión y alertas |
+| P01/P16 | Estadística y analítica administrativa | RF-036–038 | CU-21 | Métricas, línea base, hashes y rechazo de calidad |
 | P02 | Datos sintéticos y límites clínicos | RF-025, RF-029, RF-031–032; RNF-002–003 | CU-07, CU-16, CU-18 | Validación negativa y marca sintética |
 | P02 | Mínimo privilegio y trazabilidad | RF-002, RF-026–027; RNF-001, RNF-011 | CU-01–02, CU-17 | Denegaciones y eventos correlacionados |
 | P02 | No certificación | RF-031; RN-024 | CU-16 | Revisión terminológica |

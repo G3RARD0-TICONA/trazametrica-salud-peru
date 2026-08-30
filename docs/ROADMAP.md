@@ -20,7 +20,7 @@ El roadmap controla el orden del proyecto; no sustituye los criterios de aceptac
 | P13 | Acciones correctivas, evidencias y mejora | Aprobada internamente — G13 cerrada (12/12) |
 | P14 | Riesgos, alertas y controles | Aprobada internamente — G14 cerrada (12/12) |
 | P15 | Exportaciones, Power BI Desktop y reportes | Aprobada internamente — G15 cerrada (12/12) |
-| P16 | Analítica estadística y capacidades avanzadas | No iniciada |
+| P16 | Analítica estadística y capacidades avanzadas | Aprobada internamente — G16 cerrada (12/12) |
 | P17 | Pruebas, seguridad, rendimiento y accesibilidad | No iniciada |
 | P18 | Despliegue demostrativo, documentación y publicación | No iniciada |
 
@@ -32,7 +32,7 @@ El roadmap controla el orden del proyecto; no sustituye los criterios de aceptac
 4. Implementar únicamente requisitos aprobados.
 5. Integrar, probar y registrar evidencia antes de cerrar la parte.
 
-P04–P15 están aprobadas internamente. P11 materializa fichas KPI versionadas, fórmulas declarativas, observaciones, cálculo reproducible y publicación corregible; superó las verificaciones locales, los CI #48, #49 y #50 sobre PostgreSQL 17 y la aceptación formal del titular. G11 queda cerrada con 12/12 controles conformes.
+P04–P16 están aprobadas internamente. P11 materializa fichas KPI versionadas, fórmulas declarativas, observaciones, cálculo reproducible y publicación corregible; superó las verificaciones locales, los CI #48, #49 y #50 sobre PostgreSQL 17 y la aceptación formal del titular. G11 queda cerrada con 12/12 controles conformes.
 
 P12 materializa planes, listas versionadas, respuestas, hallazgos/no conformidades y evidencia sintética. Superó las verificaciones locales, los CI #52 y #53 sobre PostgreSQL 17 con 115 pruebas y 83 % de cobertura, y la aceptación formal del titular del 21 de agosto de 2026. G12 queda cerrada con 12/12 controles conformes.
 
@@ -41,3 +41,5 @@ P13 materializa causa raíz, acciones correctivas, evidencia de ejecución, aler
 P14 materializa riesgos por proceso, matriz inherente y residual, controles versionados, relaciones explícitas con KPI, hallazgos y acciones, revisión independiente, alertas y cierre condicionado. Las CI #61 y #62 aprobaron 140 pruebas sobre PostgreSQL 17 con 82 % de cobertura. El titular autorizó expresamente el cierre el 28 de agosto de 2026; G14 queda cerrada con 12/12 controles conformes.
 
 P15 materializa tablero filtrable, contratos de exportación versionados, archivos CSV/XLSX/PDF auditables y un conjunto estable para Power BI Desktop. Las CI #67 y #68 aprobaron 151 pruebas sobre PostgreSQL 17 con 82 % de cobertura, seguridad y dependencias conformes. El titular autorizó formalmente su aprobación e integración el 29 de agosto de 2026; G15 queda cerrada con 12/12 controles conformes.
+
+P16 materializa estadística descriptiva, Pareto, gráficos de control, tendencias, regresión lineal y logística mediante definiciones y ejecuciones versionadas. La CI #71 aprobó 163 pruebas sobre PostgreSQL 17 con 82 % de cobertura, seguridad, dependencias e imagen conformes. El titular autorizó formalmente su aprobación e integración el 30 de agosto de 2026; G16 queda cerrada con 12/12 controles conformes.

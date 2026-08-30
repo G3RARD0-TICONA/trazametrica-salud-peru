@@ -74,6 +74,14 @@ Cada requisito es obligatorio salvo que una parte posterior documente y apruebe 
 | RF-034 | Versionar evaluaciones, controles, fechas de revisión y riesgo residual sin sobrescribir aprobaciones | MVP |
 | RF-035 | Vincular riesgos con procesos, indicadores, hallazgos y acciones, y alertar revisiones o controles vencidos | MVP |
 
+### Estadística y analítica avanzada
+
+| ID | Requisito verificable | Prioridad |
+|---|---|---|
+| RF-036 | Calcular descriptivos, distribuciones, atípicos, Pareto, gráficos de control, tendencias y medias móviles sobre datos sintéticos | MVP |
+| RF-037 | Ejecutar regresión lineal y logística con separación cronológica entrenamiento/prueba, métricas y comparación contra línea base | MVP |
+| RF-038 | Versionar definiciones analíticas y conservar entradas, parámetros, supuestos, limitaciones, métricas y hashes de cada ejecución | MVP |
+
 ## 2. Requisitos no funcionales
 
 | ID | Requisito verificable | Evidencia esperada |

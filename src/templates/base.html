@@ -30,6 +30,7 @@
       <a href="{% url 'improvements:catalog' %}">Mejora</a>
       <a href="{% url 'risks:catalog' %}">Riesgos</a>
       <a href="{% url 'reports:dashboard' %}">Reportes</a>
+      <a href="{% url 'analytics:catalog' %}">Analítica</a>
       <form method="post" action="{% url 'accounts:logout' %}">
         {% csrf_token %}
         <button type="submit">Cerrar sesión</button>

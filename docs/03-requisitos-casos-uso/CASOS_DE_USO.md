@@ -24,6 +24,7 @@
 | CU-18 | Restablecer datos de demostración | A01 | Entorno sintético conocido |
 | CU-19 | Registrar y versionar documento administrativo | A02/A03/A07 | Documento vigente y anterior inmutable |
 | CU-20 | Evaluar riesgo y revisar controles | A02/A03/A07 | Riesgo residual y tratamiento trazables |
+| CU-21 | Ejecutar y revisar análisis estadístico | A02/A04/A07 | Resultado reproducible, medido y no clínico |
 
 ## 2. Casos críticos detallados
 

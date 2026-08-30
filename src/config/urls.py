@@ -16,5 +16,6 @@ urlpatterns = [
     path("improvements/", include("apps.improvements.urls")),
     path("risks/", include("apps.risks.urls")),
     path("reports/", include("apps.reports.urls")),
+    path("analytics/", include("apps.analytics.urls")),
     path("", include("apps.accounts.urls")),
 ]

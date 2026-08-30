@@ -45,6 +45,7 @@ Las consultas de lectura complejas usarán `selectors`; las operaciones usarán 
 | MOD-10 | `risks` | Riesgos, controles versionados, evaluaciones, revisiones y alertas | `core`, `accounts`, `organizations`, `processes`, `indicators`, `audits`, `improvements` |
 | MOD-11 | `reports` | Consultas, tableros y contratos de exportación | Lectura controlada de módulos funcionales |
 | MOD-12 | `auditlog` | Eventos append-only, correlación y consulta | `core`, referencias desacopladas |
+| MOD-13 | `analytics` | Estadística, modelos versionados, ejecuciones y métricas | `core`, `accounts`, `indicators`, `auditlog` |
 
 `auditlog` recibirá eventos desde servicios de aplicación y no mediante señales genéricas para operaciones críticas. Las señales podrán complementar tareas no críticas, pero no sustituirán una transacción trazable.
 
@@ -56,6 +57,7 @@ Las consultas de lectura complejas usarán `selectors`; las operaciones usarán 
 - `accounts` no depende de módulos de negocio.
 - Los enlaces entre indicadores, auditoría, mejora y riesgo usan relaciones explícitas y servicios públicos; no importan vistas ni consultas internas de otro módulo.
 - Los ciclos de importación entre aplicaciones se consideran falla de arquitectura.
+- `analytics` solo lee observaciones KPI procesadas; no modifica indicadores ni decisiones funcionales.
 
 ## 5. Flujo de importación
 

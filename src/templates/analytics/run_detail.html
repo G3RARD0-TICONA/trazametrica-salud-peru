@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Ejecución analítica | Trazamétrica Salud Perú{% endblock %}
+
+{% block content %}
+  <h1>{{ run.definition.code }} — ejecución analítica</h1>
+  <p class="notice"><strong>DATOS SINTÉTICOS.</strong> Resultado administrativo demostrativo; no representa predicción clínica.</p>
+  <dl>
+    <dt>Tipo</dt><dd>{{ run.definition.get_analysis_type_display }}</dd>
+    <dt>Indicador</dt><dd>{{ run.definition.target_indicator.code }}</dd>
+    <dt>Estado</dt><dd>{{ run.get_status_display }}</dd>
+    <dt>Observaciones</dt><dd>{{ run.input_count }} (entrenamiento: {{ run.train_count }}, prueba: {{ run.test_count }})</dd>
+    <dt>SHA-256 de entradas</dt><dd><code>{{ run.input_hash }}</code></dd>
+    <dt>SHA-256 del resultado</dt><dd><code>{{ run.output_hash }}</code></dd>
+    <dt>Métricas</dt><dd><pre>{{ run.metrics }}</pre></dd>
+    <dt>Supuestos y límites</dt><dd><pre>{{ run.assumptions }}</pre></dd>
+    <dt>Resultado versionado</dt><dd><pre>{{ run.result }}</pre></dd>
+  </dl>
+{% endblock %}
+

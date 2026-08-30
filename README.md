@@ -3,7 +3,7 @@
 Proyecto demostrativo de investigación aplicada para gestionar procesos, calidad, indicadores y analítica administrativa en clínicas privadas del Perú.
 
 > [!IMPORTANT]
-> Las Partes 0–15 tienen sus puertas cerradas. P15 está aprobada internamente y G15 quedó cerrada con 12/12 controles conformes tras la aceptación formal del titular.
+> Las Partes 0–16 tienen sus puertas cerradas. P16 está aprobada internamente y G16 quedó cerrada con 12/12 controles conformes tras la aceptación formal del titular.
 
 ## Propósito
 
@@ -52,7 +52,8 @@ El resultado final será un portafolio técnico que integre gestión por proceso
 | P13 | Acciones correctivas, evidencias y mejora | Aprobada internamente | G13 cerrada (12/12) |
 | P14 | Riesgos, controles versionados y alertas | Aprobada internamente | G14 cerrada (12/12) |
 | P15 | Reportes, Excel, PDF y Power BI Desktop | Aprobada internamente | G15 cerrada (12/12) |
-| P16–P18 | Analítica, endurecimiento y publicación | No iniciadas | Pendientes |
+| P16 | Estadística y analítica avanzada | Aprobada internamente | G16 cerrada (12/12) |
+| P17–P18 | Endurecimiento y publicación | No iniciadas | Pendientes |
 
 Consulta el [roadmap](docs/ROADMAP.md) y el [índice de documentación](docs/README.md).
 
@@ -71,7 +72,7 @@ Las reglas completas se encuentran en [SECURITY.md](SECURITY.md).
 - Docker Compose Specification para entornos reproducibles.
 - Pruebas automatizadas y CI en GitHub Actions.
 
-La arquitectura y las versiones fueron fijadas en P04 y el modelo de datos en P05. P06 implementa identidad; P07 la estructura organizacional; P08 documentos; P09 procesos y SIPOC; P10 incorpora plantillas Excel y trazabilidad de cargas; P11 añade KPI reproducibles; P12 incorpora auditorías y hallazgos; P13 añade causa raíz, acciones correctivas y eficacia; P14 incorpora riesgos, controles versionados y alertas; P15 incorpora contratos y exportaciones auditables.
+La arquitectura y las versiones fueron fijadas en P04 y el modelo de datos en P05. P06 implementa identidad; P07 la estructura organizacional; P08 documentos; P09 procesos y SIPOC; P10 incorpora plantillas Excel y trazabilidad de cargas; P11 añade KPI reproducibles; P12 incorpora auditorías y hallazgos; P13 añade causa raíz, acciones correctivas y eficacia; P14 incorpora riesgos, controles versionados y alertas; P15 incorpora contratos y exportaciones auditables; P16 añade estadística y modelos administrativos reproducibles.
 
 ## Ejecución local
 
@@ -88,9 +89,10 @@ docker compose exec web python src/manage.py seed_audits_demo --actor admin_demo
 docker compose exec web python src/manage.py seed_improvements_demo --actor admin_demo
 docker compose exec web python src/manage.py seed_risks_demo --actor admin_demo
 docker compose exec web python src/manage.py seed_reports_demo --actor admin_demo
+docker compose exec web python src/manage.py seed_analytics_demo --actor admin_demo
 ```
 
-Antes del bootstrap, define en `.env` una contraseña sintética de al menos 12 caracteres. Consulta las guías de [identidad](docs/06-identidad-acceso/EJECUCION.md), [semilla organizacional](docs/07-maestros-organizacionales/SEMILLA_DEMO.md), [gestión documental](docs/08-gestion-documental/README.md), [procesos/SIPOC](docs/09-procesos-sipoc/README.md), [importación Excel](docs/10-importacion-excel/README.md), [indicadores](docs/11-indicadores-kpi/README.md), [auditorías](docs/12-auditorias-hallazgos/README.md), [mejora](docs/13-acciones-correctivas-mejora/README.md), [riesgos](docs/14-riesgos-controles-alertas/README.md) y [reportes](docs/15-reportes-exportaciones/README.md). Los catálogos protegidos quedan disponibles en `/documents/`, `/processes/`, `/imports/`, `/indicators/`, `/audits/`, `/improvements/`, `/risks/` y `/reports/`.
+Antes del bootstrap, define en `.env` una contraseña sintética de al menos 12 caracteres. Consulta las guías de [identidad](docs/06-identidad-acceso/EJECUCION.md), [semilla organizacional](docs/07-maestros-organizacionales/SEMILLA_DEMO.md), [gestión documental](docs/08-gestion-documental/README.md), [procesos/SIPOC](docs/09-procesos-sipoc/README.md), [importación Excel](docs/10-importacion-excel/README.md), [indicadores](docs/11-indicadores-kpi/README.md), [auditorías](docs/12-auditorias-hallazgos/README.md), [mejora](docs/13-acciones-correctivas-mejora/README.md), [riesgos](docs/14-riesgos-controles-alertas/README.md), [reportes](docs/15-reportes-exportaciones/README.md) y [analítica](docs/16-analitica-avanzada/README.md). Los catálogos protegidos quedan disponibles en `/documents/`, `/processes/`, `/imports/`, `/indicators/`, `/audits/`, `/improvements/`, `/risks/`, `/reports/` y `/analytics/`.
 
 ## Derechos de autor
 
