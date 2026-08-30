@@ -4,8 +4,10 @@
 
 1. Copie `.env.demo.example` como `.env.demo`; nunca publique ese archivo.
 2. Genere valores aleatorios distintos para `DJANGO_SECRET_KEY`, `DATABASE_PASSWORD` y `BOOTSTRAP_ADMIN_PASSWORD`.
-3. Defina `DJANGO_ALLOWED_HOSTS`, `DJANGO_CSRF_TRUSTED_ORIGINS` y `DEMO_CADDY_ADDRESS` con el dominio propio antes de exponer Internet.
-4. Mantenga PostgreSQL sin puertos publicados y permita en el firewall únicamente 80/443 hacia Caddy.
+3. Conserve `DJANGO_ALLOWED_HOSTS=localhost,127.0.0.1`, el origen CSRF local y `DEMO_CADDY_ADDRESS=:80`.
+4. No abra el puerto `8080` en el router ni use túneles públicos. PostgreSQL permanece sin puertos publicados.
+
+Las tres variables de seguridad con valor `false` en `.env.demo.example` permiten iniciar sesión exclusivamente por HTTP local. No son una configuración válida para Internet; los valores seguros predeterminados del código siguen siendo `true`.
 
 ## 2. Arranque demostrativo
 
@@ -24,7 +26,7 @@ docker compose --env-file .env.demo -f compose.demo.yaml exec web python src/man
 docker compose --env-file .env.demo -f compose.demo.yaml exec web python src/manage.py seed_analytics_demo --actor admin_demo
 ```
 
-Verifique `curl --fail http://localhost:8080/health/live/` y `curl --fail http://localhost:8080/health/ready/`. El usuario `admin_demo` es técnico, no una cuenta de atención clínica; la contraseña no aparece en ninguna salida.
+Verifique `curl --fail http://localhost:8080/health/live/` y `curl --fail http://localhost:8080/health/ready/`, y abra `http://localhost:8080`. El usuario `admin_demo` es técnico, no una cuenta de atención clínica; la contraseña no aparece en ninguna salida.
 
 ## 3. Operación y detención
 
@@ -38,4 +40,4 @@ No use `down -v` en un entorno cuya evidencia deba conservarse: elimina volúmen
 
 ## 4. Respuesta inicial
 
-Ante exposición de un secreto, dato real o comportamiento anómalo: retire el acceso público, rote secretos, preserve los logs mínimos, evalúe alcance y registre la corrección. No convierta Git en un mecanismo de borrado de secretos.
+Ante exposición de un secreto, dato real o comportamiento anómalo: detenga el stack, rote secretos, preserve los logs mínimos, evalúe alcance y registre la corrección. No convierta Git en un mecanismo de borrado de secretos.

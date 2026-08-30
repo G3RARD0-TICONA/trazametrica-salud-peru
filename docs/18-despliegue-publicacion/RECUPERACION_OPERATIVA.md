@@ -21,4 +21,4 @@ Custodie `demo.dump` y el manifiesto fuera del servidor, cifrados y con acceso l
 
 ## Retención demostrativa
 
-Conserve como mínimo el último respaldo verificado y el manifiesto asociado. Defina periodo, ubicación, cifrado y responsables antes de habilitar un proveedor público. El repositorio no almacena respaldos, claves ni datos de la demo.
+Conserve como mínimo el último respaldo verificado y el manifiesto asociado mientras necesite preservar la demo local. El repositorio no almacena respaldos, claves ni datos de la demo. El comando `down --volumes` elimina la base sintética local y solo se usa en demos desechables o en la CI.

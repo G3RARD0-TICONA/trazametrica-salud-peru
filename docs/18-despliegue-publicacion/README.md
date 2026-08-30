@@ -2,7 +2,7 @@
 
 **Estado:** en pruebas
 
-**Puerta:** G18 abierta — 11/12 controles conformes; simulacro externo y aceptación pendientes
+**Puerta:** G18 abierta — 10/12 controles conformes; CI del simulacro local y aceptación pendientes
 
 **Versión:** 1.0-rc.1
 
@@ -10,21 +10,21 @@
 
 ## Objetivo
 
-Dejar una demostración reproducible de Trazamétrica Salud Perú lista para publicar bajo control del titular: contenedor WSGI, proxy TLS, PostgreSQL 17 aislado, operación, recuperación, manual de usuario y procedimiento de release.
+Dejar una demostración reproducible y gratuita de Trazamétrica Salud Perú: contenedor WSGI, proxy local, PostgreSQL 17 aislado, operación, recuperación, manual de usuario y publicación final mediante GitHub Release.
 
 ## Alcance implementado
 
 - imagen no privilegiada con Gunicorn, comprobación de despliegue, migraciones y estáticos;
 - `compose.demo.yaml` con PostgreSQL 17 sin puertos públicos, volumen privado y proxy Caddy;
-- TLS automático cuando `DEMO_CADDY_ADDRESS` contiene un FQDN propio; simulacro local por HTTP aislado;
+- ejecución local por `http://localhost:8080`, sin dominio, hosting ni tarjeta;
 - sondas `/health/live/` y `/health/ready/` sin caché ni secretos;
 - aviso visible de **DEMO PÚBLICA — DATOS SINTÉTICOS** en la aplicación;
 - manuales de operación, recuperación, usuario y publicación final;
-- contrato automatizado de despliegue en CI.
+- contrato automatizado y arranque real del stack Docker en CI.
 
 ## Límites
 
-P18 publica únicamente una demo administrativa y no clínica. No habilita pacientes reales, historias clínicas, credenciales compartidas, certificados, afiliación con clínicas ni disponibilidad productiva. La activación de un proveedor, un dominio y sus secretos la realiza exclusivamente el titular en su propia cuenta.
+P18 publica únicamente código y documentación de una demo administrativa y no clínica. GitHub no aloja la aplicación. No se habilitan pacientes reales, historias clínicas, credenciales compartidas, certificados, afiliación con clínicas ni disponibilidad productiva. La demo local no debe exponerse a Internet.
 
 ## Expediente
 
@@ -37,4 +37,4 @@ P18 publica únicamente una demo administrativa y no clínica. No habilita pacie
 
 ## Resultado actual
 
-La CI #79 aprobó 172 pruebas sobre PostgreSQL 17, 82 % de cobertura, documentación, lint, tipado, migraciones, seguridad, contrato de despliegue, accesibilidad, Bandit, dependencias e imagen. Antes de declarar la publicación final se exige que el titular ejecute el simulacro sobre un proveedor y dominio que controle, y que registre la aceptación formal.
+La CI #79 aprobó 172 pruebas sobre PostgreSQL 17, 82 % de cobertura, documentación, lint, tipado, migraciones, seguridad, contrato de despliegue, accesibilidad, Bandit, dependencias e imagen. El nuevo control levanta PostgreSQL, Django/Gunicorn y Caddy mediante Docker Compose y comprueba las dos sondas locales. G18 espera esa ejecución oficial y la aceptación formal del titular.

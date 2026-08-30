@@ -54,6 +54,14 @@ def main() -> int:
             "aceptación formal",
         )
     )
+    failures.extend(
+        require(
+            ".github/workflows/ci.yml",
+            "compose.demo.yaml up --build --detach",
+            "http://127.0.0.1:8080/health/ready/",
+            "compose.demo.yaml down --volumes",
+        )
+    )
     if failures:
         print("\n".join(failures))
         return 1

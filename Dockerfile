@@ -14,6 +14,8 @@ RUN python -m pip install --upgrade pip && \
     python -m pip install --requirement /tmp/requirements.txt
 
 COPY --chown=app:app . /app
+RUN mkdir -p /app/.static /var/lib/trazametrica/private && \
+    chown -R app:app /app /var/lib/trazametrica
 
 USER app
 

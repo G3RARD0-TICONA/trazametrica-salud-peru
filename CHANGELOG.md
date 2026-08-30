@@ -6,7 +6,8 @@ Este proyecto sigue [Versionado Semántico](https://semver.org/lang/es/) desde e
 
 ### Añadido
 
-- P18 en pruebas con contenedor WSGI, proxy TLS configurable, PostgreSQL 17 aislado, operación, recuperación y publicación final trazable.
+- P18 en pruebas con contenedor WSGI, proxy local, PostgreSQL 17 aislado, operación, recuperación y publicación final trazable.
+- P18 adopta publicación gratuita del código en GitHub y demo local con Docker, sin hosting público ni dominio; la CI levanta y verifica el stack completo.
 - Contrato automatizado de despliegue, sondas sin caché y aviso visible de demo pública con datos sintéticos y no clínica.
 - CI #79 conforme para P18 con 172 pruebas en PostgreSQL 17, 82 % de cobertura, contrato de despliegue, seguridad, dependencias e imagen aprobados.
 
