@@ -17,7 +17,7 @@
 
   <h2>Evaluaciones versionadas</h2>
   <table>
-    <thead><tr><th>Versión</th><th>Estado</th><th>Inherente</th><th>Residual</th><th>Próxima revisión</th><th>Aprobador</th></tr></thead>
+    <thead><tr><th scope="col">Versión</th><th scope="col">Estado</th><th scope="col">Inherente</th><th scope="col">Residual</th><th scope="col">Próxima revisión</th><th scope="col">Aprobador</th></tr></thead>
     <tbody>
       {% for assessment in risk.assessments.all %}
         <tr>
@@ -33,7 +33,7 @@
 
   <h2>Controles y revisiones</h2>
   <table>
-    <thead><tr><th>Control</th><th>Tipo</th><th>Frecuencia</th><th>Eficacia esperada</th><th>Última revisión</th></tr></thead>
+    <thead><tr><th scope="col">Control</th><th scope="col">Tipo</th><th scope="col">Frecuencia</th><th scope="col">Eficacia esperada</th><th scope="col">Última revisión</th></tr></thead>
     <tbody>
       {% for link in risk.ordered_controls %}
         <tr>

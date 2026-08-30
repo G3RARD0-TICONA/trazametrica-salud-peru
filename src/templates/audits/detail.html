@@ -18,12 +18,12 @@
     <p>{{ execution.get_status_display }} — {{ execution.started_at }}</p>
     <h3>Respuestas</h3>
     <table>
-      <thead><tr><th>#</th><th>Criterio</th><th>Resultado</th><th>Observación</th></tr></thead>
+      <thead><tr><th scope="col">#</th><th scope="col">Criterio</th><th scope="col">Resultado</th><th scope="col">Observación</th></tr></thead>
       <tbody>{% for response in execution.ordered_responses %}<tr><td>{{ response.checklist_item.position }}</td><td>{{ response.checklist_item.criterion }}</td><td>{{ response.get_result_display }}</td><td>{{ response.observation|default:"—" }}</td></tr>{% endfor %}</tbody>
     </table>
     <h3>Hallazgos</h3>
     <table>
-      <thead><tr><th>Código</th><th>Condición</th><th>Impacto</th><th>Estado</th><th>Evidencias</th></tr></thead>
+      <thead><tr><th scope="col">Código</th><th scope="col">Condición</th><th scope="col">Impacto</th><th scope="col">Estado</th><th scope="col">Evidencias</th></tr></thead>
       <tbody>{% for finding in execution.ordered_findings %}<tr><td><a href="{% url 'improvements:detail' finding.id %}">{{ finding.code }}</a></td><td>{{ finding.condition }}</td><td>{{ finding.get_impact_display }}</td><td>{{ finding.get_status_display }}</td><td>{{ finding.ordered_evidence|length }}</td></tr>{% empty %}<tr><td colspan="5">Sin hallazgos.</td></tr>{% endfor %}</tbody>
     </table>
   {% empty %}<p>El plan aún no tiene ejecución.</p>{% endfor %}

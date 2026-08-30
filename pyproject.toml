@@ -15,6 +15,8 @@ testpaths = ["tests"]
 addopts = "--strict-markers --strict-config -ra"
 markers = [
     "integration: requiere PostgreSQL",
+    "performance: valida objetivos temporales y presupuestos de consulta",
+    "security: valida controles de seguridad transversales",
 ]
 
 [tool.coverage.run]

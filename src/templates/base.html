@@ -1,22 +1,14 @@
+{% load static %}
 <!doctype html>
 <html lang="es">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% block title %}Trazamétrica Salud Perú{% endblock %}</title>
-  <style>
-    body { font-family: system-ui, sans-serif; max-width: 64rem; margin: 0 auto; padding: 2rem; line-height: 1.5; }
-    nav { display: flex; gap: 1rem; align-items: center; border-bottom: 1px solid #d7dee8; padding-bottom: 1rem; }
-    nav form { margin-left: auto; }
-    button, input { font: inherit; padding: .5rem .75rem; }
-    table { border-collapse: collapse; width: 100%; margin-bottom: 2rem; }
-    th, td { border: 1px solid #d7dee8; padding: .55rem; text-align: left; vertical-align: top; }
-    .notice { background: #eef6ff; border-left: .3rem solid #2563eb; padding: 1rem; }
-    .errorlist { color: #9b1c1c; }
-    dt { font-weight: 700; margin-top: .75rem; }
-  </style>
+  <link rel="stylesheet" href="{% static 'core/app.css' %}">
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Saltar al contenido principal</a>
   <nav aria-label="Navegación principal">
     <a href="{% url 'accounts:home' %}">Inicio</a>
     {% if user.is_authenticated %}
@@ -37,7 +29,12 @@
       </form>
     {% endif %}
   </nav>
-  <main id="main-content">
+  {% if messages %}
+    <section aria-label="Mensajes del sistema" aria-live="polite">
+      {% for message in messages %}<p class="notice">{{ message }}</p>{% endfor %}
+    </section>
+  {% endif %}
+  <main id="main-content" tabindex="-1">
     {% block content %}{% endblock %}
   </main>
 </body>

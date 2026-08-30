@@ -8,7 +8,7 @@
 
   <h2>Hallazgos CAPA</h2>
   <table>
-    <thead><tr><th>Hallazgo</th><th>Auditoría</th><th>Estado</th><th>Causa</th><th>Acciones</th></tr></thead>
+    <thead><tr><th scope="col">Hallazgo</th><th scope="col">Auditoría</th><th scope="col">Estado</th><th scope="col">Causa</th><th scope="col">Acciones</th></tr></thead>
     <tbody>
       {% for finding in findings %}
         <tr>
@@ -24,7 +24,7 @@
 
   <h2>Alertas de acciones</h2>
   <table>
-    <thead><tr><th>Acción</th><th>Hallazgo</th><th>Responsable</th><th>Vencimiento</th><th>Estado</th><th>Alerta</th></tr></thead>
+    <thead><tr><th scope="col">Acción</th><th scope="col">Hallazgo</th><th scope="col">Responsable</th><th scope="col">Vencimiento</th><th scope="col">Estado</th><th scope="col">Alerta</th></tr></thead>
     <tbody>
       {% for action, alert in actions %}
         <tr>

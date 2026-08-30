@@ -3,7 +3,7 @@
 Proyecto demostrativo de investigación aplicada para gestionar procesos, calidad, indicadores y analítica administrativa en clínicas privadas del Perú.
 
 > [!IMPORTANT]
-> Las Partes 0–16 tienen sus puertas cerradas. P16 está aprobada internamente y G16 quedó cerrada con 12/12 controles conformes tras la aceptación formal del titular.
+> Las Partes 0–17 tienen sus puertas cerradas. P17 está aprobada internamente y G17 quedó cerrada con 12/12 controles conformes tras la aceptación formal del titular.
 
 ## Propósito
 
@@ -53,7 +53,8 @@ El resultado final será un portafolio técnico que integre gestión por proceso
 | P14 | Riesgos, controles versionados y alertas | Aprobada internamente | G14 cerrada (12/12) |
 | P15 | Reportes, Excel, PDF y Power BI Desktop | Aprobada internamente | G15 cerrada (12/12) |
 | P16 | Estadística y analítica avanzada | Aprobada internamente | G16 cerrada (12/12) |
-| P17–P18 | Endurecimiento y publicación | No iniciadas | Pendientes |
+| P17 | Pruebas, seguridad, rendimiento y accesibilidad | Aprobada internamente | G17 cerrada (12/12) |
+| P18 | Despliegue, manuales y publicación final | No iniciada | Pendiente |
 
 Consulta el [roadmap](docs/ROADMAP.md) y el [índice de documentación](docs/README.md).
 
@@ -72,7 +73,7 @@ Las reglas completas se encuentran en [SECURITY.md](SECURITY.md).
 - Docker Compose Specification para entornos reproducibles.
 - Pruebas automatizadas y CI en GitHub Actions.
 
-La arquitectura y las versiones fueron fijadas en P04 y el modelo de datos en P05. P06 implementa identidad; P07 la estructura organizacional; P08 documentos; P09 procesos y SIPOC; P10 incorpora plantillas Excel y trazabilidad de cargas; P11 añade KPI reproducibles; P12 incorpora auditorías y hallazgos; P13 añade causa raíz, acciones correctivas y eficacia; P14 incorpora riesgos, controles versionados y alertas; P15 incorpora contratos y exportaciones auditables; P16 añade estadística y modelos administrativos reproducibles.
+La arquitectura y las versiones fueron fijadas en P04 y el modelo de datos en P05. P06 implementa identidad; P07 la estructura organizacional; P08 documentos; P09 procesos y SIPOC; P10 incorpora plantillas Excel y trazabilidad de cargas; P11 añade KPI reproducibles; P12 incorpora auditorías y hallazgos; P13 añade causa raíz, acciones correctivas y eficacia; P14 incorpora riesgos, controles versionados y alertas; P15 incorpora contratos y exportaciones auditables; P16 añade estadística y modelos administrativos reproducibles; P17 valida transversalmente pruebas, seguridad, rendimiento, accesibilidad y recuperación.
 
 ## Ejecución local
 
