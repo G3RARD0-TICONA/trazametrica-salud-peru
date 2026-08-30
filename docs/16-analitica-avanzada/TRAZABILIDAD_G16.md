@@ -29,7 +29,7 @@
 | 9 | Trazabilidad y exclusión clínica | bitácora, supuestos y marca sintética | Conforme |
 | 10 | Semilla demostrativa | seis definiciones y ejecuciones idempotentes | Conforme |
 | 11 | Pruebas, cobertura y CI | suite P16 y workflow del PR | Conforme |
-| 12 | Aceptación formal del titular | autorización explícita de cierre e integración | Pendiente |
+| 12 | Aceptación formal del titular | autorización expresa registrada el 30 de agosto de 2026 | Conforme |
 
-**Resultado previo a aceptación:** 11/12 controles conformes. G16 permanece abierta y el PR debe permanecer en borrador hasta autorización expresa.
+**Resultado final:** 12/12 controles conformes. P16 está **APROBADA INTERNAMENTE** y G16 queda cerrada. Esta aprobación interna no representa certificación, autorización sanitaria, validez clínica ni aptitud productiva.
 

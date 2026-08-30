@@ -1,12 +1,12 @@
 # P16 — Estadística y analítica avanzada
 
-**Estado:** en revisión
+**Estado:** aprobada internamente
 
-**Puerta:** G16 abierta — 11/12 controles conformes
+**Puerta:** G16 cerrada — 12/12 controles conformes
 
 **Versión:** 1.0
 
-**Fecha de corte:** 29 de agosto de 2026
+**Fecha de corte:** 30 de agosto de 2026
 
 ## Objetivo
 
@@ -40,5 +40,5 @@ P16 no toma decisiones clínicas, no procesa datos reales, no prescribe acciones
 
 ## Resultado actual
 
-La implementación y su expediente están listos para CI y revisión del titular. G16 conserva pendiente únicamente la aceptación formal; no se declara aprobada ni cerrada antes de esa autorización.
+La CI #71 aprobó 163 pruebas sobre PostgreSQL 17, 82 % de cobertura, documentación, lint, tipado, migraciones, seguridad, dependencias y construcción del contenedor. El titular aceptó formalmente P16 el 30 de agosto de 2026; G16 queda cerrada con 12/12 controles conformes.
 
