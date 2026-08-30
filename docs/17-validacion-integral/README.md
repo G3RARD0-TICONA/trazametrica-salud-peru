@@ -2,7 +2,7 @@
 
 **Estado:** en pruebas
 
-**Puerta:** G17 abierta — 10/12 controles conformes; CI y aceptación pendientes
+**Puerta:** G17 abierta — 11/12 controles conformes; aceptación pendiente
 
 **Versión:** 1.0
 
@@ -41,4 +41,4 @@ P17 no publica el sistema, no selecciona proveedor o dominio, no configura un pr
 
 ## Resultado actual
 
-Las verificaciones locales cubren documentación, lint, tipado, configuración, seguridad estructural y accesibilidad. La evidencia oficial de PostgreSQL 17, cobertura, dependencias e imagen se completará mediante la CI del PR. G17 no se cerrará antes de esa evidencia y de la aceptación expresa del titular.
+La CI #75 aprobó 170 pruebas sobre PostgreSQL 17, 82 % de cobertura, documentación, lint, tipado, migraciones, seguridad del repositorio, `check --deploy`, accesibilidad, rendimiento, Bandit, dependencias y construcción del contenedor. G17 conserva pendiente únicamente la aceptación formal del titular.

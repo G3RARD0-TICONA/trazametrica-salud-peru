@@ -21,7 +21,7 @@ El roadmap controla el orden del proyecto; no sustituye los criterios de aceptac
 | P14 | Riesgos, alertas y controles | Aprobada internamente — G14 cerrada (12/12) |
 | P15 | Exportaciones, Power BI Desktop y reportes | Aprobada internamente — G15 cerrada (12/12) |
 | P16 | Analítica estadística y capacidades avanzadas | Aprobada internamente — G16 cerrada (12/12) |
-| P17 | Pruebas, seguridad, rendimiento y accesibilidad | En pruebas — G17 abierta (10/12) |
+| P17 | Pruebas, seguridad, rendimiento y accesibilidad | En pruebas — G17 abierta (11/12) |
 | P18 | Despliegue demostrativo, documentación y publicación | No iniciada |
 
 ## Regla de avance
@@ -44,4 +44,4 @@ P15 materializa tablero filtrable, contratos de exportación versionados, archiv
 
 P16 materializa estadística descriptiva, Pareto, gráficos de control, tendencias, regresión lineal y logística mediante definiciones y ejecuciones versionadas. La CI #71 aprobó 163 pruebas sobre PostgreSQL 17 con 82 % de cobertura, seguridad, dependencias e imagen conformes. El titular autorizó formalmente su aprobación e integración el 30 de agosto de 2026; G16 queda cerrada con 12/12 controles conformes.
 
-P17 valida regresión integral, seguridad transversal, rendimiento con el conjunto sintético de referencia, accesibilidad WCAG 2.2 AA y recuperación mediante manifiesto. G17 queda en 10/12 hasta completar la CI oficial y recibir la aceptación formal del titular.
+P17 valida regresión integral, seguridad transversal, rendimiento con el conjunto sintético de referencia, accesibilidad WCAG 2.2 AA y recuperación mediante manifiesto. La CI #75 aprobó 170 pruebas sobre PostgreSQL 17 con 82 % de cobertura y dejó conformes seguridad, dependencias, accesibilidad, rendimiento e imagen. G17 queda en 11/12; falta la aceptación formal del titular.
