@@ -418,6 +418,7 @@ def test_expected_p10_tables_are_declared() -> None:
     assert ImportJobStatus.ACCEPTED == "accepted"
 
 
+@pytest.mark.performance
 def test_reference_import_of_ten_thousand_rows_finishes_within_sixty_seconds(
     admin_user: User, organization: Organization
 ) -> None:

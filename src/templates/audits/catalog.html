@@ -8,7 +8,7 @@
 
   <h2>Planes</h2>
   <table>
-    <thead><tr><th>Código</th><th>Alcance</th><th>Auditor líder</th><th>Fechas</th><th>Estado</th></tr></thead>
+    <thead><tr><th scope="col">Código</th><th scope="col">Alcance</th><th scope="col">Auditor líder</th><th scope="col">Fechas</th><th scope="col">Estado</th></tr></thead>
     <tbody>
       {% for plan in audit_plans %}
         <tr>
@@ -24,7 +24,7 @@
 
   <h2>Hallazgos vigentes</h2>
   <table>
-    <thead><tr><th>Código</th><th>Tipo</th><th>Impacto</th><th>Responsable</th><th>Vencimiento</th><th>Alerta</th></tr></thead>
+    <thead><tr><th scope="col">Código</th><th scope="col">Tipo</th><th scope="col">Impacto</th><th scope="col">Responsable</th><th scope="col">Vencimiento</th><th scope="col">Alerta</th></tr></thead>
     <tbody>
       {% for finding, alert in findings %}
         <tr>

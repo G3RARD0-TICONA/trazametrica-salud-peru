@@ -8,7 +8,7 @@
 
   <h2>Definiciones publicadas</h2>
   <table>
-    <thead><tr><th>Definición</th><th>Tipo</th><th>Indicador</th><th>Parámetros</th><th>Acción</th></tr></thead>
+    <thead><tr><th scope="col">Definición</th><th scope="col">Tipo</th><th scope="col">Indicador</th><th scope="col">Parámetros</th><th scope="col">Acción</th></tr></thead>
     <tbody>
       {% for definition in definitions %}
         <tr>
@@ -33,7 +33,7 @@
 
   <h2>Historial reproducible</h2>
   <table>
-    <thead><tr><th>Fecha</th><th>Definición</th><th>Entradas</th><th>Entrenamiento/prueba</th><th>Calidad</th><th>Hash</th></tr></thead>
+    <thead><tr><th scope="col">Fecha</th><th scope="col">Definición</th><th scope="col">Entradas</th><th scope="col">Entrenamiento/prueba</th><th scope="col">Calidad</th><th scope="col">Hash</th></tr></thead>
     <tbody>
       {% for run in recent_runs %}
         <tr>

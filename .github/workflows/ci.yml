@@ -54,6 +54,18 @@ jobs:
           python src/manage.py check
           python src/manage.py makemigrations --check --dry-run
           python src/manage.py migrate --noinput
+      - name: Repository security gate
+        run: python scripts/security_gate.py
+      - name: Demo deployment checks
+        env:
+          DJANGO_SETTINGS_MODULE: config.settings.demo
+          ENVIRONMENT: demo
+          DJANGO_SECRET_KEY: 7vH9-ci-demo-only-random-secret-4wK2-p17-never-use-outside-ci-8mQ6
+          DJANGO_ALLOWED_HOSTS: demo.example.invalid
+          DJANGO_CSRF_TRUSTED_ORIGINS: https://demo.example.invalid
+        run: python src/manage.py check --deploy
+      - name: Accessibility structure
+        run: python scripts/check_accessibility.py
       - name: Tests and coverage
         run: |
           coverage run -m pytest
@@ -69,4 +81,3 @@ jobs:
       - uses: actions/checkout@v4
       - name: Build container
         run: docker build --tag trazametrica-salud:${{ github.sha }} .
-
