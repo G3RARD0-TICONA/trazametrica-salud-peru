@@ -1,10 +1,10 @@
 # P18 — Despliegue demostrativo, manuales y publicación final
 
-**Estado:** en pruebas
+**Estado:** aprobada internamente
 
-**Puerta:** G18 abierta — 11/12 controles conformes; aceptación y release final pendientes
+**Puerta:** G18 cerrada — 12/12 controles conformes
 
-**Versión:** 1.0-rc.1
+**Versión:** 1.0
 
 **Fecha de corte:** 30 de agosto de 2026
 
@@ -37,4 +37,4 @@ P18 publica únicamente código y documentación de una demo administrativa y no
 
 ## Resultado actual
 
-La CI #82 aprobó 172 pruebas sobre PostgreSQL 17, 82 % de cobertura, documentación, lint, tipado, migraciones, seguridad, accesibilidad, Bandit y dependencias. También construyó y levantó PostgreSQL, Django/Gunicorn y Caddy mediante Docker Compose, comprobó las dos sondas locales y eliminó el entorno de prueba. Solo quedan la aceptación formal, la integración y la GitHub Release `v0.1.0`.
+Las CI #82 y #83 aprobaron 172 pruebas sobre PostgreSQL 17, 82 % de cobertura, documentación, lint, tipado, migraciones, seguridad, accesibilidad, Bandit y dependencias. También construyeron y levantaron PostgreSQL, Django/Gunicorn y Caddy mediante Docker Compose, comprobaron las dos sondas locales y eliminaron el entorno de prueba. La aceptación formal del titular autorizó el cierre, la integración y la GitHub Release `v0.1.0` el 30 de agosto de 2026.

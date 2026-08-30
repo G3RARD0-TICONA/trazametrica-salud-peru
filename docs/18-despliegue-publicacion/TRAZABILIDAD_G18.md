@@ -15,6 +15,6 @@
 | 9 | Recuperación operativa | respaldo, manifiesto y restauración aislada | Conforme |
 | 10 | Publicación trazable | procedimiento de tag y GitHub Release sin URL de aplicación | Conforme |
 | 11 | Simulacro Docker oficial | CI #82: build, Compose, sondas y cierre limpio | Conforme |
-| 12 | Aceptación y release final | autorización, integración y publicación de `v0.1.0` | Pendiente |
+| 12 | Aceptación formal | autorización expresa del titular del 30 de agosto de 2026 | Conforme |
 
-**Resultado posterior a la CI #82:** 11/12 controles conformes. G18 permanece abierta. No se publica una URL de aplicación; la release `v0.1.0` se crea únicamente después de la aceptación expresa del titular y la integración del PR.
+**Resultado final:** 12/12 controles conformes. G18 queda cerrada y P18 aprobada internamente. El titular autorizó expresamente la integración del PR #17 y la publicación de la release `v0.1.0`; no se publica una URL de aplicación.
