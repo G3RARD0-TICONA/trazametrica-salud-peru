@@ -1,10 +1,17 @@
 # Registro de cambios
 
-Este proyecto sigue [Versionado Semántico](https://semver.org/lang/es/) desde el primer incremento ejecutable. Los cambios todavía no publicados se registran bajo `Sin publicar`.
+Este proyecto sigue [Versionado Semántico](https://semver.org/lang/es/) desde el primer incremento ejecutable.
 
-## Sin publicar
+## [0.1.0] - 2026-08-30
 
 ### Añadido
+
+- P18 en pruebas con contenedor WSGI, proxy local, PostgreSQL 17 aislado, operación, recuperación y publicación final trazable.
+- P18 adopta publicación gratuita del código en GitHub y demo local con Docker, sin hosting público ni dominio; la CI levanta y verifica el stack completo.
+- Contrato automatizado de despliegue, sondas sin caché y aviso visible de demo pública con datos sintéticos y no clínica.
+- CI #79 conforme para P18 con 172 pruebas en PostgreSQL 17, 82 % de cobertura, contrato de despliegue, seguridad, dependencias e imagen aprobados.
+- CI #82 conforme para P18 con 172 pruebas, 82 % de cobertura y simulacro Docker local completo aprobado.
+- P18 aprobada internamente y G18 cerrada con 12/12 controles tras la autorización formal del titular del 30 de agosto de 2026.
 
 - P17 con regresión integral, seguridad transversal, rendimiento de referencia, accesibilidad WCAG 2.2 AA y manifiesto de recuperación.
 - Argon2, CSP, política de permisos, correlación de solicitudes, caché privada y bitácora de autorizaciones denegadas.
@@ -89,7 +96,3 @@ Este proyecto sigue [Versionado Semántico](https://semver.org/lang/es/) desde e
 - CI #61 de P14 conforme con 140 pruebas sobre PostgreSQL 17, 82 % de cobertura, seguridad y dependencias sin hallazgos, y contenedor reproducible.
 - CI #62 conforme sobre el expediente técnico final de P14.
 - Expediente P14 aprobado internamente y puerta G14 cerrada con 12/12 controles conformes mediante autorización expresa del titular.
-
-### Pendiente
-
-- Implementación de P18.

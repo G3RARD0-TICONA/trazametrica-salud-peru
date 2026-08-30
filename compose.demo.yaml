@@ -1,0 +1,55 @@
+services:
+  db:
+    image: postgres:17.11-alpine
+    environment:
+      POSTGRES_DB: ${DATABASE_NAME:?DATABASE_NAME is required}
+      POSTGRES_USER: ${DATABASE_USER:?DATABASE_USER is required}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD:?DATABASE_PASSWORD is required}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+    volumes:
+      - postgres_demo_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  web:
+    build:
+      context: .
+    env_file:
+      - .env.demo
+    environment:
+      DATABASE_HOST: db
+      DATABASE_PORT: "5432"
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - static_demo_data:/app/.static
+      - private_demo_data:/var/lib/trazametrica/private
+    restart: unless-stopped
+
+  proxy:
+    image: caddy:2.10.2-alpine
+    environment:
+      DEMO_CADDY_ADDRESS: ${DEMO_CADDY_ADDRESS:?DEMO_CADDY_ADDRESS is required}
+    depends_on:
+      web:
+        condition: service_healthy
+    ports:
+      - "${DEMO_HTTP_PORT:-8080}:80"
+      - "${DEMO_HTTPS_PORT:-8443}:443"
+    volumes:
+      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - static_demo_data:/srv/static:ro
+      - caddy_demo_data:/data
+      - caddy_demo_config:/config
+    restart: unless-stopped
+
+volumes:
+  postgres_demo_data:
+  private_demo_data:
+  static_demo_data:
+  caddy_demo_data:
+  caddy_demo_config:

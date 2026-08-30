@@ -64,6 +64,8 @@ jobs:
           DJANGO_ALLOWED_HOSTS: demo.example.invalid
           DJANGO_CSRF_TRUSTED_ORIGINS: https://demo.example.invalid
         run: python src/manage.py check --deploy
+      - name: Demonstration deployment contract
+        run: python scripts/check_deployment.py
       - name: Accessibility structure
         run: python scripts/check_accessibility.py
       - name: Tests and coverage
@@ -79,5 +81,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Build container
-        run: docker build --tag trazametrica-salud:${{ github.sha }} .
+      - name: Prepare local demonstration
+        run: cp .env.demo.example .env.demo
+      - name: Build and start local demonstration
+        run: docker compose --env-file .env.demo -f compose.demo.yaml up --build --detach
+      - name: Smoke local demonstration
+        run: |
+          curl --fail --retry 30 --retry-delay 2 --retry-all-errors http://127.0.0.1:8080/health/live/
+          curl --fail --retry 15 --retry-delay 2 --retry-all-errors http://127.0.0.1:8080/health/ready/
+          docker compose --env-file .env.demo -f compose.demo.yaml exec -T web python src/manage.py check --deploy
+      - name: Diagnose local demonstration
+        if: failure()
+        run: docker compose --env-file .env.demo -f compose.demo.yaml logs --no-color
+      - name: Stop local demonstration
+        if: always()
+        run: docker compose --env-file .env.demo -f compose.demo.yaml down --volumes

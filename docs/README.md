@@ -22,6 +22,7 @@ La documentación está organizada como expedientes consecutivos. Una parte solo
 | [P15](15-reportes-exportaciones/README.md) | Reportes, Excel, PDF y Power BI Desktop | Aprobada internamente — G15 cerrada (12/12) |
 | [P16](16-analitica-avanzada/README.md) | Estadística y analítica avanzada | Aprobada internamente — G16 cerrada (12/12) |
 | [P17](17-validacion-integral/README.md) | Pruebas, seguridad, rendimiento y accesibilidad | Aprobada internamente — G17 cerrada (12/12) |
+| [P18](18-despliegue-publicacion/README.md) | Despliegue demostrativo, manuales y publicación final | Aprobada internamente — G18 cerrada (12/12) |
 | [Roadmap](ROADMAP.md) | Secuencia P00–P18 | Activo |
 
 ## Convención de estados

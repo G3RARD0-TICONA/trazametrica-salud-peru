@@ -49,6 +49,15 @@ textarea:focus-visible,
   top: 1rem;
 }
 
+.demo-banner {
+  margin-bottom: 1rem;
+  border: 2px solid #7a3e00;
+  border-radius: .25rem;
+  padding: .75rem 1rem;
+  color: #4a2500;
+  background: #fff3cd;
+}
+
 nav {
   display: flex;
   flex-wrap: wrap;

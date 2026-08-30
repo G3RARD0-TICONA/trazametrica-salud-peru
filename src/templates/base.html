@@ -9,6 +9,10 @@
 </head>
 <body>
   <a class="skip-link" href="#main-content">Saltar al contenido principal</a>
+  <aside class="demo-banner" aria-label="Alcance de la demostración">
+    <strong>DEMO PÚBLICA — DATOS SINTÉTICOS.</strong>
+    No usa información de pacientes ni presta atención o decisiones clínicas.
+  </aside>
   <nav aria-label="Navegación principal">
     <a href="{% url 'accounts:home' %}">Inicio</a>
     {% if user.is_authenticated %}
