@@ -90,6 +90,24 @@ def test_definition_governance_run_reproducibility_seed_and_web(client, admin_us
     response = client.get(reverse("analytics:catalog"))
     assert response.status_code == 200
     assert b"DATOS SINT" in response.content
+    assert b"Configuraci\xc3\xb3n est\xc3\xa1ndar aprobada" in response.content
+    assert b"{'window': 3}" not in response.content
+    visual_titles = {
+        "ANA-DESC-001": "Distribución y valores atípicos",
+        "ANA-PARETO-001": "Pareto por servicio",
+        "ANA-TREND-001": "Tendencia y media móvil",
+        "ANA-LINEAR-001": "Regresión lineal: observado frente a estimado",
+        "ANA-LOGISTIC-001": "Probabilidad estimada de cumplimiento",
+    }
+    for code, title in visual_titles.items():
+        visual_run = AnalysisRun.objects.filter(definition__code=code).latest("executed_at")
+        visual_detail = client.get(reverse("analytics:run-detail", args=[visual_run.pk]))
+        visual_content = visual_detail.content.decode()
+        assert visual_detail.status_code == 200
+        assert title in visual_content
+        assert "Resultados principales" in visual_content
+        assert "Ver datos que respaldan el gráfico" in visual_content
+        assert "<svg" in visual_content
     seeded_definition = AnalysisDefinition.objects.get(code="ANA-DESC-001")
     response = client.post(reverse("analytics:execute", args=[seeded_definition.pk]), {})
     assert response.status_code == 302
