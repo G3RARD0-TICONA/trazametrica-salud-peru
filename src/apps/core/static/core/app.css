@@ -302,6 +302,12 @@ code {
   stroke-dasharray: 7 5;
 }
 
+.chart-guide--pareto {
+  stroke: #7c3aed;
+  stroke-width: 1.7;
+  stroke-dasharray: 7 5;
+}
+
 .chart-axis-label--middle {
   text-anchor: middle;
 }
@@ -343,6 +349,11 @@ code {
 
 .legend-line--secondary {
   background: #c65d00;
+}
+
+.legend-line--pareto {
+  height: .15rem;
+  background: repeating-linear-gradient(90deg, #7c3aed 0 .45rem, transparent .45rem .7rem);
 }
 
 .legend-swatch {
