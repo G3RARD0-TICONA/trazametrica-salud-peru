@@ -102,6 +102,7 @@ def test_definition_governance_run_reproducibility_seed_and_web(client, admin_us
     assert "Gráfico de control" in detail.content.decode()
     assert b"<svg" in detail.content
     assert "Línea central" in detail.content.decode()
+    assert "Resumen semanal en barras" in detail.content.decode()
     invalid = client.post(
         reverse("analytics:execute", args=[seeded_definition.pk]),
         {"period_start": "fecha-invalida"},
