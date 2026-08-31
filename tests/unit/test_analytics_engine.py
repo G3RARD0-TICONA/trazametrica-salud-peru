@@ -31,12 +31,23 @@ def test_pareto_orders_categories_and_calculates_cumulative_percentage() -> None
     rows = result["categories"]
     assert isinstance(rows, list)
     assert [row["category"] for row in rows] == ["A", "B", "C"]
+    assert rows[0]["weight"] == 6
+    assert rows[0]["percentage"] == 50
+    assert rows[1]["cumulative_percentage"] == pytest.approx(91.6666666667)
     assert rows[-1]["cumulative_percentage"] == 100
 
 
 def test_control_chart_marks_point_beyond_three_sigma() -> None:
     result = control_chart([0] * 20 + [100])
     assert result["signals"] == [{"index": 20, "value": 100.0}]
+
+
+def test_control_chart_uses_population_three_sigma_limits() -> None:
+    result = control_chart([2, 4, 6, 8])
+    assert result["center_line"] == 5
+    assert result["population_sigma"] == pytest.approx(math.sqrt(5))
+    assert result["lower_control_limit"] == pytest.approx(5 - 3 * math.sqrt(5))
+    assert result["upper_control_limit"] == pytest.approx(5 + 3 * math.sqrt(5))
 
 
 def test_moving_average_is_deterministic() -> None:
