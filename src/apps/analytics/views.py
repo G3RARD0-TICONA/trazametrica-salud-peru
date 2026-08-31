@@ -12,6 +12,7 @@ from apps.accounts.models import User
 from apps.accounts.policies import Capability, has_capability
 
 from .models import AnalysisDefinition, AnalysisRun, DefinitionStatus
+from .presentation import control_chart_presentation
 from .selectors import analysis_catalog, analysis_run_detail, recent_analysis_runs
 from .services import run_analysis
 
@@ -70,4 +71,8 @@ def run_detail(request: HttpRequest, run_id: UUID) -> HttpResponse:
         run = analysis_run_detail(run_id=run_id)
     except AnalysisRun.DoesNotExist as exc:
         raise Http404("Ejecución analítica no encontrada.") from exc
-    return render(request, "analytics/run_detail.html", {"run": run})
+    return render(
+        request,
+        "analytics/run_detail.html",
+        {"run": run, "control_chart": control_chart_presentation(run)},
+    )
