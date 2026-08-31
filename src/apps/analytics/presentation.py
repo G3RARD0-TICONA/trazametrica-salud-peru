@@ -213,6 +213,7 @@ def analysis_presentation(run: AnalysisRun) -> dict[str, object] | None:
             bars.append(
                 {
                     "x": round(x, 2),
+                    "center_x": round(_LEFT + index * slot + slot / 2, 2),
                     "y": round(y_for(weight), 2),
                     "width": round(slot * 0.68, 2),
                     "height": round(_number(geometry, "bottom") - y_for(weight), 2),
@@ -234,6 +235,15 @@ def analysis_presentation(run: AnalysisRun) -> dict[str, object] | None:
                 }
             )
         top = categories[0]
+        threshold_index = next(
+            (
+                index
+                for index, item in enumerate(categories)
+                if _metric(item, "cumulative_percentage") >= 80
+            ),
+            len(categories) - 1,
+        )
+        threshold_point = cumulative[threshold_index]
         return {
             **{key: value for key, value in geometry.items() if key != "y_for"},
             "kind": "pareto",
@@ -254,6 +264,11 @@ def analysis_presentation(run: AnalysisRun) -> dict[str, object] | None:
                     "value": _metric(top, "percentage"),
                     "format": "percent",
                 },
+                {
+                    "label": "Servicios hasta 80 %",
+                    "value": threshold_index + 1,
+                    "format": "integer",
+                },
             ],
             "method": [
                 "Se agrupan las observaciones por servicio.",
@@ -261,6 +276,10 @@ def analysis_presentation(run: AnalysisRun) -> dict[str, object] | None:
                 "Las contribuciones se ordenan de mayor a menor.",
                 "Porcentaje = contribución ÷ contribución total × 100.",
                 "Porcentaje acumulado = suma progresiva de los porcentajes ordenados.",
+                (
+                    "La referencia del 80 % identifica cuántos servicios concentran la mayor "
+                    "parte; no obliga a que sean exactamente el 20 % de las categorías."
+                ),
             ],
             "reference": (
                 "Pareto ponderado: ASQ admite que la longitud de las barras represente "
@@ -269,6 +288,11 @@ def analysis_presentation(run: AnalysisRun) -> dict[str, object] | None:
             "bars": bars,
             "cumulative": cumulative,
             "cumulative_polyline": _series(cumulative),
+            "threshold": {
+                "x": threshold_point["x"],
+                "y": round(_TOP + _number(geometry, "plot_height") * 0.2, 2),
+                "count": threshold_index + 1,
+            },
             "rows": all_categories,
         }
 
