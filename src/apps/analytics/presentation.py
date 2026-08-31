@@ -1,6 +1,9 @@
 from __future__ import annotations
 
 from collections.abc import Mapping
+from datetime import date
+
+from apps.indicators.models import IndicatorObservation
 
 from .models import AnalysisRun, AnalysisType
 from .services import MAX_ANALYSIS_ROWS, _observations, content_hash
@@ -18,6 +21,33 @@ def _number(payload: Mapping[str, object], key: str) -> float:
     if isinstance(value, (int, float)) and not isinstance(value, bool):
         return float(value)
     raise ValueError(f"El resultado analítico no contiene {key}.")
+
+
+def _weekly_bars(
+    rows: list[IndicatorObservation], *, left: int, right: int, top: int, bottom: int
+) -> list[dict[str, object]]:
+    weekly: dict[tuple[int, int], list[float]] = {}
+    for row in rows:
+        period = date.fromisoformat(row.period_end.isoformat())
+        key = (period.isocalendar().year, period.isocalendar().week)
+        weekly.setdefault(key, []).append(float(row.value))
+    averages = [(key, sum(values) / len(values)) for key, values in weekly.items()]
+    maximum = max(value for _, value in averages) or 1.0
+    plot_width = right - left
+    plot_height = bottom - top
+    slot_width = plot_width / len(averages)
+    bar_width = max(slot_width * 0.62, 4)
+    return [
+        {
+            "label": f"S{key[1]:02d}",
+            "value": value,
+            "x": round(left + index * slot_width + (slot_width - bar_width) / 2, 2),
+            "y": round(bottom - value * plot_height / maximum, 2),
+            "width": round(bar_width, 2),
+            "height": round(value * plot_height / maximum, 2),
+        }
+        for index, (key, value) in enumerate(averages)
+    ]
 
 
 def control_chart_presentation(run: AnalysisRun) -> dict[str, object] | None:
@@ -88,6 +118,20 @@ def control_chart_presentation(run: AnalysisRun) -> dict[str, object] | None:
         }
         for index, row in enumerate(rows)
     ]
+    gridlines = [
+        {
+            "value": domain_max - (domain_max - domain_min) * index / 4,
+            "y": round(_TOP + plot_height * index / 4, 2),
+        }
+        for index in range(5)
+    ]
+    weekly_bars = _weekly_bars(
+        rows,
+        left=_LEFT,
+        right=_WIDTH - _RIGHT,
+        top=_TOP,
+        bottom=_HEIGHT - _BOTTOM,
+    )
     return {
         "width": _WIDTH,
         "height": _HEIGHT,
@@ -99,6 +143,7 @@ def control_chart_presentation(run: AnalysisRun) -> dict[str, object] | None:
         "plot_height": plot_height,
         "polyline": " ".join(f"{point['x']},{point['y']}" for point in points),
         "points": points,
+        "gridlines": gridlines,
         "guides": [
             {"label": "LSC", "value": upper, "y": round(y_for(upper), 2), "style": "limit"},
             {
@@ -114,4 +159,5 @@ def control_chart_presentation(run: AnalysisRun) -> dict[str, object] | None:
         "minimum": domain_min,
         "maximum": domain_max,
         "signal_count": len(signal_indexes),
+        "weekly_bars": weekly_bars,
     }
