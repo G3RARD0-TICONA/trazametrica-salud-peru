@@ -57,6 +57,16 @@
         </svg>
         {% endlocalize %}
       </section>
+      <details class="calculation-method">
+        <summary>Cómo se calculó el gráfico de control</summary>
+        <ol>
+          <li>Línea central = promedio de todas las observaciones.</li>
+          <li>Desviación estándar poblacional = raíz de la suma de (valor − promedio)² dividida entre n.</li>
+          <li>LSC = promedio + 3 × desviación estándar; LIC = promedio − 3 × desviación estándar.</li>
+          <li>Una observación fuera de LSC o LIC se marca como señal; no se elimina automáticamente.</li>
+        </ol>
+        <p><strong>Alcance:</strong> gráfico demostrativo de tres sigma para datos individuales; no sustituye el diseño formal de una carta SPC según el proceso y el tipo de dato.</p>
+      </details>
       <details>
         <summary>Ver datos del gráfico ({{ run.input_count }} observaciones)</summary>
         <table>
@@ -70,6 +80,9 @@
       </details>
     </section>
   {% endif %}
+  {% if analysis %}
+    {% include "analytics/_analysis_visual.html" %}
+  {% endif %}
   <dl>
     <dt>Tipo</dt><dd>{{ run.definition.get_analysis_type_display }}</dd>
     <dt>Indicador</dt><dd>{{ run.definition.target_indicator.code }}</dd>
@@ -77,8 +90,14 @@
     <dt>Observaciones</dt><dd>{{ run.input_count }} (entrenamiento: {{ run.train_count }}, prueba: {{ run.test_count }})</dd>
     <dt>SHA-256 de entradas</dt><dd><code>{{ run.input_hash }}</code></dd>
     <dt>SHA-256 del resultado</dt><dd><code>{{ run.output_hash }}</code></dd>
-    <dt>Métricas</dt><dd><pre>{{ run.metrics }}</pre></dd>
-    <dt>Supuestos y límites</dt><dd><pre>{{ run.assumptions }}</pre></dd>
-    <dt>Resultado versionado</dt><dd><pre>{{ run.result }}</pre></dd>
   </dl>
+  <details class="technical-details">
+    <summary>Ver trazabilidad técnica y resultado versionado</summary>
+    <h2>Información técnica</h2>
+    <dl>
+      <dt>Métricas completas</dt><dd><pre>{{ run.metrics }}</pre></dd>
+      <dt>Supuestos y límites</dt><dd><pre>{{ run.assumptions }}</pre></dd>
+      <dt>Resultado versionado</dt><dd><pre>{{ run.result }}</pre></dd>
+    </dl>
+  </details>
 {% endblock %}

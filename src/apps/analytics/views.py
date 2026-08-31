@@ -12,7 +12,7 @@ from apps.accounts.models import User
 from apps.accounts.policies import Capability, has_capability
 
 from .models import AnalysisDefinition, AnalysisRun, DefinitionStatus
-from .presentation import control_chart_presentation
+from .presentation import analysis_presentation, control_chart_presentation
 from .selectors import analysis_catalog, analysis_run_detail, recent_analysis_runs
 from .services import run_analysis
 
@@ -74,5 +74,9 @@ def run_detail(request: HttpRequest, run_id: UUID) -> HttpResponse:
     return render(
         request,
         "analytics/run_detail.html",
-        {"run": run, "control_chart": control_chart_presentation(run)},
+        {
+            "run": run,
+            "analysis": analysis_presentation(run),
+            "control_chart": control_chart_presentation(run),
+        },
     )

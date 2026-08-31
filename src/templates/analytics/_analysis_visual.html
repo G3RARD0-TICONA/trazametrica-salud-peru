@@ -1,0 +1,110 @@
+{% load l10n %}
+<section class="analytic-chart" aria-labelledby="analysis-chart-title">
+  <h2 id="analysis-chart-title">{{ analysis.title }}</h2>
+  <p>{{ analysis.explanation }}</p>
+
+  <div class="metric-cards" aria-label="Resultados principales">
+    {% for card in analysis.cards %}
+      <article class="metric-card">
+        <h3>{{ card.label }}</h3>
+        <p>
+          {% if card.format == "integer" %}{{ card.value|floatformat:0 }}
+          {% elif card.format == "percent" %}{{ card.value|floatformat:1 }} %
+          {% elif card.format == "text" %}{{ card.value }}
+          {% else %}{{ card.value|floatformat:2 }}{% endif %}
+        </p>
+      </article>
+    {% endfor %}
+  </div>
+
+  {% if analysis.kind == "descriptive" %}
+    {% localize off %}
+    <svg viewBox="0 0 960 230" role="img" aria-labelledby="descriptive-svg-title descriptive-svg-desc">
+      <title id="descriptive-svg-title">Diagrama de caja del indicador {{ run.definition.target_indicator.code }}</title>
+      <desc id="descriptive-svg-desc">Distribución desde el mínimo hasta el máximo, cuartiles, mediana y valores atípicos.</desc>
+      <rect class="chart-area" x="78" y="36" width="832" height="130"></rect>
+      {% for tick in analysis.axis %}
+        <line class="chart-gridline" x1="{{ tick.x }}" x2="{{ tick.x }}" y1="36" y2="166"></line>
+        <text class="chart-axis-label chart-axis-label--middle" x="{{ tick.x }}" y="194">{{ tick.value|floatformat:2 }}</text>
+      {% endfor %}
+      <line class="boxplot-whisker" x1="{{ analysis.box.minimum }}" x2="{{ analysis.box.maximum }}" y1="101" y2="101"></line>
+      <line class="boxplot-whisker" x1="{{ analysis.box.minimum }}" x2="{{ analysis.box.minimum }}" y1="82" y2="120"></line>
+      <line class="boxplot-whisker" x1="{{ analysis.box.maximum }}" x2="{{ analysis.box.maximum }}" y1="82" y2="120"></line>
+      <rect class="boxplot-box" x="{{ analysis.box.q1 }}" y="66" width="{{ analysis.box.width }}" height="70"></rect>
+      <line class="boxplot-median" x1="{{ analysis.box.median }}" x2="{{ analysis.box.median }}" y1="66" y2="136"></line>
+      {% for point in analysis.outliers %}
+        <circle class="chart-point chart-point--signal" cx="{{ point.x }}" cy="101" r="5"><title>{{ point.period }}: {{ point.value|floatformat:2 }}</title></circle>
+      {% endfor %}
+    </svg>
+    {% endlocalize %}
+    <div class="chart-legend"><span><i class="legend-swatch legend-swatch--box"></i> 50 % central</span><span><i class="legend-dot legend-dot--signal"></i> Valor atípico</span></div>
+  {% elif analysis.kind == "pareto" %}
+    {% localize off %}
+    <svg viewBox="0 0 {{ analysis.width }} {{ analysis.height }}" role="img" aria-labelledby="pareto-svg-title pareto-svg-desc">
+      <title id="pareto-svg-title">Pareto por servicio del indicador {{ run.definition.target_indicator.code }}</title>
+      <desc id="pareto-svg-desc">Barras descendentes por peso y línea de porcentaje acumulado.</desc>
+      <rect class="chart-area" x="{{ analysis.left }}" y="{{ analysis.top }}" width="{{ analysis.plot_width }}" height="{{ analysis.plot_height }}"></rect>
+      {% for gridline in analysis.gridlines %}<line class="chart-gridline" x1="{{ analysis.left }}" x2="{{ analysis.right }}" y1="{{ gridline.y }}" y2="{{ gridline.y }}"></line><text class="chart-axis-label" x="8" y="{{ gridline.y|add:'4' }}">{{ gridline.value|floatformat:2 }}</text>{% endfor %}
+      {% for bar in analysis.bars %}<rect class="chart-bar" x="{{ bar.x }}" y="{{ bar.y }}" width="{{ bar.width }}" height="{{ bar.height }}"><title>{{ bar.label }}: {{ bar.value|floatformat:2 }}</title></rect><text class="chart-axis-label chart-bar-label" x="{{ bar.x|add:bar.width }}" y="{{ analysis.bottom|add:'24' }}">{{ bar.label }}</text>{% endfor %}
+      <polyline class="chart-series chart-series--secondary" points="{{ analysis.cumulative_polyline }}"></polyline>
+      {% for point in analysis.cumulative %}<circle class="chart-point chart-point--secondary" cx="{{ point.x }}" cy="{{ point.y }}" r="3.5"><title>Acumulado: {{ point.value|floatformat:1 }} %</title></circle>{% endfor %}
+      <text class="chart-axis-label chart-axis-label--end" x="{{ analysis.right|add:'90' }}" y="{{ analysis.top|add:'4' }}">100 % acumulado</text>
+    </svg>
+    {% endlocalize %}
+    <div class="chart-legend"><span><i class="legend-swatch"></i> Magnitud absoluta acumulada</span><span><i class="legend-line legend-line--secondary"></i> Porcentaje acumulado</span></div>
+  {% elif analysis.kind == "moving_average" or analysis.kind == "linear_regression" %}
+    {% localize off %}
+    <svg viewBox="0 0 {{ analysis.width }} {{ analysis.height }}" role="img" aria-labelledby="series-svg-title series-svg-desc">
+      <title id="series-svg-title">{{ analysis.title }} para {{ run.definition.target_indicator.code }}</title>
+      <desc id="series-svg-desc">Comparación de dos series temporales sobre una cuadrícula.</desc>
+      <rect class="chart-area" x="{{ analysis.left }}" y="{{ analysis.top }}" width="{{ analysis.plot_width }}" height="{{ analysis.plot_height }}"></rect>
+      {% for gridline in analysis.gridlines %}<line class="chart-gridline" x1="{{ analysis.left }}" x2="{{ analysis.right }}" y1="{{ gridline.y }}" y2="{{ gridline.y }}"></line><text class="chart-axis-label" x="8" y="{{ gridline.y|add:'4' }}">{{ gridline.value|floatformat:2 }}</text>{% endfor %}
+      <polyline class="chart-series" points="{{ analysis.actual_polyline }}"></polyline>
+      <polyline class="chart-series chart-series--secondary" points="{{ analysis.secondary_polyline }}"></polyline>
+      {% for point in analysis.actual %}<circle class="chart-point" cx="{{ point.x }}" cy="{{ point.y }}" r="2.7"><title>Observado: {{ point.value|floatformat:2 }}</title></circle>{% endfor %}
+      {% for point in analysis.secondary %}<circle class="chart-point chart-point--secondary" cx="{{ point.x }}" cy="{{ point.y }}" r="2.7"><title>{% if analysis.kind == "moving_average" %}Media móvil{% else %}Estimado{% endif %}: {{ point.value|floatformat:2 }}</title></circle>{% endfor %}
+      <text class="chart-axis-label" x="{{ analysis.left }}" y="{{ analysis.bottom|add:'28' }}">{{ analysis.first_period }}</text><text class="chart-axis-label chart-axis-label--end" x="{{ analysis.right }}" y="{{ analysis.bottom|add:'28' }}">{{ analysis.last_period }}</text>
+    </svg>
+    {% endlocalize %}
+    <div class="chart-legend"><span><i class="legend-line"></i> Valor observado</span><span><i class="legend-line legend-line--secondary"></i> {% if analysis.kind == "moving_average" %}Media móvil{% else %}Valor estimado{% endif %}</span></div>
+  {% elif analysis.kind == "logistic_regression" %}
+    {% localize off %}
+    <svg viewBox="0 0 {{ analysis.width }} {{ analysis.height }}" role="img" aria-labelledby="logistic-svg-title logistic-svg-desc">
+      <title id="logistic-svg-title">Probabilidad de cumplimiento para {{ run.definition.target_indicator.code }}</title>
+      <desc id="logistic-svg-desc">Probabilidades entre cero y cien por ciento con umbral de clasificación de cincuenta por ciento.</desc>
+      <rect class="chart-area" x="{{ analysis.left }}" y="{{ analysis.top }}" width="{{ analysis.plot_width }}" height="{{ analysis.plot_height }}"></rect>
+      {% for gridline in analysis.gridlines %}<line class="chart-gridline" x1="{{ analysis.left }}" x2="{{ analysis.right }}" y1="{{ gridline.y }}" y2="{{ gridline.y }}"></line><text class="chart-axis-label" x="8" y="{{ gridline.y|add:'4' }}">{{ gridline.value|floatformat:2 }}</text>{% endfor %}
+      <line class="chart-guide chart-guide--threshold" x1="{{ analysis.left }}" x2="{{ analysis.right }}" y1="{{ analysis.threshold_y }}" y2="{{ analysis.threshold_y }}"></line>
+      <text class="chart-label" x="{{ analysis.right|add:'8' }}" y="{{ analysis.threshold_y|add:'4' }}">Umbral 50 %</text>
+      <polyline class="chart-series chart-series--probability" points="{{ analysis.probability_polyline }}"></polyline>
+      {% for point in analysis.probabilities %}<circle class="chart-point chart-point--probability" cx="{{ point.x }}" cy="{{ point.y }}" r="3.5"><title>Probabilidad: {{ point.value|floatformat:2 }}</title></circle>{% endfor %}
+      <text class="chart-axis-label" x="{{ analysis.left }}" y="{{ analysis.bottom|add:'28' }}">{{ analysis.first_period }}</text><text class="chart-axis-label chart-axis-label--end" x="{{ analysis.right }}" y="{{ analysis.bottom|add:'28' }}">{{ analysis.last_period }}</text>
+    </svg>
+    {% endlocalize %}
+    <div class="classification-matrix" aria-label="Matriz de clasificación">
+      <h3>Matriz de clasificación</h3>
+      <table><thead><tr><th scope="col">Valor real</th><th scope="col">Predicción: cumple</th><th scope="col">Predicción: no cumple</th></tr></thead><tbody><tr><th scope="row">Real: cumple</th><td class="matrix-good">{{ analysis.matrix.true_positive }}</td><td class="matrix-warning">{{ analysis.matrix.false_negative }}</td></tr><tr><th scope="row">Real: no cumple</th><td class="matrix-warning">{{ analysis.matrix.false_positive }}</td><td class="matrix-good">{{ analysis.matrix.true_negative }}</td></tr></tbody></table>
+    </div>
+  {% endif %}
+
+  <details class="calculation-method">
+    <summary>Cómo se calculó</summary>
+    <ol>{% for step in analysis.method %}<li>{{ step }}</li>{% endfor %}</ol>
+    <p><strong>Referencia metodológica:</strong> {{ analysis.reference }}</p>
+  </details>
+
+  <details>
+    <summary>Ver datos que respaldan el gráfico</summary>
+    <table>
+      {% if analysis.kind == "descriptive" %}
+        <thead><tr><th scope="col">Periodo</th><th scope="col">Valor</th><th scope="col">Lectura</th></tr></thead><tbody>{% for row in analysis.rows %}<tr><td>{{ row.period }}</td><td>{{ row.value|floatformat:2 }}</td><td>{{ row.status }}</td></tr>{% endfor %}</tbody>
+      {% elif analysis.kind == "pareto" %}
+        <thead><tr><th scope="col">Servicio</th><th scope="col">Magnitud</th><th scope="col">Porcentaje</th><th scope="col">Acumulado</th></tr></thead><tbody>{% for row in analysis.rows %}<tr><td>{{ row.category }}</td><td>{{ row.weight|floatformat:2 }}</td><td>{{ row.percentage|floatformat:1 }} %</td><td>{{ row.cumulative_percentage|floatformat:1 }} %</td></tr>{% endfor %}</tbody>
+      {% elif analysis.kind == "logistic_regression" %}
+        <thead><tr><th scope="col">Periodo</th><th scope="col">Probabilidad</th><th scope="col">Clasificación</th></tr></thead><tbody>{% for row in analysis.rows %}<tr><td>{{ row.period }}</td><td>{{ row.probability|floatformat:2 }}</td><td>{{ row.classification }}</td></tr>{% endfor %}</tbody>
+      {% else %}
+        <thead><tr><th scope="col">Periodo</th><th scope="col">Observado</th><th scope="col">{% if analysis.kind == "moving_average" %}Media móvil{% else %}Estimado{% endif %}</th></tr></thead><tbody>{% for row in analysis.rows %}<tr><td>{{ row.period }}</td><td>{{ row.value|floatformat:2 }}</td><td>{% if row.secondary != None %}{{ row.secondary|floatformat:2 }}{% else %}—{% endif %}</td></tr>{% endfor %}</tbody>
+      {% endif %}
+    </table>
+  </details>
+</section>
