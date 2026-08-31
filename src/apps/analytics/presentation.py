@@ -1,0 +1,117 @@
+from __future__ import annotations
+
+from collections.abc import Mapping
+
+from .models import AnalysisRun, AnalysisType
+from .services import MAX_ANALYSIS_ROWS, _observations, content_hash
+
+_WIDTH = 960
+_HEIGHT = 420
+_LEFT = 78
+_RIGHT = 155
+_TOP = 36
+_BOTTOM = 66
+
+
+def _number(payload: Mapping[str, object], key: str) -> float:
+    value = payload.get(key)
+    if isinstance(value, (int, float)) and not isinstance(value, bool):
+        return float(value)
+    raise ValueError(f"El resultado analítico no contiene {key}.")
+
+
+def control_chart_presentation(run: AnalysisRun) -> dict[str, object] | None:
+    """Build a deterministic, accessible SVG projection for a completed control-chart run.
+
+    The chart is deliberately derived again from the immutable run criteria and checks the
+    original input hash.  A visual is never shown for a different set of observations.
+    """
+
+    if run.definition.analysis_type != AnalysisType.CONTROL_CHART:
+        return None
+    rows = list(
+        _observations(run.definition, run.period_start, run.period_end)[: MAX_ANALYSIS_ROWS + 1]
+    )
+    if len(rows) != run.input_count or len(rows) > MAX_ANALYSIS_ROWS:
+        return None
+    input_payload = [
+        {
+            "id": str(row.pk),
+            "period_end": row.period_end.isoformat(),
+            "period_start": row.period_start.isoformat(),
+            "service_id": str(row.service_id) if row.service_id else None,
+            "site_id": str(row.site_id) if row.site_id else None,
+            "value": str(row.value),
+        }
+        for row in rows
+    ]
+    if content_hash(input_payload) != run.input_hash:
+        return None
+
+    try:
+        center = _number(run.result, "center_line")
+        lower = _number(run.result, "lower_control_limit")
+        upper = _number(run.result, "upper_control_limit")
+    except ValueError:
+        return None
+
+    values = [float(row.value) for row in rows]
+    domain_min = min(values + [lower])
+    domain_max = max(values + [upper])
+    padding = max((domain_max - domain_min) * 0.08, 1.0)
+    domain_min -= padding
+    domain_max += padding
+    plot_width = _WIDTH - _LEFT - _RIGHT
+    plot_height = _HEIGHT - _TOP - _BOTTOM
+
+    def x_for(index: int) -> float:
+        if len(rows) == 1:
+            return float(_LEFT + plot_width / 2)
+        return _LEFT + index * plot_width / (len(rows) - 1)
+
+    def y_for(value: float) -> float:
+        return _TOP + (domain_max - value) * plot_height / (domain_max - domain_min)
+
+    signal_indexes = {
+        int(item["index"])
+        for item in run.result.get("signals", [])
+        if isinstance(item, Mapping) and isinstance(item.get("index"), int)
+    }
+    points = [
+        {
+            "index": index + 1,
+            "x": round(x_for(index), 2),
+            "y": round(y_for(float(row.value)), 2),
+            "value": float(row.value),
+            "period": row.period_end.isoformat(),
+            "signal": index in signal_indexes,
+        }
+        for index, row in enumerate(rows)
+    ]
+    return {
+        "width": _WIDTH,
+        "height": _HEIGHT,
+        "left": _LEFT,
+        "right": _WIDTH - _RIGHT,
+        "top": _TOP,
+        "bottom": _HEIGHT - _BOTTOM,
+        "plot_width": plot_width,
+        "plot_height": plot_height,
+        "polyline": " ".join(f"{point['x']},{point['y']}" for point in points),
+        "points": points,
+        "guides": [
+            {"label": "LSC", "value": upper, "y": round(y_for(upper), 2), "style": "limit"},
+            {
+                "label": "Línea central",
+                "value": center,
+                "y": round(y_for(center), 2),
+                "style": "center",
+            },
+            {"label": "LIC", "value": lower, "y": round(y_for(lower), 2), "style": "limit"},
+        ],
+        "first_period": rows[0].period_end.isoformat(),
+        "last_period": rows[-1].period_end.isoformat(),
+        "minimum": domain_min,
+        "maximum": domain_max,
+        "signal_count": len(signal_indexes),
+    }
