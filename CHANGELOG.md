@@ -12,6 +12,7 @@ Este proyecto sigue [Versionado Semántico](https://semver.org/lang/es/) desde e
 - CI #79 conforme para P18 con 172 pruebas en PostgreSQL 17, 82 % de cobertura, contrato de despliegue, seguridad, dependencias e imagen aprobados.
 - CI #82 conforme para P18 con 172 pruebas, 82 % de cobertura y simulacro Docker local completo aprobado.
 - P18 aprobada internamente y G18 cerrada con 12/12 controles tras la autorización formal del titular del 30 de agosto de 2026.
+- Presentación pública reforzada con README profesional y política de seguridad ampliada antes de `v0.1.0`.
 
 - P17 con regresión integral, seguridad transversal, rendimiento de referencia, accesibilidad WCAG 2.2 AA y manifiesto de recuperación.
 - Argon2, CSP, política de permisos, correlación de solicitudes, caché privada y bitácora de autorizaciones denegadas.
