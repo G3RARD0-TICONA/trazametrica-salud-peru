@@ -249,6 +249,159 @@ code {
   font-size: 11px;
 }
 
+.metric-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: .85rem;
+  margin: 1.25rem 0;
+}
+
+.metric-card {
+  padding: 1rem;
+  border: 1px solid #c5cfdb;
+  border-top: .3rem solid #174ea6;
+  border-radius: .35rem;
+  background: #ffffff;
+}
+
+.metric-card h3 {
+  margin: 0 0 .35rem;
+  color: #42526a;
+  font-size: .92rem;
+}
+
+.metric-card p {
+  margin: 0;
+  color: #172033;
+  font-size: 1.55rem;
+  font-weight: 750;
+}
+
+.chart-series--secondary {
+  stroke: #c65d00;
+  stroke-width: 2.4;
+}
+
+.chart-series--probability {
+  stroke: #0f766e;
+  stroke-width: 2.4;
+}
+
+.chart-point--secondary {
+  fill: #fff7ed;
+  stroke: #c65d00;
+}
+
+.chart-point--probability {
+  fill: #ecfdf5;
+  stroke: #0f766e;
+}
+
+.chart-guide--threshold {
+  stroke: #7c3aed;
+  stroke-dasharray: 7 5;
+}
+
+.chart-axis-label--middle {
+  text-anchor: middle;
+}
+
+.boxplot-whisker {
+  stroke: #42526a;
+  stroke-width: 2;
+}
+
+.boxplot-box {
+  fill: #dbeafe;
+  stroke: #174ea6;
+  stroke-width: 2;
+}
+
+.boxplot-median {
+  stroke: #c65d00;
+  stroke-width: 3;
+}
+
+.chart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin: -.25rem 0 1rem;
+  color: #42526a;
+}
+
+.legend-line,
+.legend-swatch,
+.legend-dot {
+  display: inline-block;
+  width: 1.7rem;
+  height: .2rem;
+  margin-right: .35rem;
+  vertical-align: middle;
+  background: #1d4ed8;
+}
+
+.legend-line--secondary {
+  background: #c65d00;
+}
+
+.legend-swatch {
+  height: .8rem;
+  background: #4f80d1;
+}
+
+.legend-swatch--box {
+  background: #dbeafe;
+  border: 1px solid #174ea6;
+}
+
+.legend-dot {
+  width: .7rem;
+  height: .7rem;
+  border-radius: 50%;
+}
+
+.legend-dot--signal {
+  background: #b42318;
+}
+
+.classification-matrix {
+  max-width: 40rem;
+  margin: 1.25rem 0;
+}
+
+.classification-matrix td {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.matrix-good {
+  background: #dcfce7;
+}
+
+.matrix-warning {
+  background: #fff1f2;
+}
+
+.technical-details {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border: 1px solid #c5cfdb;
+  border-radius: .35rem;
+}
+
+.calculation-method {
+  margin: 1rem 0;
+  padding: .85rem 1rem;
+  border-left: .3rem solid #c65d00;
+  background: #fffaf2;
+}
+
+.calculation-method li + li {
+  margin-top: .4rem;
+}
+
 @media (max-width: 48rem) {
   body {
     padding: 1rem;
