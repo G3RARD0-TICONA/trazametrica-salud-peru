@@ -99,9 +99,9 @@ def test_definition_governance_run_reproducibility_seed_and_web(client, admin_us
     assert response.status_code == 302
     detail = client.get(response["Location"])
     assert detail.status_code == 200
-    assert b"GrÃ¡fico de control" in detail.content
+    assert "Gráfico de control" in detail.content.decode()
     assert b"<svg" in detail.content
-    assert b"LÃ­nea central" in detail.content
+    assert "Línea central" in detail.content.decode()
     invalid = client.post(
         reverse("analytics:execute", args=[seeded_definition.pk]),
         {"period_start": "fecha-invalida"},
