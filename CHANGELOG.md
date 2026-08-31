@@ -2,6 +2,26 @@
 
 Este proyecto sigue [Versionado Semántico](https://semver.org/lang/es/) desde el primer incremento ejecutable.
 
+## [0.1.1] - 2026-08-31
+
+### Añadido
+
+- Gráfico de control SVG accesible con cuadrícula, límites, línea central, señales fuera de control y resumen semanal en barras.
+- Visualizaciones explicables para estadística descriptiva, valores atípicos, Pareto, media móvil y regresiones lineal y logística.
+- Tarjetas de resultados, datos de respaldo y explicación paso a paso de los cálculos estadísticos.
+- Referencia visual del 80 % y punto de corte para interpretar cuántas categorías concentran la magnitud acumulada del Pareto.
+
+### Corregido
+
+- Asignación sintética de observaciones para que cada KPI se distribuya entre los 20 servicios en lugar de quedar vinculado a una sola categoría.
+- Distribución determinista de demostración donde el 20 % de los servicios recibe aproximadamente el 80 % de las observaciones y la cola recibe el 20 % restante.
+- Coordenadas, localización numérica, etiquetas, cuadrículas y barras de los gráficos analíticos en navegadores locales.
+
+### Verificado
+
+- 174 pruebas recolectadas; CI completa conforme sobre PostgreSQL 17 y stack Docker de demostración.
+- Ruff, mypy, comprobaciones de Django, cobertura, Bandit, auditoría de dependencias, accesibilidad estructural y contrato de despliegue conformes.
+
 ## [0.1.0] - 2026-08-30
 
 ### Añadido
