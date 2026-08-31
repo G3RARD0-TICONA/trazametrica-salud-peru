@@ -6,25 +6,41 @@
   <h1>Estadística y analítica avanzada</h1>
   <p class="notice"><strong>DATOS SINTÉTICOS.</strong> Los resultados son administrativos, demostrativos y no constituyen diagnóstico, pronóstico clínico ni decisión sanitaria.</p>
 
-  <h2>Definiciones publicadas</h2>
+  <h2>Análisis disponibles</h2>
+  <p>Elija un periodo y pulse <strong>Generar análisis y gráfico</strong>. Después verá la visualización, su explicación y los datos que la respaldan.</p>
   <table>
-    <thead><tr><th scope="col">Definición</th><th scope="col">Tipo</th><th scope="col">Indicador</th><th scope="col">Parámetros</th><th scope="col">Acción</th></tr></thead>
+    <thead><tr><th scope="col">Análisis</th><th scope="col">Qué mostrará</th><th scope="col">Indicador</th><th scope="col">Configuración</th><th scope="col">Acción</th></tr></thead>
     <tbody>
       {% for definition in definitions %}
         <tr>
           <td>{{ definition.code }} v{{ definition.version_no }}<br>{{ definition.name }}</td>
-          <td>{{ definition.get_analysis_type_display }}</td>
+          <td>
+            <strong>{{ definition.get_analysis_type_display }}</strong><br>
+            {% if definition.analysis_type == "descriptive" %}Tarjetas, distribución y detección visual de valores atípicos.
+            {% elif definition.analysis_type == "pareto" %}Barras por servicio y línea de porcentaje acumulado.
+            {% elif definition.analysis_type == "control_chart" %}Serie temporal, límites de control, señales y resumen semanal.
+            {% elif definition.analysis_type == "moving_average" %}Valor observado frente a la tendencia suavizada.
+            {% elif definition.analysis_type == "linear_regression" %}Valores observados frente a estimaciones y errores del modelo.
+            {% elif definition.analysis_type == "logistic_regression" %}Probabilidad de cumplimiento, métricas y matriz de clasificación.
+            {% endif %}
+          </td>
           <td>{{ definition.target_indicator.code }}</td>
-          <td><code>{{ definition.parameters }}</code></td>
+          <td>
+            {% if definition.analysis_type == "moving_average" %}Ventana de {{ definition.parameters.window }} observaciones
+            {% elif definition.analysis_type == "linear_regression" %}{% widthratio definition.parameters.test_fraction 1 100 as test_percentage %}{{ test_percentage }} % del conjunto reservado para prueba
+            {% elif definition.analysis_type == "logistic_regression" %}{% widthratio definition.parameters.test_fraction 1 100 as test_percentage %}Prueba: {{ test_percentage }} %; {{ definition.parameters.iterations }} iteraciones; aprendizaje: {{ definition.parameters.learning_rate }}
+            {% else %}Configuración estándar aprobada{% endif %}
+          </td>
           <td>
             {% if can_run %}
               <form method="post" action="{% url 'analytics:execute' definition.id %}">
                 {% csrf_token %}
                 <label>Desde <input type="date" name="period_start"></label>
                 <label>Hasta <input type="date" name="period_end"></label>
-                <button type="submit">Ejecutar</button>
+                <button type="submit">Generar análisis y gráfico</button>
               </form>
             {% else %}Solo consulta{% endif %}
+            {% if definition.ordered_runs %}<p><a href="{% url 'analytics:run-detail' definition.ordered_runs.0.id %}">Ver último resultado</a></p>{% endif %}
           </td>
         </tr>
       {% empty %}<tr><td colspan="5">No existen definiciones publicadas.</td></tr>{% endfor %}
@@ -47,4 +63,3 @@
     </tbody>
   </table>
 {% endblock %}
-
