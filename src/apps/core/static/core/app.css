@@ -175,6 +175,11 @@ code {
   stroke-width: 1.5;
 }
 
+.chart-gridline {
+  stroke: #d7e0ec;
+  stroke-width: 1;
+}
+
 .chart-guide--limit {
   stroke: #b42318;
   stroke-dasharray: 7 5;
@@ -201,6 +206,20 @@ code {
   stroke: #7f1d1d;
 }
 
+.analytic-chart__summary {
+  margin-top: 2rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid #aeb9c8;
+}
+
+.chart-bar {
+  fill: #4f80d1;
+}
+
+.chart-bar:hover {
+  fill: #174ea6;
+}
+
 .chart-label,
 .chart-axis-label {
   fill: #172033;
@@ -209,6 +228,11 @@ code {
 
 .chart-axis-label--end {
   text-anchor: end;
+}
+
+.chart-bar-label {
+  text-anchor: middle;
+  font-size: 11px;
 }
 
 @media (max-width: 48rem) {
