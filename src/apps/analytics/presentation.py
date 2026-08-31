@@ -161,7 +161,7 @@ def control_chart_presentation(run: AnalysisRun) -> dict[str, object] | None:
         "bottom": _HEIGHT - _BOTTOM,
         "plot_width": plot_width,
         "plot_height": plot_height,
-        "polyline": " ".join(f"{point['x']},${point['y']}" for point in points),
+        "polyline": " ".join(f"{point['x']},{point['y']}" for point in points),
         "points": points,
         "gridlines": gridlines,
         "x_gridlines": x_gridlines,
