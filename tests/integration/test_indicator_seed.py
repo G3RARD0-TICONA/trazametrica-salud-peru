@@ -4,10 +4,19 @@ import pytest
 from django.core.management import call_command
 
 from apps.accounts.models import User
-from apps.indicators.demo_seed import demo_indicator_uuid
+from apps.indicators.demo_seed import _demo_service_index, demo_indicator_uuid
 from apps.indicators.models import Indicator, IndicatorObservation, IndicatorVersion
 
 pytestmark = [pytest.mark.django_db, pytest.mark.integration]
+
+
+def test_demo_service_distribution_models_the_80_20_example() -> None:
+    assignments = [_demo_service_index(cycle, 20) for cycle in range(80)]
+
+    assert len(set(assignments)) == 20
+    assert sum(service_index < 4 for service_index in assignments) == 64
+    assert [assignments.count(service_index) for service_index in range(4)] == [16] * 4
+    assert [assignments.count(service_index) for service_index in range(4, 20)] == [1] * 16
 
 
 def test_indicator_seed_is_deterministic_idempotent_and_matches_contract(
@@ -41,4 +50,11 @@ def test_indicator_seed_is_deterministic_idempotent_and_matches_contract(
     ) == first
     assert Indicator.objects.get(code="KPI-001").pk == demo_indicator_uuid(
         "indicator:KPI-001"
+    )
+    assert (
+        IndicatorObservation.objects.filter(indicator__code="KPI-001")
+        .values("service_id")
+        .distinct()
+        .count()
+        == 4
     )
