@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load l10n %}
 
 {% block title %}Ejecución analítica | Trazamétrica Salud Perú{% endblock %}
 
@@ -9,6 +10,7 @@
     <section class="analytic-chart" aria-labelledby="control-chart-title">
       <h2 id="control-chart-title">Gráfico de control</h2>
       <p>Visualización de {{ run.input_count }} observaciones sintéticas. Los puntos rojos representan señales fuera de los límites de control.</p>
+      {% localize off %}
       <svg viewBox="0 0 {{ control_chart.width }} {{ control_chart.height }}" role="img" aria-labelledby="control-chart-svg-title control-chart-svg-description">
         <title id="control-chart-svg-title">Gráfico de control del indicador {{ run.definition.target_indicator.code }}</title>
         <desc id="control-chart-svg-description">Línea central y límites de control para {{ run.input_count }} observaciones. Señales detectadas: {{ control_chart.signal_count }}.</desc>
@@ -33,9 +35,11 @@
         <text class="chart-axis-label" x="{{ control_chart.left }}" y="{{ control_chart.bottom|add:'28' }}">{{ control_chart.first_period }}</text>
         <text class="chart-axis-label chart-axis-label--end" x="{{ control_chart.right }}" y="{{ control_chart.bottom|add:'28' }}">{{ control_chart.last_period }}</text>
       </svg>
+      {% endlocalize %}
       <section class="analytic-chart__summary" aria-labelledby="weekly-bars-title">
         <h3 id="weekly-bars-title">Resumen semanal en barras</h3>
         <p>Promedio semanal de las mismas observaciones sintéticas; es una vista complementaria, no sustituye al gráfico de control.</p>
+        {% localize off %}
         <svg viewBox="0 0 {{ control_chart.width }} {{ control_chart.height }}" role="img" aria-labelledby="weekly-bars-svg-title">
           <title id="weekly-bars-svg-title">Promedio semanal del indicador {{ run.definition.target_indicator.code }}</title>
           <rect class="chart-area" x="{{ control_chart.left }}" y="{{ control_chart.top }}" width="{{ control_chart.plot_width }}" height="{{ control_chart.plot_height }}"></rect>
@@ -51,6 +55,7 @@
             <text class="chart-axis-label chart-bar-label" x="{{ bar.x|add:bar.width }}" y="{{ control_chart.bottom|add:'22' }}">{{ bar.label }}</text>
           {% endfor %}
         </svg>
+        {% endlocalize %}
       </section>
       <details>
         <summary>Ver datos del gráfico ({{ run.input_count }} observaciones)</summary>
