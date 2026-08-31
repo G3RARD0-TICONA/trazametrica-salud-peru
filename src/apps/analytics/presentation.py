@@ -23,39 +23,59 @@ def _number(payload: Mapping[str, object], key: str) -> float:
     raise ValueError(f"El resultado analítico no contiene {key}.")
 
 
-def _weekly_bars(
+def _weekly_summary(
     rows: list[IndicatorObservation], *, left: int, right: int, top: int, bottom: int
-) -> list[dict[str, object]]:
+) -> dict[str, object]:
     weekly: dict[tuple[int, int], list[float]] = {}
     for row in rows:
         period = date.fromisoformat(row.period_end.isoformat())
         key = (period.isocalendar().year, period.isocalendar().week)
         weekly.setdefault(key, []).append(float(row.value))
     averages = [(key, sum(values) / len(values)) for key, values in weekly.items()]
-    maximum = max(value for _, value in averages) or 1.0
+    values = [value for _, value in averages]
+    domain_min = min(min(values), 0.0)
+    domain_max = max(max(values), 0.0)
+    padding = max((domain_max - domain_min) * 0.08, 1.0)
+    domain_min -= padding
+    domain_max += padding
     plot_width = right - left
     plot_height = bottom - top
     slot_width = plot_width / len(averages)
     bar_width = max(slot_width * 0.62, 4)
-    return [
-        {
-            "label": f"S{key[1]:02d}",
-            "value": value,
-            "x": round(left + index * slot_width + (slot_width - bar_width) / 2, 2),
-            "y": round(bottom - value * plot_height / maximum, 2),
-            "width": round(bar_width, 2),
-            "height": round(value * plot_height / maximum, 2),
-        }
-        for index, (key, value) in enumerate(averages)
-    ]
+
+    def y_for(value: float) -> float:
+        return top + (domain_max - value) * plot_height / (domain_max - domain_min)
+
+    baseline = y_for(0.0)
+    bars = []
+    for index, (key, value) in enumerate(averages):
+        value_y = y_for(value)
+        bars.append(
+            {
+                "label": f"S{key[1]:02d}",
+                "value": value,
+                "x": round(left + index * slot_width + (slot_width - bar_width) / 2, 2),
+                "y": round(min(value_y, baseline), 2),
+                "width": round(bar_width, 2),
+                "height": round(abs(baseline - value_y), 2),
+                "negative": value < 0,
+            }
+        )
+    return {
+        "bars": bars,
+        "baseline": round(baseline, 2),
+        "gridlines": [
+            {
+                "value": domain_max - (domain_max - domain_min) * index / 4,
+                "y": round(top + plot_height * index / 4, 2),
+            }
+            for index in range(5)
+        ],
+    }
 
 
 def control_chart_presentation(run: AnalysisRun) -> dict[str, object] | None:
-    """Build a deterministic, accessible SVG projection for a completed control-chart run.
-
-    The chart is deliberately derived again from the immutable run criteria and checks the
-    original input hash.  A visual is never shown for a different set of observations.
-    """
+    """Build a deterministic, accessible SVG projection for a completed control-chart run."""
 
     if run.definition.analysis_type != AnalysisType.CONTROL_CHART:
         return None
@@ -125,12 +145,12 @@ def control_chart_presentation(run: AnalysisRun) -> dict[str, object] | None:
         }
         for index in range(5)
     ]
-    weekly_bars = _weekly_bars(
-        rows,
-        left=_LEFT,
-        right=_WIDTH - _RIGHT,
-        top=_TOP,
-        bottom=_HEIGHT - _BOTTOM,
+    x_gridlines = [
+        {"x": round(x_for(round((len(rows) - 1) * index / 4)), 2)}
+        for index in range(5)
+    ]
+    weekly_summary = _weekly_summary(
+        rows, left=_LEFT, right=_WIDTH - _RIGHT, top=_TOP, bottom=_HEIGHT - _BOTTOM
     )
     return {
         "width": _WIDTH,
@@ -141,9 +161,10 @@ def control_chart_presentation(run: AnalysisRun) -> dict[str, object] | None:
         "bottom": _HEIGHT - _BOTTOM,
         "plot_width": plot_width,
         "plot_height": plot_height,
-        "polyline": " ".join(f"{point['x']},{point['y']}" for point in points),
+        "polyline": " ".join(f"{point['x']},${point['y']}" for point in points),
         "points": points,
         "gridlines": gridlines,
+        "x_gridlines": x_gridlines,
         "guides": [
             {"label": "LSC", "value": upper, "y": round(y_for(upper), 2), "style": "limit"},
             {
@@ -159,5 +180,5 @@ def control_chart_presentation(run: AnalysisRun) -> dict[str, object] | None:
         "minimum": domain_min,
         "maximum": domain_max,
         "signal_count": len(signal_indexes),
-        "weekly_bars": weekly_bars,
+        "weekly_summary": weekly_summary,
     }
