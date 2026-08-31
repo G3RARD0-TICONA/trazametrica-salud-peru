@@ -1,7 +1,7 @@
 # Trazamétrica Salud Perú
 
 [![CI](https://github.com/G3RARD0-TICONA/trazametrica-salud-peru/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/G3RARD0-TICONA/trazametrica-salud-peru/actions/workflows/ci.yml)
-![Versión](https://img.shields.io/badge/versión-v0.1.0-0b7285)
+![Versión](https://img.shields.io/badge/versión-v0.1.1-0b7285)
 ![Python](https://img.shields.io/badge/Python-3.13-3776AB?logo=python&logoColor=white)
 ![Django](https://img.shields.io/badge/Django-5.2_LTS-0C4B33?logo=django&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-17-4169E1?logo=postgresql&logoColor=white)
@@ -75,9 +75,9 @@ GitHub publica el código y la documentación; no aloja la aplicación. La demo 
 
 ## Evidencia de calidad
 
-| Control | Evidencia de `v0.1.0` |
+| Control | Evidencia de `v0.1.1` |
 |---|---|
-| Pruebas | 172 pruebas aprobadas sobre PostgreSQL 17 |
+| Pruebas | 174 pruebas aprobadas sobre PostgreSQL 17 |
 | Cobertura | 82 %, con puerta mínima de 80 % |
 | Calidad de código | documentación, Ruff, mypy, migraciones y comprobaciones Django conformes |
 | Seguridad | puerta contra secretos/datos reales, Bandit y auditoría de dependencias conformes |
