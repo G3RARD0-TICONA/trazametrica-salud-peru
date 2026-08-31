@@ -148,6 +148,69 @@ code {
   white-space: pre-wrap;
 }
 
+.analytic-chart {
+  margin: 1.5rem 0 2rem;
+  padding: 1.25rem;
+  border: 1px solid #aeb9c8;
+  border-radius: .35rem;
+  background: #fbfdff;
+  overflow-x: auto;
+}
+
+.analytic-chart svg {
+  display: block;
+  width: 100%;
+  min-width: 42rem;
+  height: auto;
+  margin: 1rem 0;
+  overflow: visible;
+}
+
+.chart-area {
+  fill: #ffffff;
+  stroke: #aeb9c8;
+}
+
+.chart-guide {
+  stroke-width: 1.5;
+}
+
+.chart-guide--limit {
+  stroke: #b42318;
+  stroke-dasharray: 7 5;
+}
+
+.chart-guide--center {
+  stroke: #174ea6;
+}
+
+.chart-series {
+  fill: none;
+  stroke: #1d4ed8;
+  stroke-width: 1.8;
+}
+
+.chart-point {
+  fill: #ffffff;
+  stroke: #174ea6;
+  stroke-width: 1.6;
+}
+
+.chart-point--signal {
+  fill: #b42318;
+  stroke: #7f1d1d;
+}
+
+.chart-label,
+.chart-axis-label {
+  fill: #172033;
+  font-size: 13px;
+}
+
+.chart-axis-label--end {
+  text-anchor: end;
+}
+
 @media (max-width: 48rem) {
   body {
     padding: 1rem;
