@@ -17,6 +17,9 @@
           <line class="chart-gridline" x1="{{ control_chart.left }}" x2="{{ control_chart.right }}" y1="{{ gridline.y }}" y2="{{ gridline.y }}"></line>
           <text class="chart-axis-label" x="8" y="{{ gridline.y|add:'4' }}">{{ gridline.value|floatformat:2 }}</text>
         {% endfor %}
+        {% for gridline in control_chart.x_gridlines %}
+          <line class="chart-gridline" x1="{{ gridline.x }}" x2="{{ gridline.x }}" y1="{{ control_chart.top }}" y2="{{ control_chart.bottom }}"></line>
+        {% endfor %}
         {% for guide in control_chart.guides %}
           <line class="chart-guide chart-guide--{{ guide.style }}" x1="{{ control_chart.left }}" x2="{{ control_chart.right }}" y1="{{ guide.y }}" y2="{{ guide.y }}"></line>
           <text class="chart-label" x="{{ control_chart.right|add:'8' }}" y="{{ guide.y|add:'4' }}">{{ guide.label }} {{ guide.value|floatformat:2 }}</text>
@@ -36,11 +39,13 @@
         <svg viewBox="0 0 {{ control_chart.width }} {{ control_chart.height }}" role="img" aria-labelledby="weekly-bars-svg-title">
           <title id="weekly-bars-svg-title">Promedio semanal del indicador {{ run.definition.target_indicator.code }}</title>
           <rect class="chart-area" x="{{ control_chart.left }}" y="{{ control_chart.top }}" width="{{ control_chart.plot_width }}" height="{{ control_chart.plot_height }}"></rect>
-          {% for gridline in control_chart.gridlines %}
+          {% for gridline in control_chart.weekly_summary.gridlines %}
             <line class="chart-gridline" x1="{{ control_chart.left }}" x2="{{ control_chart.right }}" y1="{{ gridline.y }}" y2="{{ gridline.y }}"></line>
+            <text class="chart-axis-label" x="8" y="{{ gridline.y|add:'4' }}">{{ gridline.value|floatformat:2 }}</text>
           {% endfor %}
-          {% for bar in control_chart.weekly_bars %}
-            <rect class="chart-bar" x="{{ bar.x }}" y="{{ bar.y }}" width="{{ bar.width }}" height="{{ bar.height }}">
+          <line class="chart-baseline" x1="{{ control_chart.left }}" x2="{{ control_chart.right }}" y1="{{ control_chart.weekly_summary.baseline }}" y2="{{ control_chart.weekly_summary.baseline }}"></line>
+          {% for bar in control_chart.weekly_summary.bars %}
+            <rect class="chart-bar{% if bar.negative %} chart-bar--negative{% endif %}" x="{{ bar.x }}" y="{{ bar.y }}" width="{{ bar.width }}" height="{{ bar.height }}">
               <title>{{ bar.label }}: {{ bar.value|floatformat:2 }}</title>
             </rect>
             <text class="chart-axis-label chart-bar-label" x="{{ bar.x|add:bar.width }}" y="{{ control_chart.bottom|add:'22' }}">{{ bar.label }}</text>
