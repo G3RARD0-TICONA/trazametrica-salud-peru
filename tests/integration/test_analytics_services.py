@@ -108,6 +108,9 @@ def test_definition_governance_run_reproducibility_seed_and_web(client, admin_us
         assert "Resultados principales" in visual_content
         assert "Ver datos que respaldan el gráfico" in visual_content
         assert "<svg" in visual_content
+        if code == "ANA-PARETO-001":
+            assert "Referencia 80 %" in visual_content
+            assert "Servicios hasta 80 %" in visual_content
     seeded_definition = AnalysisDefinition.objects.get(code="ANA-DESC-001")
     response = client.post(reverse("analytics:execute", args=[seeded_definition.pk]), {})
     assert response.status_code == 302

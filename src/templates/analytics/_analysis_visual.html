@@ -45,13 +45,16 @@
       <desc id="pareto-svg-desc">Barras descendentes por peso y línea de porcentaje acumulado.</desc>
       <rect class="chart-area" x="{{ analysis.left }}" y="{{ analysis.top }}" width="{{ analysis.plot_width }}" height="{{ analysis.plot_height }}"></rect>
       {% for gridline in analysis.gridlines %}<line class="chart-gridline" x1="{{ analysis.left }}" x2="{{ analysis.right }}" y1="{{ gridline.y }}" y2="{{ gridline.y }}"></line><text class="chart-axis-label" x="8" y="{{ gridline.y|add:'4' }}">{{ gridline.value|floatformat:2 }}</text>{% endfor %}
-      {% for bar in analysis.bars %}<rect class="chart-bar" x="{{ bar.x }}" y="{{ bar.y }}" width="{{ bar.width }}" height="{{ bar.height }}"><title>{{ bar.label }}: {{ bar.value|floatformat:2 }}</title></rect><text class="chart-axis-label chart-bar-label" x="{{ bar.x|add:bar.width }}" y="{{ analysis.bottom|add:'24' }}">{{ bar.label }}</text>{% endfor %}
+      {% for bar in analysis.bars %}<rect class="chart-bar" x="{{ bar.x }}" y="{{ bar.y }}" width="{{ bar.width }}" height="{{ bar.height }}"><title>{{ bar.label }}: {{ bar.value|floatformat:2 }}</title></rect><text class="chart-axis-label chart-bar-label" x="{{ bar.center_x }}" y="{{ analysis.bottom|add:'24' }}">{{ bar.label }}</text>{% endfor %}
+      <line class="chart-guide chart-guide--pareto" x1="{{ analysis.left }}" x2="{{ analysis.right }}" y1="{{ analysis.threshold.y }}" y2="{{ analysis.threshold.y }}"></line>
+      <line class="chart-guide chart-guide--pareto" x1="{{ analysis.threshold.x }}" x2="{{ analysis.threshold.x }}" y1="{{ analysis.threshold.y }}" y2="{{ analysis.bottom }}"></line>
+      <text class="chart-label" x="{{ analysis.right|add:'8' }}" y="{{ analysis.threshold.y|add:'4' }}">Referencia 80 %</text>
       <polyline class="chart-series chart-series--secondary" points="{{ analysis.cumulative_polyline }}"></polyline>
       {% for point in analysis.cumulative %}<circle class="chart-point chart-point--secondary" cx="{{ point.x }}" cy="{{ point.y }}" r="3.5"><title>Acumulado: {{ point.value|floatformat:1 }} %</title></circle>{% endfor %}
       <text class="chart-axis-label chart-axis-label--end" x="{{ analysis.right|add:'90' }}" y="{{ analysis.top|add:'4' }}">100 % acumulado</text>
     </svg>
     {% endlocalize %}
-    <div class="chart-legend"><span><i class="legend-swatch"></i> Magnitud absoluta acumulada</span><span><i class="legend-line legend-line--secondary"></i> Porcentaje acumulado</span></div>
+    <div class="chart-legend"><span><i class="legend-swatch"></i> Magnitud absoluta acumulada</span><span><i class="legend-line legend-line--secondary"></i> Porcentaje acumulado</span><span><i class="legend-line legend-line--pareto"></i> Referencia 80 %</span></div>
   {% elif analysis.kind == "moving_average" or analysis.kind == "linear_regression" %}
     {% localize off %}
     <svg viewBox="0 0 {{ analysis.width }} {{ analysis.height }}" role="img" aria-labelledby="series-svg-title series-svg-desc">

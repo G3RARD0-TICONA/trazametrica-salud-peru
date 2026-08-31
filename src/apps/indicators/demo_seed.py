@@ -217,8 +217,9 @@ def _seed_observations(
     batch: list[IndicatorObservation] = []
     for index in range(observation_count):
         indicator = indicators[index % len(indicators)]
-        service = services[index % len(services)]
-        month = (index // len(indicators)) % 12 + 1
+        cycle = index // len(indicators)
+        service = services[_demo_service_index(cycle, len(services))]
+        month = cycle % 12 + 1
         period_start = date(2026, month, 1)
         period_end = date(2026, month, calendar.monthrange(2026, month)[1])
         batch.append(
@@ -243,6 +244,27 @@ def _seed_observations(
             batch.clear()
     if batch:
         IndicatorObservation.objects.bulk_create(batch, batch_size=2000)
+
+
+def _demo_service_index(cycle: int, service_count: int) -> int:
+    """Return a deterministic 80/20 service distribution for synthetic observations.
+
+    Four passes over the service catalog form one 80-position demonstration cycle.  The
+    first 80 % of positions rotate through the first 20 % of services; the remaining
+    positions cover every other service once.  This creates an explainable Pareto example
+    without using or imitating real operational data.
+    """
+
+    if service_count < 2:
+        return 0
+    vital_count = max(1, round(service_count * 0.2))
+    cycle_size = service_count * 4
+    vital_slots = round(cycle_size * 0.8)
+    position = cycle % cycle_size
+    if position < vital_slots:
+        return position % vital_count
+    tail_count = service_count - vital_count
+    return vital_count + (position - vital_slots) % tail_count
 
 
 @transaction.atomic

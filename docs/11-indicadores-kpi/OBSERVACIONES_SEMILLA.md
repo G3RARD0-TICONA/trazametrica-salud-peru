@@ -28,6 +28,13 @@ Resultado predeterminado:
 
 Los UUID, periodos, valores y relaciones se derivan de un namespace y fecha de corte fijos. La ejecución repetida con la misma cantidad es idempotente; una semilla parcial se bloquea para exigir restablecimiento controlado.
 
+La asignación sintética de servicios está preparada para demostrar un Pareto legible sin
+representar actividad clínica real. En cada ciclo completo, el primer 20 % de los servicios
+recibe el 80 % de las observaciones y el 80 % restante recibe el 20 % de las observaciones.
+El gráfico calcula después la contribución real como suma de valores absolutos, la ordena de
+mayor a menor y marca la primera categoría cuyo porcentaje acumulado alcanza o supera 80 %.
+La regla 80/20 es una referencia de priorización, no una igualdad obligatoria para todo conjunto.
+
 Para pruebas rápidas puede utilizarse `--observation-count`, entre 1 y 100 000. Esta opción no cambia el contrato del conjunto completo de referencia.
 
 La generación local completa produjo 100 000 observaciones en 10,2 segundos sobre SQLite temporal. Este dato comprueba el generador, pero no sustituye la validación oficial con PostgreSQL 17 ni constituye la meta RNF-006.
