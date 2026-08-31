@@ -31,7 +31,7 @@
       <details>
         <summary>Ver datos del gráfico ({{ run.input_count }} observaciones)</summary>
         <table>
-          <thead><tr><th>N.º</th><th>Periodo</th><th>Valor</th><th>Señal</th></tr></thead>
+          <thead><tr><th scope="col">N.º</th><th scope="col">Periodo</th><th scope="col">Valor</th><th scope="col">Señal</th></tr></thead>
           <tbody>
             {% for point in control_chart.points %}
               <tr><td>{{ point.index }}</td><td>{{ point.period }}</td><td>{{ point.value|floatformat:2 }}</td><td>{% if point.signal %}Fuera de control{% else %}Sin señal{% endif %}</td></tr>
