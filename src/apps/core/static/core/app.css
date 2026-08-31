@@ -176,8 +176,9 @@ code {
 }
 
 .chart-gridline {
-  stroke: #d7e0ec;
-  stroke-width: 1;
+  stroke: #b8c5d6;
+  stroke-width: 1.15;
+  stroke-dasharray: 2 3;
 }
 
 .chart-guide--limit {
@@ -218,6 +219,19 @@ code {
 
 .chart-bar:hover {
   fill: #174ea6;
+}
+
+.chart-bar--negative {
+  fill: #b42318;
+}
+
+.chart-bar--negative:hover {
+  fill: #7f1d1d;
+}
+
+.chart-baseline {
+  stroke: #172033;
+  stroke-width: 1.4;
 }
 
 .chart-label,
