@@ -94,6 +94,14 @@ def test_definition_governance_run_reproducibility_seed_and_web(client, admin_us
     response = client.post(reverse("analytics:execute", args=[seeded_definition.pk]), {})
     assert response.status_code == 302
     assert AnalysisRun.objects.filter(definition=seeded_definition).count() == 2
+    control_definition = AnalysisDefinition.objects.get(code="ANA-CONTROL-001")
+    response = client.post(reverse("analytics:execute", args=[control_definition.pk]), {})
+    assert response.status_code == 302
+    detail = client.get(response["Location"])
+    assert detail.status_code == 200
+    assert "Gráfico de control" in detail.content.decode()
+    assert b"<svg" in detail.content
+    assert "Línea central" in detail.content.decode()
     invalid = client.post(
         reverse("analytics:execute", args=[seeded_definition.pk]),
         {"period_start": "fecha-invalida"},

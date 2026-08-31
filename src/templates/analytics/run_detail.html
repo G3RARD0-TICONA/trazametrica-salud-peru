@@ -5,6 +5,42 @@
 {% block content %}
   <h1>{{ run.definition.code }} — ejecución analítica</h1>
   <p class="notice"><strong>DATOS SINTÉTICOS.</strong> Resultado administrativo demostrativo; no representa predicción clínica.</p>
+  {% if control_chart %}
+    <section class="analytic-chart" aria-labelledby="control-chart-title">
+      <h2 id="control-chart-title">Gráfico de control</h2>
+      <p>Visualización de {{ run.input_count }} observaciones sintéticas. Los puntos rojos representan señales fuera de los límites de control.</p>
+      <svg viewBox="0 0 {{ control_chart.width }} {{ control_chart.height }}" role="img" aria-labelledby="control-chart-svg-title control-chart-svg-description">
+        <title id="control-chart-svg-title">Gráfico de control del indicador {{ run.definition.target_indicator.code }}</title>
+        <desc id="control-chart-svg-description">Línea central y límites de control para {{ run.input_count }} observaciones. Señales detectadas: {{ control_chart.signal_count }}.</desc>
+        <rect class="chart-area" x="{{ control_chart.left }}" y="{{ control_chart.top }}" width="{{ control_chart.plot_width }}" height="{{ control_chart.plot_height }}"></rect>
+        {% for guide in control_chart.guides %}
+          <line class="chart-guide chart-guide--{{ guide.style }}" x1="{{ control_chart.left }}" x2="{{ control_chart.right }}" y1="{{ guide.y }}" y2="{{ guide.y }}"></line>
+          <text class="chart-label" x="{{ control_chart.right|add:'8' }}" y="{{ guide.y|add:'4' }}">{{ guide.label }} {{ guide.value|floatformat:2 }}</text>
+        {% endfor %}
+        <polyline class="chart-series" points="{{ control_chart.polyline }}"></polyline>
+        {% for point in control_chart.points %}
+          <circle class="chart-point{% if point.signal %} chart-point--signal{% endif %}" cx="{{ point.x }}" cy="{{ point.y }}" r="3.2">
+            <title>Observación {{ point.index }} — {{ point.period }}: {{ point.value|floatformat:2 }}</title>
+          </circle>
+        {% endfor %}
+        <text class="chart-axis-label" x="{{ control_chart.left }}" y="{{ control_chart.bottom|add:'28' }}">{{ control_chart.first_period }}</text>
+        <text class="chart-axis-label chart-axis-label--end" x="{{ control_chart.right }}" y="{{ control_chart.bottom|add:'28' }}">{{ control_chart.last_period }}</text>
+        <text class="chart-axis-label" x="8" y="{{ control_chart.top|add:'4' }}">{{ control_chart.maximum|floatformat:2 }}</text>
+        <text class="chart-axis-label" x="8" y="{{ control_chart.bottom }}">{{ control_chart.minimum|floatformat:2 }}</text>
+      </svg>
+      <details>
+        <summary>Ver datos del gráfico ({{ run.input_count }} observaciones)</summary>
+        <table>
+          <thead><tr><th scope="col">N.º</th><th scope="col">Periodo</th><th scope="col">Valor</th><th scope="col">Señal</th></tr></thead>
+          <tbody>
+            {% for point in control_chart.points %}
+              <tr><td>{{ point.index }}</td><td>{{ point.period }}</td><td>{{ point.value|floatformat:2 }}</td><td>{% if point.signal %}Fuera de control{% else %}Sin señal{% endif %}</td></tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </details>
+    </section>
+  {% endif %}
   <dl>
     <dt>Tipo</dt><dd>{{ run.definition.get_analysis_type_display }}</dd>
     <dt>Indicador</dt><dd>{{ run.definition.target_indicator.code }}</dd>
@@ -17,4 +53,3 @@
     <dt>Resultado versionado</dt><dd><pre>{{ run.result }}</pre></dd>
   </dl>
 {% endblock %}
-
