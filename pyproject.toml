@@ -1,6 +1,6 @@
 [project]
 name = "trazametrica-salud-peru"
-version = "0.1.0"
+version = "0.1.1"
 description = "Sistema demostrativo de gestión de procesos, calidad e indicadores para clínicas privadas del Perú."
 requires-python = ">=3.13,<3.14"
 dependencies = [
